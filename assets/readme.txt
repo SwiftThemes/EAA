@@ -68,49 +68,34 @@ All this can be done through the awesome WordPress customiser, so you get an ins
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the appearance->customize->Easy AdSense Ads & Scripts panel to add your ads and scripts.
 
 
 == Frequently Asked Questions ==
 
-= Is it only for themes release by SwiftThemes.Com =
+= Is it only for themes released by SwiftThemes.Com =
 No, You can use it with any theme and it works out of the box.
 
 = Can I add multiple ads in one location =
 You can add as many ads as you please in any location. You can even mix scripts and html.
+
+=Can I use it on WordPress MU=
+Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
+
+=Is it safe for normal WordPress users=
+Yes, if you promise me that you won't ad random javascript from unknown sources.
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Panel added by the Easy AdSense Ads & Scripts Manager to the customizer ( Appearance -> Customize )
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+
+= 0.1 =
+* First release, yayy!!
 
 == Upgrade Notice ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.

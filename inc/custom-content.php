@@ -6,23 +6,23 @@
  * Time: 10:47 PM
  */
 //@todo move to framework
-add_action( 'customize_register', 'eaa_customize_custom_content', 600 );
-function eaa_customize_custom_content( $wp_customize ) {
-	$wp_customize->add_panel( 'custom_content', array(
+add_action( 'customize_register', 'eaa_customize_eaa_ads', 100 );
+function eaa_customize_eaa_ads( $wp_customize ) {
+	$wp_customize->add_panel( 'eaa_ads', array(
 		'title'       => __( 'Easy AdSense Ads & Scripts', 'eaa' ),
 		'description' => '', // Include html tags such as <p>
-		'priority'    => 60, // Mixed with top-level-section hierarchy.
+		'priority'    => 999, // Mixed with top-level-section hierarchy.
 	) );
 
 
 	$wp_customize->add_section( 'home_page_content', array(
 		'title'    => __( 'Home page', 'eaa' ),
-		'panel'    => 'custom_content',
+		'panel'    => 'eaa_ads',
 		'priority' => 30,
 	) );
 
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_enable]', array(
-		'default' => flase,
+		'default' => 0,
 		'type'    => 'option',
 	) );
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_desktop]', array(
@@ -51,7 +51,7 @@ function eaa_customize_custom_content( $wp_customize ) {
 	$wp_customize->add_control(
 		new Swift_Customize_Control_Responsive_Content(
 			$wp_customize,
-			'home_custom_content',
+			'home_eaa_ads',
 			array(
 				'label'    => esc_html__( 'Home page custom content/ad', 'eaa' ),
 				'section'  => 'home_page_content',
@@ -89,12 +89,12 @@ function eaa_customize_custom_content( $wp_customize ) {
 
 	$wp_customize->add_section( 'post_content', array(
 		'title'    => __( 'Single post/page', 'eaa' ),
-		'panel'    => 'custom_content',
+		'panel'    => 'eaa_ads',
 		'priority' => 30,
 	) );
 
 	$wp_customize->add_setting( 'eaa[post_below_title_enable]', array(
-		'default' => flase,
+		'default' => 0,
 		'type'    => 'option',
 
 	) );
@@ -168,7 +168,7 @@ function eaa_customize_custom_content( $wp_customize ) {
 
 	// After first image
 	$wp_customize->add_setting( 'eaa[post_after_first_img_enable]', array(
-		'default' => flase,
+		'default' => 0,
 		'type'    => 'option',
 
 	) );
@@ -206,7 +206,7 @@ function eaa_customize_custom_content( $wp_customize ) {
 
 	// Between post content
 	$wp_customize->add_setting( 'eaa[post_between_content_enable]', array(
-		'default' => flase,
+		'default' => 0,
 		'type'    => 'option',
 
 	) );
@@ -243,7 +243,7 @@ function eaa_customize_custom_content( $wp_customize ) {
 
 	// After post content
 	$wp_customize->add_setting( 'eaa[post_after_content_enable]', array(
-		'default' => flase,
+		'default' => 0,
 		'type'    => 'option',
 
 	) );
@@ -280,7 +280,7 @@ function eaa_customize_custom_content( $wp_customize ) {
 
 	$wp_customize->add_section( 'custom_scripts', array(
 		'title'    => __( 'Header & Footer Scripts', 'eaa' ),
-		'panel'    => 'custom_content',
+		'panel'    => 'eaa_ads',
 		'priority' => 30,
 	) );
 

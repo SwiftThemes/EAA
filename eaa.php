@@ -21,13 +21,9 @@ if ( ! class_exists( 'EAA' ) ) {
 			add_action( 'plugins_loaded', array( $this, 'core' ), - 90 );
 			add_action( 'plugins_loaded', array( $this, 'admin' ), - 90 );
 			add_action( 'plugins_loaded', array( $this, 'load_mobile_detect' ), 95 );
-//
-//			add_action( 'admin_print_styles', array( $this, 'load_meta_admin' ), 999 );
-//			add_action( 'wp_print_styles', array( $this, 'load_meta' ), 999 );
 
 			add_action( 'wp_print_styles', array( $this, 'load_options' ), - 95 );
 
-//			delete_transient( 'page-speed_' . 'sass_combined' );
 
 		}
 
@@ -71,28 +67,6 @@ if ( ! class_exists( 'EAA' ) ) {
 			return $this->mobile_detect->isTablet();
 		}
 
-//
-//		/**
-//		 * Loads the post meta on single post and pages
-//		 */
-//		public function load_meta() {
-//			if ( is_single() ) {
-//				global $post;
-//				$this->post_meta = get_post_meta( $post->ID, '_eaa', true );
-//			}
-//		}
-//
-//		/**
-//		 * Loads the post meta for use in meta boxes when on edit post screen.
-//		 */
-//		public function load_meta_admin() {
-//			$screen = get_current_screen();
-//			if ( 'post' === $screen->post_type || 'page' === $screen->post_type ) {
-//				global $post;
-//				$this->post_meta = get_post_meta( $post->ID, '_eaa', true );
-//			}
-//		}
-
 		/**
 		 * Returns the post/page meta value of the given key.
 		 *
@@ -110,11 +84,6 @@ if ( ! class_exists( 'EAA' ) ) {
 			}
 		}
 
-
-		/**
-		 * Should I rewrite this as below?
-		 * Is $temp destroyed after the function returns?
-		 */
 
 		public function get_option( $key = null, $default = null ) {
 			$temp = get_option( 'eaa' );

@@ -60,31 +60,30 @@ All this can be done through the awesome WordPress customiser, so you get an ins
 
 ##Installation
 
-This section describes how to install the plugin and get it working.
 
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the appearance->customize->Easy AdSense Ads & Scripts panel to add your ads and scripts.
 
 
 ## Frequently Asked Questions 
 
-= Is it only for themes released by SwiftThemes.Com =
+**Is it only for themes released by SwiftThemes.Com?**
 No, You can use it with any theme and it works out of the box.
 
-= Can I add multiple ads in one location =
+**Can I add multiple ads in one location?**
 You can add as many ads as you please in any location. You can even mix scripts and html.
+
+**Can I use it on WordPress MU**
+Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
+
+**Is it safe for normal WordPress users**
+Yes, if you promise me that you won't ad random javascript from unknown sources.
 
 
 ## Changelog 
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
+**0.1** 
+* First release, yayy!!
 
