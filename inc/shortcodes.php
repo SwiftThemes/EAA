@@ -10,17 +10,17 @@
 /* Responsive */
 function swift_shortcode_rc($attr, $content)
 {
-	GLOBAL $rcc;
+	GLOBAL $eaa;
 	$show_on = explode(",",$attr['show_on']);
-	if(array_search('desktop', $show_on) !== false  &&  !$rcc->is_mobile()){
+	if(array_search('desktop', $show_on) !== false  &&  !$eaa->is_mobile()){
 		return $content;
 	}
-	if(array_search('tablet', $show_on)!== false && $rcc->is_tablet()){
+	if(array_search('tablet', $show_on)!== false && $eaa->is_tablet()){
 		return $content;
 	}
-	if(array_search('mobile', $show_on)!== false && !$rcc->is_tablet() && $rcc->is_mobile()){
+	if(array_search('mobile', $show_on)!== false && !$eaa->is_tablet() && $eaa->is_mobile()){
 		return $content;
 	}
 }
 add_shortcode('rc', 'swift_shortcode_rc');
-add_shortcode('rcc', 'swift_shortcode_rc');
+add_shortcode('eaa', 'swift_shortcode_rc');

@@ -1,35 +1,35 @@
 <?php
 
-add_action( 'loop_start', 'rcc_loop_start' );
+add_action( 'loop_start', 'eaa_loop_start' );
 
-function rcc_loop_start( $query ) {
+function eaa_loop_start( $query ) {
 	if ( $query->is_main_query() ) {
-		add_action( 'the_post', 'rcc_the_post' );
-		add_action( 'loop_end', 'rcc_loop_end' );
+		add_action( 'the_post', 'eaa_the_post' );
+		add_action( 'loop_end', 'eaa_loop_end' );
 	}
 }
 
-function rcc_the_post() {
+function eaa_the_post() {
 	if ( is_single() ) {
 		return;
 	}
-	GLOBAL $rcc;
+	GLOBAL $eaa;
 
-	if ( ! $rcc->get_option( 'home_between_posts_content_enable' ) ) {
+	if ( ! $eaa->get_option( 'home_between_posts_content_enable' ) ) {
 		return;
 	}
 	static $count = 0;
 	static $repeated = 0;
 
-	$every       = $rcc->get_option( 'home_between_posts_content_repeat_every' );
-	$repeat      = $rcc->get_option( 'home_between_posts_content_repeat_for' );
-	$start_after = $rcc->get_option( 'home_between_posts_content_start_after' );
+	$every       = $eaa->get_option( 'home_between_posts_content_repeat_every', 2 );
+	$repeat      = $eaa->get_option( 'home_between_posts_content_repeat_for', 3 );
+	$start_after = $eaa->get_option( 'home_between_posts_content_start_after', 1 );
 
 
-	if ( $rcc->is_mobile() ) {
-		$content = $rcc->get_option( 'home_between_posts_content_mobile' );
+	if ( $eaa->is_mobile() ) {
+		$content = $eaa->get_option( 'home_between_posts_content_mobile' );
 	} else {
-		$content = $rcc->get_option( 'home_between_posts_content_desktop' );
+		$content = $eaa->get_option( 'home_between_posts_content_desktop' );
 	}
 
 	if (
@@ -43,6 +43,6 @@ function rcc_the_post() {
 	$count ++;
 }
 
-function rcc_loop_end() {
-	remove_action( 'the_post', 'rcc_the_post' );
+function eaa_loop_end() {
+	remove_action( 'the_post', 'eaa_the_post' );
 }

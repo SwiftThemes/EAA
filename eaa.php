@@ -3,16 +3,15 @@
 /*
 Plugin Name: Easy AdSense Ads & Scripts Manager
 Plugin URI: http://swiftthemes.com/eaa
-Description: Enables custom content areas on home page and between posts, where you can have different content for mobiles and desktops.
-Ideally used for advertisements.
+Description: A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will easily double your revenue.
 Version: 0.1
 Author: Satish Gandham <hello@satishgandham.com>
 Author URI: http://satishgandham.com
 License: GPL2
 */
-if ( ! class_exists( 'RCC' ) ) {
+if ( ! class_exists( 'EAA' ) ) {
 
-	class RCC {
+	class EAA {
 
 		public $post_meta;
 		public $mobile_detect;
@@ -33,33 +32,33 @@ if ( ! class_exists( 'RCC' ) ) {
 		}
 
 		public function core() {
-			require_once( RCC_INC . 'custom-content.php' );
-			require_once( RCC_INC . 'hook-the_content.php' );
-			require_once( RCC_INC . 'hook-loop_start.php' );
-			require_once( RCC_INC . 'hook-header-footer.php' );
-			require_once( RCC_INC . 'utilities.php' );
-			require_once( RCC_INC . 'shortcodes.php' );
+			require_once( EAA_INC . 'custom-content.php' );
+			require_once( EAA_INC . 'hook-the_content.php' );
+			require_once( EAA_INC . 'hook-loop_start.php' );
+			require_once( EAA_INC . 'hook-header-footer.php' );
+			require_once( EAA_INC . 'utilities.php' );
+			require_once( EAA_INC . 'shortcodes.php' );
 		}
 
 		public function constants() {
-			define( 'RCC_DIR', trailingslashit( dirname( __FILE__ ) ) );
-			define( 'RCC_INC', trailingslashit( RCC_DIR . 'inc' ) );
-			define( 'RCC_ADMIN', trailingslashit( RCC_DIR . 'admin' ) );
-			define( 'RCC_VENDOR', trailingslashit( RCC_DIR . 'vendor' ) );
+			define( 'EAA_DIR', trailingslashit( dirname( __FILE__ ) ) );
+			define( 'EAA_INC', trailingslashit( EAA_DIR . 'inc' ) );
+			define( 'EAA_ADMIN', trailingslashit( EAA_DIR . 'admin' ) );
+			define( 'EAA_VENDOR', trailingslashit( EAA_DIR . 'vendor' ) );
 
-			define( 'RCC_URI', plugin_dir_url( __FILE__ ) );
+			define( 'EAA_URI', plugin_dir_url( __FILE__ ) );
 
 		}
 
 		public function admin() {
-			require_once( RCC_ADMIN . 'control-responsive-content.php' );
-			require_once( RCC_ADMIN . 'meta-boxes.php' );
-			require_once( RCC_ADMIN . 'load-customizer-styles.php' );
+			require_once( EAA_ADMIN . 'control-responsive-content.php' );
+			require_once( EAA_ADMIN . 'meta-boxes.php' );
+			require_once( EAA_ADMIN . 'load-customizer-styles.php' );
 		}
 
 		public function load_mobile_detect() {
 			if ( ! class_exists( 'Mobile_Detect' ) ) {
-				require_once( RCC_VENDOR . 'Mobile_Detect.php' );
+				require_once( EAA_VENDOR . 'Mobile_Detect.php' );
 			}
 			$this->mobile_detect = new Mobile_Detect();
 		}
@@ -79,7 +78,7 @@ if ( ! class_exists( 'RCC' ) ) {
 //		public function load_meta() {
 //			if ( is_single() ) {
 //				global $post;
-//				$this->post_meta = get_post_meta( $post->ID, '_rcc', true );
+//				$this->post_meta = get_post_meta( $post->ID, '_eaa', true );
 //			}
 //		}
 //
@@ -90,7 +89,7 @@ if ( ! class_exists( 'RCC' ) ) {
 //			$screen = get_current_screen();
 //			if ( 'post' === $screen->post_type || 'page' === $screen->post_type ) {
 //				global $post;
-//				$this->post_meta = get_post_meta( $post->ID, '_rcc', true );
+//				$this->post_meta = get_post_meta( $post->ID, '_eaa', true );
 //			}
 //		}
 
@@ -103,7 +102,7 @@ if ( ! class_exists( 'RCC' ) ) {
 		 */
 		public function get_meta( $key = null ) {
 			global $post;
-			$meta = get_post_meta( $post->ID, '_rcc', true );
+			$meta = get_post_meta( $post->ID, '_eaa', true );
 			if ( $key ) {
 				return isset( $meta[ $key ] ) ? $meta[ $key ] : null;
 			} else {
@@ -118,7 +117,7 @@ if ( ! class_exists( 'RCC' ) ) {
 		 */
 
 		public function get_option( $key = null, $default = null ) {
-			$temp = get_option( 'rcc' );
+			$temp = get_option( 'eaa' );
 
 			/*
 			 * If option is not defined or key is defined and option is not an array, bail.
@@ -137,6 +136,6 @@ if ( ! class_exists( 'RCC' ) ) {
 	}
 }
 
-$rcc = new RCC();
+$eaa = new EAA();
 
-GLOBAL $rcc;
+GLOBAL $eaa;

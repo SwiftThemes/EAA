@@ -7,7 +7,7 @@
  *
  * @return array
  */
-function rcc_w3tc_mobile_groups($w3tc_groups)
+function eaa_w3tc_mobile_groups($w3tc_groups)
 {
 
 	// any operations
@@ -56,4 +56,4 @@ function rcc_w3tc_mobile_groups($w3tc_groups)
 	return $w3tc_groups;
 }
 
-add_filter('w3tc_mobile_groups', 'rcc_w3tc_mobile_groups',999);
+add_filter('w3tc_mobile_groups', 'eaa_w3tc_mobile_groups',999);

@@ -1,14 +1,14 @@
 <?php
 
-add_filter( 'the_content', 'rcc_single_ads', 11 );
+add_filter( 'the_content', 'eaa_single_ads', 11 );
 /**
  *
  * Inserts the ads in post content
  *
  * @param unknown_type $content
  */
-function rcc_single_ads( $content ) {
-	global $rcc;
+function eaa_single_ads( $content ) {
+	global $eaa;
 
 	/*
 	 * Don't execute the hook on
@@ -16,13 +16,13 @@ function rcc_single_ads( $content ) {
 	 * - Attachment
 	 * - If ad's are disabled for this post
 	 */
-	if ( ! is_single() || is_attachment() || $rcc->get_meta( 'disable_content_ads' ) || $rcc->get_meta( 'disable_all_ads' ) ) {
+	if ( ! is_single() || is_attachment() || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
 		return $content;
 	}
 
 
 
-	if ( $rcc->is_mobile() ) {
+	if ( $eaa->is_mobile() ) {
 		$suffix = '_mobile';
 	} else {
 		$suffix = '_desktop';
@@ -31,24 +31,24 @@ function rcc_single_ads( $content ) {
 
 	$below_title = $after_first_p = $after_first_img = $between_post = $after_post = null;
 
-	if ( $rcc->get_option( 'post_below_title_enable' ) ) {
-		$below_title = $rcc->get_option( 'post_below_title' . $suffix );
+	if ( $eaa->get_option( 'post_below_title_enable' ) ) {
+		$below_title = $eaa->get_option( 'post_below_title' . $suffix );
 	}
 
-	if ( $rcc->get_option( 'post_after_first_p_enable' ) ) {
-		$after_first_p = $rcc->get_option( 'post_after_first_p' . $suffix );
+	if ( $eaa->get_option( 'post_after_first_p_enable' ) ) {
+		$after_first_p = $eaa->get_option( 'post_after_first_p' . $suffix );
 	}
 
-	if ( $rcc->get_option( 'post_after_first_img_enable' ) ) {
-		$after_first_img = $rcc->get_option( 'post_after_first_img' . $suffix );
+	if ( $eaa->get_option( 'post_after_first_img_enable' ) ) {
+		$after_first_img = $eaa->get_option( 'post_after_first_img' . $suffix );
 	}
 
-	if ( $rcc->get_option( 'post_between_content_enable' ) ) {
-		$between_post = $rcc->get_option( 'post_between_content' . $suffix );
+	if ( $eaa->get_option( 'post_between_content_enable' ) ) {
+		$between_post = $eaa->get_option( 'post_between_content' . $suffix );
 	}
 
-	if ( $rcc->get_option( 'post_after_content_enable' ) ) {
-		$after_post = $rcc->get_option( 'post_after_content' . $suffix );
+	if ( $eaa->get_option( 'post_after_content_enable' ) ) {
+		$after_post = $eaa->get_option( 'post_after_content' . $suffix );
 	}
 
 

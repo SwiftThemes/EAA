@@ -6,35 +6,35 @@
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
  */
-function rcc_add_meta_boxes( $post ) {
-	add_meta_box( 'food_meta_box', __( 'RCC Options', 'rcc' ), 'rcc_build_meta_box', null, 'side', 'high' );
+function eaa_add_meta_boxes( $post ) {
+	add_meta_box( 'food_meta_box', __( 'EAA Options', 'eaa' ), 'eaa_build_meta_box', null, 'side', 'high' );
 }
 
-add_action( 'add_meta_boxes_post', 'rcc_add_meta_boxes' );
+add_action( 'add_meta_boxes_post', 'eaa_add_meta_boxes' );
 
 
-function rcc_build_meta_box() {
-	global $rcc;
+function eaa_build_meta_box() {
+	global $eaa;
 	wp_nonce_field( basename( __FILE__ ), "meta-box-nonce" );
 	?>
 
 	<label>
 		<input type="checkbox"
 		       name="disable_content_ads"
-		       value="true" <?php checked( $rcc->get_meta( 'disable_content_ads' ), true ) ?>><?php _e( 'Disable custom content/ads in the post.', 'rcc' ) ?>
+		       value="true" <?php checked( $eaa->get_meta( 'disable_content_ads' ), true ) ?>><?php _e( 'Disable custom content/ads in the post.', 'eaa' ) ?>
 	</label>
 	<!--
 	<br>
 	<label>
 		<input type="checkbox"
 		       name="disable_all_ads"
-		       value="true" <?php checked( $rcc->get_meta( 'disable_all_ads' ), true ) ?>><?php _e( 'Disable all custom content/ads.', 'rcc' ) ?>
+		       value="true" <?php checked( $eaa->get_meta( 'disable_all_ads' ), true ) ?>><?php _e( 'Disable all custom content/ads.', 'eaa' ) ?>
 	</label>
 	-->
 	<?php
 }
 
-function rcc_save_meta_box( $post_id ) {
+function eaa_save_meta_box( $post_id ) {
 
 	if ( ! isset( $_POST["meta-box-nonce"] ) || ! wp_verify_nonce( $_POST["meta-box-nonce"], basename( __FILE__ ) ) ) {
 		return $post_id;
@@ -55,15 +55,15 @@ function rcc_save_meta_box( $post_id ) {
 //	}
 
 
-	global $rcc;
-	$sanitized = $rcc->get_meta();
+	global $eaa;
+	$sanitized = $eaa->get_meta();
 
 
 	$sanitized['disable_content_ads'] = isset( $_POST['disable_content_ads'] ) ? true : false;
 	$sanitized['disable_all_ads']     = isset( $_POST['disable_all_ads'] ) ? true : false;
 
-	update_post_meta( $post_id, '_rcc', $sanitized );
+	update_post_meta( $post_id, '_eaa', $sanitized );
 
 }
 
-add_action( "save_post", "rcc_save_meta_box", 10, 3 );
+add_action( "save_post", "eaa_save_meta_box", 10, 3 );

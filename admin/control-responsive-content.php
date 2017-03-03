@@ -12,9 +12,9 @@
  */
 
 
-add_action( 'customize_register', 'rcc_responsive_content_control_register', 1 );
+add_action( 'customize_register', 'eaa_responsive_content_control_register', 1 );
 
-function rcc_responsive_content_control_register( $wp_customize ) {
+function eaa_responsive_content_control_register( $wp_customize ) {
 
 	if ( ! class_exists( 'Swift_Customize_Control_Responsive_Content' ) ) {
 
@@ -27,8 +27,9 @@ function rcc_responsive_content_control_register( $wp_customize ) {
 				} else {
 					$value = '';
 				}
+
 				$id = swift_random_string();
-				$output .= '<label><input type="checkbox" ' . checked( $value, true, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'rcc' ) . '</span></label>';
+				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
 
 
 				if ( isset( $this->settings[1] ) ) {
@@ -36,14 +37,14 @@ function rcc_responsive_content_control_register( $wp_customize ) {
 				} else {
 					$value = '';
 				}
-				$output .= '<div class="textarea desktop"><textarea type="number" ' . $this->get_link( 1 ) . ' placeholder="' . __( 'For desktops,laptops and tablets', 'rcc' ) . '" >' . $value . '</textarea></div>';
+				$output .= '<div class="textarea desktop"><textarea type="number" ' . $this->get_link( 1 ) . ' placeholder="' . __( 'For desktops,laptops and tablets', 'eaa' ) . '" >' . $value . '</textarea></div>';
 
 				if ( isset( $this->settings[2] ) ) {
 					$value = $this->settings[2]->value();
 				} else {
 					$value = '';
 				}
-				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'rcc' ) . '" >' . $value . '</textarea></div></div>';
+				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
 				echo $output;
 			}
 
