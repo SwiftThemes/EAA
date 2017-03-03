@@ -1,0 +1,3 @@
+* Look for typos.
+* Stripslashes?
+* w3tc hook.
