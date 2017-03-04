@@ -21,16 +21,14 @@ function eaa_build_meta_box() {
 	<label>
 		<input type="checkbox"
 		       name="disable_content_ads"
-		       value="true" <?php checked( $eaa->get_meta( 'disable_content_ads' ), true ) ?>><?php _e( 'Disable custom content/ads in the post.', 'eaa' ) ?>
+		       value=1 <?php checked( $eaa->get_meta( 'disable_content_ads' ) ) ?>><?php _e( 'Disable custom content/ads in the post.', 'eaa' ) ?>
 	</label>
-	<!--
 	<br>
 	<label>
 		<input type="checkbox"
 		       name="disable_all_ads"
-		       value="true" <?php checked( $eaa->get_meta( 'disable_all_ads' ), true ) ?>><?php _e( 'Disable all custom content/ads.', 'eaa' ) ?>
+		       value=1 <?php checked( $eaa->get_meta( 'disable_all_ads' ) ) ?>><?php _e( 'Disable all custom content/ads.', 'eaa' ) ?>
 	</label>
-	-->
 	<?php
 }
 
