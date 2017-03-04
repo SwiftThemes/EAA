@@ -16,9 +16,9 @@ add_action( 'customize_register', 'eaa_responsive_content_control_register', 1 )
 
 function eaa_responsive_content_control_register( $wp_customize ) {
 
-	if ( ! class_exists( 'Swift_Customize_Control_Responsive_Content' ) ) {
+	if ( ! class_exists( 'Eaa_Customize_Control_Responsive_Content' ) ) {
 
-		class Swift_Customize_Control_Responsive_Content extends WP_Customize_Control {
+		class Eaa_Customize_Control_Responsive_Content extends WP_Customize_Control {
 
 			public function render_content() {
 				$output = '<span class="customize-control-title">' . $this->label . '</span><div class="clear"></div><br><div class="responsive-content">';
@@ -28,7 +28,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 					$value = '';
 				}
 
-				$id = swift_random_string();
+				$id = eaa_random_string();
 				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
 
 

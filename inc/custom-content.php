@@ -49,7 +49,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'home_eaa_ads',
 			array(
@@ -112,7 +112,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'post_below_title',
 			array(
@@ -149,7 +149,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'post_after_first_p',
 			array(
@@ -186,7 +186,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'post_after_first',
 			array(
@@ -224,7 +224,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'post_between_content',
 			array(
@@ -260,7 +260,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_control(
-		new Swift_Customize_Control_Responsive_Content(
+		new Eaa_Customize_Control_Responsive_Content(
 			$wp_customize,
 			'after_post',
 			array(

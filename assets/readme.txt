@@ -8,7 +8,7 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will easily double your revenue.
+A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will easily double your ad revenue.
 
 == Description ==
 
