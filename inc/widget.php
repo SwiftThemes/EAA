@@ -25,7 +25,7 @@ class EAA_Widget_Text extends WP_Widget {
 	public function __construct() {
 		$widget_ops  = array(
 			'classname'                   => 'widget_text eaa __eaa__',
-			'description'                 => __( 'AdSense ads, arbitrary text, HTML or JS.' ),
+			'description'                 => __( 'AdSense ads, arbitrary text, HTML or JS.','eaa' ),
 			'customize_selective_refresh' => true,
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
@@ -140,24 +140,24 @@ class EAA_Widget_Text extends WP_Widget {
 		$no_padding = isset( $instance['no_padding'] ) ? $instance['no_padding'] : 0;
 		$title      = sanitize_text_field( $instance['title'] );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','eaa' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
 			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
 			       value="<?php echo esc_attr( $title ); ?>"/></p>
 
 		<p><label
-				for="<?php echo $this->get_field_id( 'text_desktop' ); ?>"><?php _e( 'For desktops and tablets' ); ?></label>
+				for="<?php echo $this->get_field_id( 'text_desktop' ); ?>"><?php _e( 'For desktops and tablets','eaa' ); ?></label>
 			<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'text_desktop' ); ?>"
 			          name="<?php echo $this->get_field_name( 'text_desktop' ); ?>"><?php echo esc_textarea( $instance['text_desktop'] ); ?></textarea>
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'text_mobile' ); ?>"><?php _e( 'For mobile:' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'text_mobile' ); ?>"><?php _e( 'For mobile:','eaa' ); ?></label>
 			<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'text_mobile' ); ?>"
 			          name="<?php echo $this->get_field_name( 'text_mobile' ); ?>"><?php echo esc_textarea( $instance['text_mobile'] ); ?></textarea>
 		</p>
 
 		<p><input id="<?php echo $this->get_field_id( 'filter' ); ?>"
 		          name="<?php echo $this->get_field_name( 'filter' ); ?>" type="checkbox"<?php checked( $filter ); ?> />&nbsp;<label
-				for="<?php echo $this->get_field_id( 'filter' ); ?>"><?php _e( 'Automatically add paragraphs' ); ?></label>
+				for="<?php echo $this->get_field_id( 'filter' ); ?>"><?php _e( 'Automatically add paragraphs','eaa' ); ?></label>
 		</p>
 
 		<p><input id="<?php echo $this->get_field_id( 'no_padding' ); ?>"
