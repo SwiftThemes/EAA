@@ -55,10 +55,19 @@ There will be cases where you do not want to display ads on some particular post
 * You don't want ads on about and contact pages.
 
 Whatever your reason may be, there is an option to disable ads on a post or page right on the edit screen.
+You can choose to disable only in content content ads or all ads on the page.
+
+### Ads Widget
+Place ads in any wdigetized sections in your theme with the built in **Easy AdSense Ads & Scripts** widget.
+This is smilar to text widget but with some cool extras
+* Add separate ads/content for desktop & tablets and mobiles.
+* This widget respects the above feature, and hides itself when you choose to not show ads on the page.
+* Remove default paddings and borders if you need more room for the ads.
 
 ### Option to add header and footer scripts.
 Easily ad your analytics script, website verification scripts, fonts and any other script you might want to add to your website header or footer.
 This is limited to scripts, meta tags and any other tags that usually go in header. Adding regular content here is strictly not advisable.
+
 
 
 ### Live preview
@@ -71,6 +80,7 @@ All this can be done through the awesome WordPress customiser, so you get an ins
 1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the appearance->customize->Easy AdSense Ads & Scripts panel to add your ads and scripts.
+1. You also get a new widget from the plugin called **Easy AdSense Ads & Scripts**
 
 
 == Frequently Asked Questions ==
@@ -97,5 +107,4 @@ Yes, if you promise me that you won't ad random javascript from unknown sources.
 = 0.1 =
 * First release, yayy!!
 
-== Upgrade Notice ==
 
