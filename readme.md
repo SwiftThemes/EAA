@@ -1,10 +1,11 @@
 # Easy AdSense Ads & Scripts Manager
 
 
-A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will easily double your revenue.
+A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will help you increase your ad revenue multiple folds.
 
 
 **Easy AdSense Ads & Scripts Manager** is a complete ad management and scripts solution for your blog. 
+Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of your changes.
 
 **Note:**
 The ad locations are not limited to AdSense
@@ -99,7 +100,7 @@ You can add as many ads as you please in any location. You can even mix scripts 
 Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
 
 **Is it safe for normal WordPress users**
-Yes, if you promise me that you won't ad random javascript from unknown sources.
+Yes, if you promise me that you won't add random javascript from unknown sources.
 
 
 ## Changelog 
