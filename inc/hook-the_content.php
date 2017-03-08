@@ -21,7 +21,6 @@ function eaa_single_ads( $content ) {
 	}
 
 
-
 	if ( $eaa->is_mobile() ) {
 		$suffix = '_mobile';
 	} else {
@@ -32,23 +31,23 @@ function eaa_single_ads( $content ) {
 	$below_title = $after_first_p = $after_first_img = $between_post = $after_post = null;
 
 	if ( $eaa->get_option( 'post_below_title_enable' ) ) {
-		$below_title = $eaa->get_option( 'post_below_title' . $suffix );
+		$below_title = '<div class="eaa-ad ' . $eaa->get_option( 'post_below_title_align_desktop' ) . '">' . $eaa->get_option( 'post_below_title' . $suffix ) . '</div>';
 	}
 
 	if ( $eaa->get_option( 'post_after_first_p_enable' ) ) {
-		$after_first_p = $eaa->get_option( 'post_after_first_p' . $suffix );
+		$after_first_p = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_first_p_align_desktop' ) . '">' . $eaa->get_option( 'post_after_first_p' . $suffix ) . '</div>';
 	}
 
 	if ( $eaa->get_option( 'post_after_first_img_enable' ) ) {
-		$after_first_img = $eaa->get_option( 'post_after_first_img' . $suffix );
+		$after_first_img = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_first_img_align_desktop' ) . '">' . $eaa->get_option( 'post_after_first_img' . $suffix ) . '</div>';
 	}
 
 	if ( $eaa->get_option( 'post_between_content_enable' ) ) {
-		$between_post = $eaa->get_option( 'post_between_content' . $suffix );
+		$between_post = '<div class="eaa-ad ' . $eaa->get_option( 'post_between_content_align_desktop' ) . '">' . $eaa->get_option( 'post_between_content' . $suffix ) . '</div>';
 	}
 
 	if ( $eaa->get_option( 'post_after_content_enable' ) ) {
-		$after_post = $eaa->get_option( 'post_after_content' . $suffix );
+		$after_post = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_content_align_desktop' ) . '">' . $eaa->get_option( 'post_after_content' . $suffix ) . '</div>';
 	}
 
 

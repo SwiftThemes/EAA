@@ -32,6 +32,19 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
 
 
+				if ( isset( $this->settings[3] ) ) {
+					$value = $this->settings[3]->value();
+				} else {
+					$value = '';
+				}
+
+				$output .= '
+<select type="text" value="' . $value . '" ' . $this->get_link( 3 ) . ' >
+				<option value="" ' . checked( $value, '', false ) . '>None</option>
+				<option value="alignleft" ' . checked( $value, 'alignleft', false ) . '>Align left</option>
+				<option value="alignright" ' . checked( $value, 'alignright', false ) . '>Align right</option>
+				</select>';
+
 				if ( isset( $this->settings[1] ) ) {
 					$value = $this->settings[1]->value();
 				} else {

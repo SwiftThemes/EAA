@@ -1,14 +1,14 @@
 === Easy AdSense Ads & Scripts Manager ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, AdManager, Scripts Manager
+Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.1
+Stable tag: 0.11
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will easily double your ad revenue.
+A very simple, complete and easy to use AdSense ads and scripts manager with well thought out ad placements that will help you increase your ad revenue. Integrates into customizer to give you live preview of the ads and changes.
 
 == Description ==
 
@@ -71,12 +71,14 @@ Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and s
 You can use the shortcode anywhere, even in your post content.
 **Example**:
 ```
+
 [ads]
 First ad <!-- next_ad -->
 Second ad <!-- next_ad -->
 third ad <!-- next_ad -->
 fourth ad
 [/ads]
+
 ```
 
 ### Option to add header and footer scripts.
@@ -113,7 +115,10 @@ Letting anyone execute javaScript on your domain is a security risk. If you trus
 Yes, if you promise me that you won't add random javascript from unknown sources.
 == Screenshots ==
 
-1. Panel added by the Easy AdSense Ads & Scripts Manager to the customizer ( Appearance -> Customize )
+1. Panel added by the Easy AdSense Ads & Scripts Manager to the customizer ( Appearance -> Customize ).
+2. Home page ad locations explained.
+3. Single post/page locations explained.
+4. Widget added by **Easy AdSense Ads & Scripts**
 
 == Changelog ==
 

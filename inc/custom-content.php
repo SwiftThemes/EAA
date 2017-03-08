@@ -8,6 +8,24 @@
 //@todo move to framework
 add_action( 'customize_register', 'eaa_customize_eaa_ads', 100 );
 function eaa_customize_eaa_ads( $wp_customize ) {
+
+
+	$help_text = '
+	Wan\'t to rotate ads? Just wrap them in the shortcode like below.
+<pre>
+[eaa_ads]
+First ad &lt;!-- next_ad --&gt;
+Second ad &lt;!-- next_ad --&gt;
+third ad
+[/eaa_ads]
+</pre>
+
+If you want to centre the ad, wrap it in
+<pre>&lt;div class=&quot;aligncenter&quot;
+style=&quot;width:300px&quot;&gt;&lt;/div&gt;</pre>
+where width is the width of the ad.
+
+	';
 	$wp_customize->add_panel( 'eaa_ads', array(
 		'title'       => __( 'Easy AdSense Ads & Scripts', 'eaa' ),
 		'description' => '', // Include html tags such as <p>
@@ -16,15 +34,24 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_section( 'home_page_content', array(
-		'title'    => __( 'Home page', 'eaa' ),
-		'panel'    => 'eaa_ads',
-		'priority' => 30,
+		'title'       => __( 'Home page', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 30,
+		'description' => $help_text,
 	) );
 
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_enable]', array(
 		'default' => 0,
 		'type'    => 'option',
 	) );
+
+
+	$wp_customize->add_setting( 'eaa[home_between_posts_content_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+
+
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -61,6 +88,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[home_between_posts_content_enable]',
 					'eaa[home_between_posts_content_desktop]',
 					'eaa[home_between_posts_content_mobile]',
+					'eaa[home_between_posts_content_align_desktop]',
 				),
 			)
 		)
@@ -88,16 +116,24 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 
 
 	$wp_customize->add_section( 'post_content', array(
-		'title'    => __( 'Single post/page', 'eaa' ),
-		'panel'    => 'eaa_ads',
-		'priority' => 30,
+		'title'       => __( 'Single post/page', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 30,
+		'description' => $help_text,
+
 	) );
 
 	$wp_customize->add_setting( 'eaa[post_below_title_enable]', array(
 		'default' => 0,
 		'type'    => 'option',
-
 	) );
+
+
+	$wp_customize->add_setting( 'eaa[post_below_title_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+
 	$wp_customize->add_setting( 'eaa[post_below_title_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -124,6 +160,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[post_below_title_enable]',
 					'eaa[post_below_title_desktop]',
 					'eaa[post_below_title_mobile]',
+					'eaa[post_below_title_align_desktop]',
 				),
 			)
 		)
@@ -135,6 +172,13 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 		'type'    => 'option',
 
 	) );
+
+
+	$wp_customize->add_setting( 'eaa[post_after_first_p_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+
 	$wp_customize->add_setting( 'eaa[post_after_first_p_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -161,6 +205,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[post_after_first_p_enable]',
 					'eaa[post_after_first_p_desktop]',
 					'eaa[post_after_first_p_mobile]',
+					'eaa[post_after_first_p_align_desktop]',
 				),
 			)
 		)
@@ -172,6 +217,13 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 		'type'    => 'option',
 
 	) );
+
+
+	$wp_customize->add_setting( 'eaa[post_after_first_img_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+
 	$wp_customize->add_setting( 'eaa[post_after_first_img_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -198,6 +250,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[post_after_first_img_enable]',
 					'eaa[post_after_first_img_desktop]',
 					'eaa[post_after_first_img_mobile]',
+					'eaa[post_after_first_img_align_desktop]',
 				),
 			)
 		)
@@ -209,6 +262,11 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 		'default' => 0,
 		'type'    => 'option',
 
+	) );
+
+	$wp_customize->add_setting( 'eaa[post_between_content_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
 	) );
 	$wp_customize->add_setting( 'eaa[post_between_content_desktop]', array(
 		'default' => '',
@@ -236,6 +294,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[post_between_content_enable]',
 					'eaa[post_between_content_desktop]',
 					'eaa[post_between_content_mobile]',
+					'eaa[post_between_content_align_desktop]',
 				),
 			)
 		)
@@ -246,6 +305,11 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 		'default' => 0,
 		'type'    => 'option',
 
+	) );
+
+	$wp_customize->add_setting( 'eaa[post_after_content_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
 	) );
 	$wp_customize->add_setting( 'eaa[post_after_content_desktop]', array(
 		'default' => '',
@@ -272,6 +336,7 @@ function eaa_customize_eaa_ads( $wp_customize ) {
 					'eaa[post_after_content_enable]',
 					'eaa[post_after_content_desktop]',
 					'eaa[post_after_content_mobile]',
+					'eaa[post_after_content_align_desktop]',
 				),
 			)
 		)
