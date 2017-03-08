@@ -4,7 +4,7 @@ Donate link: https://swiftthemes.com/donate
 Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.11
+Stable tag: 0.14
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -123,8 +123,15 @@ Yes, if you promise me that you won't add random javascript from unknown sources
 == Changelog ==
 
 
+**0.14**
+Add support for add after captioned images.
+**0.13**
+* Remove sidebar from plugin admin page
 
-= 0.1 =
+**0.12**
+* Add plugin help page
+* Add ad alignment options
+* Add help text in the customizer
+**0.10**
 * First release, yayy!!
-
 

@@ -78,7 +78,7 @@ function eaa_single_ads( $content ) {
 
 	if ( $after_first_img ) {
 
-		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>)/';
+		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>)/';
 		$temp = preg_split( $s, $content, 2, PREG_SPLIT_DELIM_CAPTURE );
 		if ( 1 !== count( $temp ) ) {
 			$content = $temp[0] . $temp[1] . do_shortcode( stripslashes( $after_first_img ) ) . $temp[2];

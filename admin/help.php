@@ -33,7 +33,7 @@
 		top:6px
 
 	}
-	#marketing{height: 800px;width:300px;float: right}
+	#marketing{height: 800px;width:300px;float: right;display: none}
 	.eaa-card {
 		background: #fff;
 		padding: 10px;
