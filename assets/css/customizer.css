@@ -29,3 +29,14 @@
   width: 100% !important;
   height: 100px
 }
+
+label.alignleft{
+  line-height: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+select.alignleft{
+  width: auto!important;
+  min-width: 160px;
+}

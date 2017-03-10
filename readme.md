@@ -105,8 +105,11 @@ Yes, if you promise me that you won't add random javascript from unknown sources
 
 ## Changelog 
 
+**0.15**
+*Fix a bug with the plugin info page. Using absolute path now. 
+*Improve styling of the alignment setting.
 **0.14**
-Add support for add after captioned images.
+*Add support for ad after captioned images.
 **0.13**
 * Remove sidebar from plugin admin page
 

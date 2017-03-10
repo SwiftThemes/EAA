@@ -12,5 +12,5 @@ function eaa_admin_menu() {
 }
 
 function eaa_info_page(){
-	include 'help.php';
+	include EAA_ADMIN.'help.php';
 }
