@@ -102,6 +102,11 @@ Letting anyone execute javaScript on your domain is a security risk. If you trus
 **Is it safe for normal WordPress users**
 Yes, if you promise me that you won't add random javascript from unknown sources.
 
+**Does EAA support AMP**
+Yes & No.
+We don't actually need to support AMP becuase you can use AMP supported ad code for mobile devices.
+1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
+1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
 ## Changelog 
 
