@@ -61,14 +61,14 @@ This is smilar to text widget but with some cool extras
 Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
 You can use the shortcode anywhere, even in your post content.
 **Example**:
-```
-[ads]
-First ad <!-- next_ad -->
-Second ad <!-- next_ad -->
-third ad <!-- next_ad -->
-fourth ad
-[/ads]
-```
+        ```
+        [ads]
+        First ad <!-- next_ad -->
+        Second ad <!-- next_ad -->
+        third ad <!-- next_ad -->
+        fourth ad
+        [/ads]
+        ```
 ### Option to add header and footer scripts.
 Easily ad your analytics script, website verification scripts, fonts and any other script you might want to add to your website header or footer.
 This is limited to scripts, meta tags and any other tags that usually go in header. Adding regular content here is strictly not advisable.
@@ -105,6 +105,9 @@ Yes, if you promise me that you won't add random javascript from unknown sources
 
 ## Changelog 
 
+**0.16**
+* Add contact form to plugin help page.
+* Fix an issue with home page ad being displayed on custom queries.
 **0.15**
 *Fix a bug with the plugin info page. Using absolute path now. 
 *Improve styling of the alignment setting.

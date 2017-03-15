@@ -4,7 +4,7 @@
 Plugin Name: Easy AdSense Ads & Scripts Manager
 Plugin URI: http://swiftthemes.com/eaa
 Description: A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will help you increase your ad revenue multiple folds. Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of your changes.
-Version: 0.15
+Version: 0.16
 Author: Satish Gandham <hello@satishgandham.com>
 Author URI: http://satishgandham.com
 License: GPL2
@@ -13,6 +13,7 @@ if ( ! class_exists( 'EAA' ) ) {
 
 	class EAA {
 
+
 		public $mobile_detect;
 
 		public function __construct() {
@@ -20,10 +21,6 @@ if ( ! class_exists( 'EAA' ) ) {
 			add_action( 'plugins_loaded', array( $this, 'core' ), - 90 );
 			add_action( 'plugins_loaded', array( $this, 'admin' ), - 90 );
 			add_action( 'plugins_loaded', array( $this, 'load_mobile_detect' ), 95 );
-
-			add_action( 'wp_print_styles', array( $this, 'load_options' ), - 95 );
-
-
 		}
 
 		public function core() {
@@ -38,11 +35,12 @@ if ( ! class_exists( 'EAA' ) ) {
 		}
 
 		public function constants() {
+
+			define( 'EAA_VERSION', '0.15' );
 			define( 'EAA_DIR', trailingslashit( dirname( __FILE__ ) ) );
 			define( 'EAA_INC', trailingslashit( EAA_DIR . 'inc' ) );
 			define( 'EAA_ADMIN', trailingslashit( EAA_DIR . 'admin' ) );
 			define( 'EAA_VENDOR', trailingslashit( EAA_DIR . 'vendor' ) );
-
 			define( 'EAA_URI', plugin_dir_url( __FILE__ ) );
 
 		}
@@ -52,6 +50,8 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_ADMIN . 'meta-boxes.php' );
 			require_once( EAA_ADMIN . 'load-customizer-styles.php' );
 			require_once( EAA_ADMIN . 'add-info-page.php' );
+			require_once( EAA_ADMIN . 'admin-scripts-styles.php' );
+			require_once( EAA_ADMIN . 'admin-ajax.php' );
 		}
 
 		public function load_mobile_detect() {

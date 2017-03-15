@@ -3,9 +3,12 @@
 add_action( 'loop_start', 'eaa_loop_start' );
 
 function eaa_loop_start( $query ) {
-	if ( $query->is_main_query() ) {
+
+	if ( $query->is_main_query() && ! is_singular() ) {
 		add_action( 'the_post', 'eaa_the_post' );
 		add_action( 'loop_end', 'eaa_loop_end' );
+	} else {
+		remove_action( 'the_post', 'eaa_the_post', 10 );
 	}
 }
 
@@ -44,5 +47,5 @@ function eaa_the_post() {
 }
 
 function eaa_loop_end() {
-	remove_action( 'the_post', 'eaa_the_post' );
+	remove_action( 'the_post', 'eaa_the_post', 10 );
 }

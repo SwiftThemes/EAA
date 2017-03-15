@@ -163,7 +163,7 @@ class EAA_Widget_Text extends WP_Widget {
 		<p><input id="<?php echo $this->get_field_id( 'no_padding' ); ?>"
 		          name="<?php echo $this->get_field_name( 'no_padding' ); ?>"
 		          type="checkbox"<?php checked( $no_padding ); ?> />&nbsp;<label
-				for="<?php echo $this->get_field_id( 'no_padding' ); ?>"><?php _e( 'Remove default widgets padding and border.', 'eaa' ); ?></label>
+				for="<?php echo $this->get_field_id( 'no_padding' ); ?>"><?php _e( 'Remove default padding and border.', 'eaa' ); ?></label>
 		</p>
 		<?php
 	}

@@ -4,7 +4,7 @@ Donate link: https://swiftthemes.com/donate
 Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.15
+Stable tag: 0.16
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,9 +17,9 @@ Unlike other plugins out there, this integrates right into the WordPress **custo
 
 **Note:**
 The ad locations are not limited to AdSense
-* You can use them for ads from any network.
-* You can use multiple ads in the same location.
-* You can also use them to ad html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc.. 
+- You can use them for ads from any network.
+- You can use multiple ads in the same location.
+- You can also use them to ad html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
 
 The header and footer scripts are not limited to just javascript.
 * You can use them to load fonts.
@@ -72,12 +72,12 @@ You can use the shortcode anywhere, even in your post content.
 **Example**:
 ```
 
-[ads]
-First ad <!-- next_ad -->
-Second ad <!-- next_ad -->
-third ad <!-- next_ad -->
-fourth ad
-[/ads]
+        [ads]
+        First ad <!-- next_ad -->
+        Second ad <!-- next_ad -->
+        third ad <!-- next_ad -->
+        fourth ad
+        [/ads]
 
 ```
 
@@ -122,6 +122,10 @@ Yes, if you promise me that you won't add random javascript from unknown sources
 
 == Changelog ==
 
+
+**0.16**
+* Add contact form to plugin help page.
+* Fix an issue with home page ad being displayed on custom queries.
 
 **0.15**
 *Fix a bug with the plugin info page. Using absolute path now.
