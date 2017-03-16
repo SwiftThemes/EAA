@@ -17,25 +17,26 @@ function eaa_send_email() {
 
 	check_ajax_referer( 'eaa-help-nonce', 'nonce' );
 
-	$subject = 'Query from ' . $form['name'] . 'through #EAA';
+	$subject = 'Query from ' . $form['name'] . ' through #EAA';
 
 	$message = '';
 	$headers = array();
 
-	$to = [ 'satish@swiftthemes.com' ];
+	$to = array( 'satish@swiftthemes.com' );
 	$message .= 'User: ' . $form['name'] . "\n\n";
 	$message .= 'Email: ' . $form['email'] . "\n\n";
-	$headers['Reply-To:'] = $form['email'];
-	$headers['From:']     = $form['email'];
-	$headers['Bcc:']      = 'satish.iitg@gmail.com';
+	$headers[] = 'Reply-To:' . $form['email'];
+	$headers[] = 'Bcc:satish.iitg@gmail.com';
+	$headers[] = 'From:' . $form['name'] . ' <' . eaa_get_from_email_header( $form['name'] ) . '>';
+
 
 	if ( $form['cc'] ) {
-		$headers['Cc:'] = $form['email'];
+		$headers[] = 'Cc:' . $form['email'];
 	}
 
 	$message .= 'URL: ' . esc_url( home_url() ) . "\n\n";
 	$message .= 'Plugin Version: ' . EAA_VERSION . "\n\n";
-	$message .= 'Message: ' . "\n\n\n\n";
+	$message .= 'Message: ' . "\n\n";
 	$message .= esc_html( $form['message'] );
 
 	if ( wp_mail( $to, $subject, $message, $headers ) ) {
@@ -51,5 +52,18 @@ function eaa_send_email() {
 	}
 
 	wp_send_json( $return );
+	wp_die();
+}
+
+function eaa_get_from_email_header( $name = 'EAA' ) {
+
+	$sitename = strtolower( $_SERVER['SERVER_NAME'] );
+	if ( substr( $sitename, 0, 4 ) == 'www.' ) {
+		$sitename = substr( $sitename, 4 );
+	}
+	// Strip spaces in name
+	$name = str_replace( ' ', '', $name );
+
+	return $from_email = $name . '@' . $sitename;
 
 }

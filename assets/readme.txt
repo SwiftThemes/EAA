@@ -4,7 +4,7 @@ Donate link: https://swiftthemes.com/donate
 Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.16
+Stable tag: 0.17
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,7 @@ This is smilar to text widget but with some cool extras
 Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
 You can use the shortcode anywhere, even in your post content.
 **Example**:
+
 ```
 
         [ads]
@@ -108,13 +109,13 @@ No, You can use it with any theme and it works out of the box.
 = Can I add multiple ads in one location =
 You can add as many ads as you please in any location. You can even mix scripts and html.
 
-=Can I use it on WordPress MU=
+= Can I use it on WordPress MU =
 Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
 
-=Is it safe for normal WordPress users=
+= Is it safe for normal WordPress users =
 Yes, if you promise me that you won't add random javascript from unknown sources.
 
-=Does EAA support AMP=
+= Does EAA support AMP =
 Yes & No.
 We don't actually need to support AMP becuase you can use AMP supported ad code for mobile devices.
 1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
@@ -130,6 +131,9 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 == Changelog ==
 
 
+**0.17**
+* Fix issue with the contact form on EAA Help page.
+
 **0.16**
 * Add contact form to plugin help page.
 * Fix an issue with home page ad being displayed on custom queries.
@@ -137,8 +141,10 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 **0.15**
 *Fix a bug with the plugin info page. Using absolute path now.
 *Improve styling of the alignment setting.
+
 **0.14**
 *Add support for ad after captioned images.
+
 **0.13**
 * Remove sidebar from plugin admin page
 
@@ -146,6 +152,7 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 * Add plugin help page
 * Add ad alignment options
 * Add help text in the customizer
+
 **0.10**
 * First release, yayy!!
 
