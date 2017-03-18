@@ -26,6 +26,8 @@ style=&quot;width:300px&quot;&gt;&lt;/div&gt;</pre>
 where width is the width of the ad.
 
 	';
+
+
 	$wp_customize->add_panel( 'eaa_ads', array(
 		'title'       => __( 'Easy AdSense Ads & Scripts', 'eaa' ),
 		'description' => '', // Include html tags such as <p>
@@ -40,27 +42,32 @@ where width is the width of the ad.
 		'description' => $help_text,
 	) );
 
-	$wp_customize->add_setting( 'eaa[home_between_posts_content_enable]', array(
-		'default' => 0,
-		'type'    => 'option',
+	$wp_customize->add_section( 'post_content', array(
+		'title'       => __( 'Single post/page', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 30,
+		'description' => $help_text,
+	) );
+
+	$wp_customize->add_section( 'eaa_theme_locations', array(
+		'title'       => __( 'Theme Locations', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 60,
+		'description' => $help_text,
+	) );
+
+	$wp_customize->add_section( 'custom_scripts', array(
+		'title'    => __( 'Header & Footer Scripts', 'eaa' ),
+		'panel'    => 'eaa_ads',
+		'priority' => 30,
 	) );
 
 
-	$wp_customize->add_setting( 'eaa[home_between_posts_content_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-
-	$wp_customize->add_setting( 'eaa[home_between_posts_content_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-	$wp_customize->add_setting( 'eaa[home_between_posts_content_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
+	eaa_add_ad_unit( $wp_customize, 'home_between_posts_content',
+		array(
+			'label'   => esc_html__( 'Home page custom content/ad', 'eaa' ),
+			'section' => 'home_page_content',
+		) );
 
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_start_after]', array(
 		'default' => 3,
@@ -75,24 +82,6 @@ where width is the width of the ad.
 		'type'    => 'option',
 	) );
 
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'home_eaa_ads',
-			array(
-				'label'    => esc_html__( 'Home page custom content/ad', 'eaa' ),
-				'section'  => 'home_page_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[home_between_posts_content_enable]',
-					'eaa[home_between_posts_content_desktop]',
-					'eaa[home_between_posts_content_mobile]',
-					'eaa[home_between_posts_content_align_desktop]',
-				),
-			)
-		)
-	);
 
 	$wp_customize->add_control( 'eaa[home_between_posts_content_start_after]', array(
 		'label'   => __( 'Start displaying the above custom content after nth post.', 'eaa' ),
@@ -109,244 +98,6 @@ where width is the width of the ad.
 		'label'   => __( 'Repeat the content after every n posts.', 'eaa' ),
 		'section' => 'home_page_content',
 		'type'    => 'number',
-	) );
-
-
-	//Single post
-
-
-	$wp_customize->add_section( 'post_content', array(
-		'title'       => __( 'Single post/page', 'eaa' ),
-		'panel'       => 'eaa_ads',
-		'priority'    => 30,
-		'description' => $help_text,
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_below_title_enable]', array(
-		'default' => 0,
-		'type'    => 'option',
-	) );
-
-
-	$wp_customize->add_setting( 'eaa[post_below_title_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_below_title_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_below_title_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'post_below_title',
-			array(
-				'label'    => esc_html__( 'Below post title custom content/ad', 'eaa' ),
-				'section'  => 'post_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[post_below_title_enable]',
-					'eaa[post_below_title_desktop]',
-					'eaa[post_below_title_mobile]',
-					'eaa[post_below_title_align_desktop]',
-				),
-			)
-		)
-	);
-
-	// After first paragraph
-	$wp_customize->add_setting( 'eaa[post_after_first_p_enable]', array(
-		'default' => false,
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_setting( 'eaa[post_after_first_p_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_first_p_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_first_p_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'post_after_first_p',
-			array(
-				'label'    => esc_html__( 'After first paragraph custom content/ad', 'eaa' ),
-				'section'  => 'post_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[post_after_first_p_enable]',
-					'eaa[post_after_first_p_desktop]',
-					'eaa[post_after_first_p_mobile]',
-					'eaa[post_after_first_p_align_desktop]',
-				),
-			)
-		)
-	);
-
-	// After first image
-	$wp_customize->add_setting( 'eaa[post_after_first_img_enable]', array(
-		'default' => 0,
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_setting( 'eaa[post_after_first_img_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_first_img_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_first_img_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'post_after_first',
-			array(
-				'label'    => esc_html__( 'After first anchored image custom content/ad', 'eaa' ),
-				'section'  => 'post_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[post_after_first_img_enable]',
-					'eaa[post_after_first_img_desktop]',
-					'eaa[post_after_first_img_mobile]',
-					'eaa[post_after_first_img_align_desktop]',
-				),
-			)
-		)
-	);
-
-
-	// Between post content
-	$wp_customize->add_setting( 'eaa[post_between_content_enable]', array(
-		'default' => 0,
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_between_content_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-	$wp_customize->add_setting( 'eaa[post_between_content_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_between_content_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'post_between_content',
-			array(
-				'label'    => esc_html__( 'Between post custom content/ad', 'eaa' ),
-				'section'  => 'post_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[post_between_content_enable]',
-					'eaa[post_between_content_desktop]',
-					'eaa[post_between_content_mobile]',
-					'eaa[post_between_content_align_desktop]',
-				),
-			)
-		)
-	);
-
-	// After post content
-	$wp_customize->add_setting( 'eaa[post_after_content_enable]', array(
-		'default' => 0,
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_content_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-	$wp_customize->add_setting( 'eaa[post_after_content_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-
-	) );
-
-	$wp_customize->add_setting( 'eaa[post_after_content_mobile]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
-
-
-	$wp_customize->add_control(
-		new Eaa_Customize_Control_Responsive_Content(
-			$wp_customize,
-			'after_post',
-			array(
-				'label'    => esc_html__( 'After post custom content/ad', 'eaa' ),
-				'section'  => 'post_content',
-				'priority' => 10,
-				'type'     => 'text',
-				'settings' => array(
-					'eaa[post_after_content_enable]',
-					'eaa[post_after_content_desktop]',
-					'eaa[post_after_content_mobile]',
-					'eaa[post_after_content_align_desktop]',
-				),
-			)
-		)
-	);
-
-
-	$wp_customize->add_section( 'custom_scripts', array(
-		'title'    => __( 'Header & Footer Scripts', 'eaa' ),
-		'panel'    => 'eaa_ads',
-		'priority' => 30,
 	) );
 
 
@@ -373,4 +124,93 @@ where width is the width of the ad.
 		'section'     => 'custom_scripts',
 		'type'        => 'textarea',
 	) );
+
+
+	$ad_locations = array();
+
+
+	//Single post
+
+	$ad_locations['post_below_title'] = array(
+		'label'   => esc_html__( 'Below post title custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+	);
+
+	$ad_locations['post_after_first_p'] = array(
+		'label'   => esc_html__( 'After first paragraph custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+	);
+
+	$ad_locations['post_after_first_img'] = array(
+		'label'   => esc_html__( 'After first anchored image custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+	);
+
+	$ad_locations['post_between_content'] = array(
+		'label'   => esc_html__( 'Between post custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+
+	);
+
+	$ad_locations['post_after_content'] = array(
+		'label'   => esc_html__( 'After post custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+	);
+
+	$ad_locations = apply_filters( 'eaa_ad_locations', $ad_locations );
+
+
+	foreach ( $ad_locations as $name => $args ) {
+		eaa_add_ad_unit( $wp_customize, $name, $args );
+	}
+
+}
+
+
+function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
+	$defaults = array(
+		'label'    => esc_html__( 'Your custom location', 'eaa' ),
+		'section'  => 'eaa_theme_locations',
+		'priority' => 10,
+		'type'     => 'text',
+		'settings' => array(
+			'eaa[' . $name . '_enable]',
+			'eaa[' . $name . '_desktop]',
+			'eaa[' . $name . '_mobile]',
+			'eaa[' . $name . '_align_desktop]',
+		)
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+
+	$wp_customize->add_setting( 'eaa[' . $name . '_enable]', array(
+		'default' => 0,
+		'type'    => 'option',
+
+	) );
+
+	$wp_customize->add_setting( 'eaa[' . $name . '_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+	$wp_customize->add_setting( 'eaa[' . $name . '_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+
+	) );
+
+	$wp_customize->add_setting( 'eaa[' . $name . '_mobile]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+
+
+	$wp_customize->add_control(
+		new Eaa_Customize_Control_Responsive_Content(
+			$wp_customize,
+			$name,
+			$args
+		)
+	);
 }

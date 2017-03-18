@@ -21,7 +21,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 		class Eaa_Customize_Control_Responsive_Content extends WP_Customize_Control {
 
 			public function render_content() {
-				$output = '<span class="customize-control-title">' . $this->label . '</span><div class="clear"></div><br><div class="responsive-content">';
+				$output = '<span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="responsive-content">';
 				if ( isset( $this->settings[0] ) ) {
 					$value = $this->settings[0]->value();
 				} else {

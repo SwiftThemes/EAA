@@ -31,6 +31,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_INC . 'shortcodes.php' );
 			require_once( EAA_INC . 'widget.php' );
 			require_once( EAA_INC . 'hook-wp_head.php' );
+			require_once( EAA_INC . 'expose.php' );
 		}
 
 		public function constants() {
@@ -76,11 +77,14 @@ if ( ! class_exists( 'EAA' ) ) {
 		 * @return mixed
 		 */
 		public function get_meta( $key = null ) {
+
 			if ( is_admin() && isset( $_GET['post'] ) && $_GET['post'] ) {
 				$post_id = $_GET['post'];
-			} else {
+			} else if ( is_singular() ) {
 				global $post;
 				$post_id = $post->ID;
+			} else {
+				return null;
 			}
 
 			$meta = get_post_meta( $post_id, '_eaa', true );
@@ -116,3 +120,4 @@ if ( ! class_exists( 'EAA' ) ) {
 $eaa = new EAA();
 
 GLOBAL $eaa;
+
