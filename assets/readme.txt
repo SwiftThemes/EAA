@@ -4,11 +4,11 @@ Donate link: https://swiftthemes.com/donate
 Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.17
+Stable tag: 0.18
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A very simple, complete and easy to use AdSense ads and scripts manager with well thought out ad placements that will help you increase your ad revenue. Integrates into customizer to give you live preview of the ads and changes.
+A simple no nonsense ad manager plugin to help you increase your blog revenue multiple fold. Only ad manager giving you a live preview of your changes
 
 == Description ==
 
@@ -17,11 +17,13 @@ Unlike other plugins out there, this integrates right into the WordPress **custo
 
 **Note:**
 The ad locations are not limited to AdSense
+
 - You can use them for ads from any network.
 - You can use multiple ads in the same location.
 - You can also use them to ad html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
 
 The header and footer scripts are not limited to just javascript.
+
 * You can use them to load fonts.
 * Verify the website ownership with the meta tag.
 
@@ -36,12 +38,14 @@ Though AdSense provides responsive ad units, their fill rate is not very good.
 ### Ads on homepage and archives
 You can easily insert ads into the WordPress loop on home page and archives. Since AdSense has a limit on number ad units you can display on a page, you can easily set how many times to repeat.
 Key features here include
+
 * Start after a desired post number.
 * Choose repeat frequency.
 * Choose how many times it should be displayed.
 
 ### Ads on single page ( Posts and Pages )
 We have five well thought out locations
+
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
 * After first image.
@@ -49,6 +53,7 @@ We have five well thought out locations
 * After post.
 
 ### Easily disable ads on a per page/post basis.
+
 There will be cases where you do not want to display ads on some particular posts or pages. Reasons may include
 * Content my violate advertiser policies.
 * Client doesn't like ads in their sponsored content.
@@ -61,6 +66,7 @@ You can choose to disable only in content content ads or all ads on the page.
 ### Ads Widget
 Place ads in any wdigetized sections in your theme with the built in **Easy AdSense Ads & Scripts** widget.
 This is smilar to text widget but with some cool extras
+
 * Add separate ads/content for desktop & tablets and mobiles.
 * This widget respects the above feature, and hides itself when you choose to not show ads on the page.
 * Remove default paddings and borders if you need more room for the ads.
@@ -118,6 +124,7 @@ Yes, if you promise me that you won't add random javascript from unknown sources
 = Does EAA support AMP =
 Yes & No.
 We don't actually need to support AMP becuase you can use AMP supported ad code for mobile devices.
+
 1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
@@ -130,29 +137,41 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 == Changelog ==
 
+**0.18**
+* Expose a method and filter to define ad locations from themes and other plugins.
+
 
 **0.17**
+
 * Fix issue with the contact form on EAA Help page.
 
 **0.16**
+
 * Add contact form to plugin help page.
 * Fix an issue with home page ad being displayed on custom queries.
 
 **0.15**
-*Fix a bug with the plugin info page. Using absolute path now.
-*Improve styling of the alignment setting.
+
+* Fix a bug with the plugin info page. Using absolute path now.
+* Improve styling of the alignment setting.
 
 **0.14**
-*Add support for ad after captioned images.
+
+* Add support for ad after captioned images.
 
 **0.13**
+
 * Remove sidebar from plugin admin page
 
 **0.12**
+
 * Add plugin help page
 * Add ad alignment options
 * Add help text in the customizer
 
 **0.10**
+
 * First release, yayy!!
 
+== Upgrade Notice ==
+None

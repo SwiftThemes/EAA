@@ -109,17 +109,22 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
 ## Changelog 
-
+**0.18**
+* Expose a method and filter to define ad locations from themes and other plugins. 
 **0.17**
 * Fix issue with the contact form on EAA Help page.
+
 **0.16**
 * Add contact form to plugin help page.
 * Fix an issue with home page ad being displayed on custom queries.
+
 **0.15**
 *Fix a bug with the plugin info page. Using absolute path now. 
 *Improve styling of the alignment setting.
+
 **0.14**
 *Add support for ad after captioned images.
+
 **0.13**
 * Remove sidebar from plugin admin page
 
@@ -127,6 +132,7 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 * Add plugin help page
 * Add ad alignment options
 * Add help text in the customizer
+
 **0.10** 
 * First release, yayy!!
 
