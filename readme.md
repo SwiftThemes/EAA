@@ -1,7 +1,7 @@
 # Easy AdSense Ads & Scripts Manager
 
 
-A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will help you increase your ad revenue multiple folds.
+A very simple, **AMP ready** complete and easy to use ads and scripts manager with well thought out ad placements that will help you increase your ad revenue multiple folds.
 
 
 **Easy AdSense Ads & Scripts Manager** is a complete ad management and scripts solution for your blog. 
@@ -36,7 +36,9 @@ Key features here include
 We have five well thought out locations
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
+* After any paragraph of your choice.
 * After first image.
+* After second image.
 * Between post.
 * After post.
 
@@ -49,6 +51,9 @@ There will be cases where you do not want to display ads on some particular post
 
 Whatever your reason may be, there is an option to disable ads on a post or page right on the edit screen.
 You can choose to disable only in content content ads or all ads on the page.
+
+### Easily style and align your ads.
+You can easily choose the alignment, set margins and add CSS styles to your ad wrapper.
 
 ### Ads Widget
 Place ads in any wdigetized sections in your theme with the built in **Easy AdSense Ads & Scripts** widget.
@@ -81,7 +86,6 @@ All this can be done through the awesome WordPress customiser, so you get an ins
 
 ##Installation
 
-
 1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the appearance->customize->Easy AdSense Ads & Scripts panel to add your ads and scripts.
@@ -109,6 +113,12 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
 ## Changelog 
+
+**0.19**
+* Add ad after nth paragraph
+* Add ad after second image
+* Add option to add margin and CSS styles to add wrapper
+
 **0.18**
 * Expose a method and filter to define ad locations from themes and other plugins. 
 **0.17**

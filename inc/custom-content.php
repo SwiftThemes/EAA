@@ -149,8 +149,12 @@ where width is the width of the ad.
 		'section' => 'post_content',
 	);
 
-	$ad_locations['post_after_first_img'] = array(
+	$ad_locations['post_after_first_img']  = array(
 		'label'   => esc_html__( 'After first anchored image custom content/ad', 'eaa' ),
+		'section' => 'post_content',
+	);
+	$ad_locations['post_after_second_img'] = array(
+		'label'   => esc_html__( 'After second anchored image custom content/ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
@@ -204,8 +208,8 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 			'eaa[' . $name . '_desktop]',
 			'eaa[' . $name . '_mobile]',
 			'eaa[' . $name . '_align_desktop]',
-			'eaa[' . $name . '_margin]',
-			'eaa[' . $name . '_style]',
+			'eaa[' . $name . '_margin_desktop]',
+			'eaa[' . $name . '_style_desktop]',
 		)
 	);
 
@@ -233,11 +237,11 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 		'default' => '',
 		'type'    => 'option',
 	) );
-	$wp_customize->add_setting( 'eaa[' . $name . '_margin]', array(
+	$wp_customize->add_setting( 'eaa[' . $name . '_margin_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
 	) );
-	$wp_customize->add_setting( 'eaa[' . $name . '_style]', array(
+	$wp_customize->add_setting( 'eaa[' . $name . '_style_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
 	) );

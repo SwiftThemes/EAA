@@ -29,11 +29,7 @@ function eaa_the_post() {
 	$start_after = $eaa->get_option( 'home_between_posts_content_start_after', 1 );
 
 
-	if ( $eaa->is_mobile() ) {
-		$content = $eaa->get_option( 'home_between_posts_content_mobile' );
-	} else {
-		$content = '<div class="eaa-ad ' . $eaa->get_option( 'home_between_posts_content_align_desktop' ) . '">' . $eaa->get_option( 'home_between_posts_content_desktop' ) . '</div>';
-	}
+	$content = eaa_wrap_ad('home_between_posts_content');
 
 	if (
 		$count >= $start_after &&

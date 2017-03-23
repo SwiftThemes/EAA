@@ -38,14 +38,27 @@ function eaa_show_ad( $location, $args = array() ) {
 		'class'     => '',
 	);
 
-	$args = wp_parse_args( $args, $defaults );
 
-	$out = $args['before_ad'];
-	$out .= sprintf( '<div class="eaa-ad %s %s">%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], stripslashes( $ad ) );
+	$style = 'style="';
+	if ( $eaa->get_option( $location . '_margin_desktop' ) ) {
+		$style .= 'margin:' . $eaa->get_option( $location . '_margin_desktop' ) . 'px;';
+	}
+	$style .= $eaa->get_option( $location . '_style_desktop' ) . '"';
+
+
+	$args = wp_parse_args( $args, $defaults );
+	$out  = $args['before_ad'];
+
+	if ( $eaa->is_mobile() ) {
+		$out .= sprintf( '<div class="eaa-ad %s %s">%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], stripslashes( $ad ) );
+	} else {
+		$out .= sprintf( '<div class="eaa-ad %s %s" %s>%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], $style, stripslashes( $ad ) );
+	}
 	$out .= $args['after_ad'];
 
 	return $out;
 
 }
+
 
 

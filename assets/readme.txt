@@ -12,7 +12,7 @@ A simple no nonsense ad manager plugin to help you increase your blog revenue mu
 
 == Description ==
 
-**Easy AdSense Ads & Scripts Manager** is a complete ad management and scripts solution for your blog.
+**Easy AdSense Ads & Scripts Manager** is an **AMP ready** complete ad management and scripts solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of your changes.
 
 **Note:**
@@ -48,7 +48,9 @@ We have five well thought out locations
 
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
+* After any paragraph of your choice.
 * After first image.
+* After second image.
 * Between post.
 * After post.
 
@@ -136,6 +138,12 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 4. Widget added by **Easy AdSense Ads & Scripts**
 
 == Changelog ==
+
+**0.19**
+* Add ad after nth paragraph
+* Add ad after second image
+* Add option to add margin and CSS styles to add wrapper
+
 
 **0.18**
 

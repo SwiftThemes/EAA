@@ -28,38 +28,39 @@ function eaa_single_ads( $content ) {
 	}
 
 
-	$below_title = $after_first_p = $after_first_img = $between_post = $after_post = null;
+	$below_title = $after_first_p = $after_first_img = $after_second_img = $between_post = $after_post = null;
 
 	if ( $eaa->get_option( 'post_below_title_enable' ) ) {
-		$below_title = '<div class="eaa-ad ' . $eaa->get_option( 'post_below_title_align_desktop' ) . '">' . $eaa->get_option( 'post_below_title' . $suffix ) . '</div>';
+		$below_title = eaa_wrap_ad( 'post_below_title' );
 	}
 
 	if ( $eaa->get_option( 'post_after_first_p_enable' ) ) {
-		$after_first_p = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_first_p_align_desktop' ) . '">' . $eaa->get_option( 'post_after_first_p' . $suffix ) . '</div>';
+		$after_first_p = eaa_wrap_ad( 'post_after_first_p' );
 	}
 
 	if ( $eaa->get_option( 'post_after_first_img_enable' ) ) {
-		$after_first_img = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_first_img_align_desktop' ) . '">' . $eaa->get_option( 'post_after_first_img' . $suffix ) . '</div>';
+		$after_first_img = eaa_wrap_ad( 'post_after_first_img' );
+	}
+	if ( $eaa->get_option( 'post_after_second_img_enable' ) ) {
+		$after_second_img = eaa_wrap_ad( 'post_after_second_img' );
 	}
 
 	if ( $eaa->get_option( 'post_between_content_enable' ) ) {
-		$between_post = '<div class="eaa-ad ' . $eaa->get_option( 'post_between_content_align_desktop' ) . '">' . $eaa->get_option( 'post_between_content' . $suffix ) . '</div>';
+		$between_post = eaa_wrap_ad( 'post_between_content' );
 	}
 
 	if ( $eaa->get_option( 'post_after_content_enable' ) ) {
-		$after_post = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_content_align_desktop' ) . '">' . $eaa->get_option( 'post_after_content' . $suffix ) . '</div>';
+		$after_post = eaa_wrap_ad( 'post_after_content' );
 	}
 
 	// Advanced ad
-	$nth_p = absint($eaa->get_option( 'show_after_nth_p' ));
+	$nth_p = absint( $eaa->get_option( 'show_after_nth_p' ) );
 
-	var_dump($nth_p);
 
 	if ( $eaa->get_option( 'after_nth_p_enable' ) && $eaa->get_option( 'show_after_nth_p' ) !== 0 ) {
-		$after_nth_p = '<div class="eaa-ad ' . $eaa->get_option( 'after_nth_p_desktop' ) . '">' . $eaa->get_option( 'after_nth_p' . $suffix ) . '</div>';
+		$after_nth_p = eaa_wrap_ad( 'after_nth_p' );
 	}
 
-	var_dump($after_nth_p);
 
 	if ( $between_post || $after_first_p || $after_nth_p ) {
 		$temp      = explode( '</p>', $content );
@@ -77,10 +78,10 @@ function eaa_single_ads( $content ) {
 			}
 
 			// If between post and nth_p are not same
-			if ( !$between_post || $add_after !== $nth_p && $i+1 == $nth_p){
-				var_dump('Inside');
-				var_dump($nth_p);
-				var_dump($add_after);
+			if ( ! $between_post || $add_after !== $nth_p && $i + 1 == $nth_p ) {
+				var_dump( 'Inside' );
+				var_dump( $nth_p );
+				var_dump( $add_after );
 				$content .= do_shortcode( stripslashes( $after_nth_p ) );
 
 				$add_at_the_end = false;
@@ -90,7 +91,10 @@ function eaa_single_ads( $content ) {
 				$content .= do_shortcode( stripslashes( $after_first_p ) );
 			}
 		}
-		$content .= do_shortcode( stripslashes( $after_nth_p ) );
+		if ( isset( $after_nth_p ) ) {
+			$content .= do_shortcode( stripslashes( $after_nth_p ) );
+
+		}
 
 	}
 
@@ -102,12 +106,22 @@ function eaa_single_ads( $content ) {
 		$content = $content . do_shortcode( stripslashes( $after_post ) );
 	}
 
-	if ( $after_first_img ) {
+	if ( $after_first_img || $after_second_img ) {
 
 		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>)/';
-		$temp = preg_split( $s, $content, 2, PREG_SPLIT_DELIM_CAPTURE );
+		$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
+
 		if ( 1 !== count( $temp ) ) {
-			$content = $temp[0] . $temp[1] . do_shortcode( stripslashes( $after_first_img ) ) . $temp[2];
+			$content = $temp[0] . $temp[1];
+			if ( $after_first_img ) {
+				$content .= do_shortcode( stripslashes( $after_first_img ) );
+			}
+
+			if ( $after_second_img && count($temp) === 5) {
+				$content .= $temp[2] . $temp[3] . do_shortcode( stripslashes( $after_second_img ) ) . $temp[4];
+			} else {
+				$content .= $temp[2] . $temp[3] . $temp[4];
+			}
 		}
 	}
 
