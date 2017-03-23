@@ -28,7 +28,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 					$value = '';
 				}
 
-				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
+				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . '><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
 
 
 				if ( isset( $this->settings[3] ) ) {
@@ -62,6 +62,28 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 					$value = '';
 				}
 				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
+
+				$output .= '<div><button style="background:#8e44ad;color: #FFF;border-radius: 3px;border: 0;margin: 10px 0" class="eaa-advanced-toggle">Advanced</button>';
+				$output .= '<div class="advanced" style="display: none">';
+
+				if ( isset( $this->settings[4] ) ) {
+					$value = $this->settings[4]->value();
+				} else {
+					$value = '';
+				}
+
+				$output .= '<label>Margin in pixels without units<input  type="number" value="' . $value . '"  class="" ' . $this->get_link( 4 ) . ' ></label>';
+
+
+				if ( isset( $this->settings[5] ) ) {
+					$value = $this->settings[5]->value();
+				} else {
+					$value = '';
+				}
+
+				$output .= '<br><label>Inline styles<input  value="' . $value . '" type="number" class="" ' . $this->get_link( 5 ) . ' ></label>';
+				$output .= '</div></div>';
+
 				echo $output;
 			}
 

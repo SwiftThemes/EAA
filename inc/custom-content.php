@@ -178,6 +178,8 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 			'eaa[' . $name . '_desktop]',
 			'eaa[' . $name . '_mobile]',
 			'eaa[' . $name . '_align_desktop]',
+			'eaa[' . $name . '_margin]',
+			'eaa[' . $name . '_style]',
 		)
 	);
 
@@ -190,10 +192,7 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 
 	) );
 
-	$wp_customize->add_setting( 'eaa[' . $name . '_align_desktop]', array(
-		'default' => '',
-		'type'    => 'option',
-	) );
+
 	$wp_customize->add_setting( 'eaa[' . $name . '_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -201,6 +200,18 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 	) );
 
 	$wp_customize->add_setting( 'eaa[' . $name . '_mobile]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+	$wp_customize->add_setting( 'eaa[' . $name . '_align_desktop]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+	$wp_customize->add_setting( 'eaa[' . $name . '_margin]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
+	$wp_customize->add_setting( 'eaa[' . $name . '_style]', array(
 		'default' => '',
 		'type'    => 'option',
 	) );
