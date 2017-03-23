@@ -83,7 +83,6 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 
 				$output .= '<br><label>Inline styles<input  value="' . $value . '" type="number" class="" ' . $this->get_link( 5 ) . ' ></label>';
 				$output .= '</div></div>';
-
 				echo $output;
 			}
 

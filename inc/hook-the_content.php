@@ -50,22 +50,48 @@ function eaa_single_ads( $content ) {
 		$after_post = '<div class="eaa-ad ' . $eaa->get_option( 'post_after_content_align_desktop' ) . '">' . $eaa->get_option( 'post_after_content' . $suffix ) . '</div>';
 	}
 
+	// Advanced ad
+	$nth_p = absint($eaa->get_option( 'show_after_nth_p' ));
 
-	if ( $between_post || $after_first_p ) {
+	var_dump($nth_p);
+
+	if ( $eaa->get_option( 'after_nth_p_enable' ) && $eaa->get_option( 'show_after_nth_p' ) !== 0 ) {
+		$after_nth_p = '<div class="eaa-ad ' . $eaa->get_option( 'after_nth_p_desktop' ) . '">' . $eaa->get_option( 'after_nth_p' . $suffix ) . '</div>';
+	}
+
+	var_dump($after_nth_p);
+
+	if ( $between_post || $after_first_p || $after_nth_p ) {
 		$temp      = explode( '</p>', $content );
 		$add_after = (int) ( count( $temp ) / 2 );
 		$content   = '';
 		$count     = count( $temp );
+
+		$add_at_the_end = true;
+
 
 		for ( $i = 0; $i < $count; $i ++ ) {
 			$content .= $temp[ $i ] . '</p>';
 			if ( $between_post && ( $i + 1 == $add_after ) ) {
 				$content .= do_shortcode( stripslashes( $between_post ) );
 			}
+
+			// If between post and nth_p are not same
+			if ( !$between_post || $add_after !== $nth_p && $i+1 == $nth_p){
+				var_dump('Inside');
+				var_dump($nth_p);
+				var_dump($add_after);
+				$content .= do_shortcode( stripslashes( $after_nth_p ) );
+
+				$add_at_the_end = false;
+			}
+
 			if ( 0 == $i && $after_first_p ) {
 				$content .= do_shortcode( stripslashes( $after_first_p ) );
 			}
 		}
+		$content .= do_shortcode( stripslashes( $after_nth_p ) );
+
 	}
 
 	if ( $below_title ) {

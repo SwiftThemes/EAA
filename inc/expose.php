@@ -15,12 +15,12 @@ function eaa_show_ad( $location, $args = array() ) {
 
 
 	if ( $eaa->get_meta( 'disable_all_ads' ) ) {
-		return;
+		return false;
 	}
 
 
 	if ( ! $eaa->get_option( $location . '_enable' ) ) {
-		return;
+		return false;
 	}
 
 
@@ -30,18 +30,21 @@ function eaa_show_ad( $location, $args = array() ) {
 
 
 	if ( ! $ad ) {
-		return;
+		return false;
 	}
 	$defaults = array(
 		'before_ad' => sprintf( '<div class="eaa-wrapper eaa_%s eaa_%s">', $location, $platform ),
 		'after_ad'  => '</div>',
+		'class'     => '',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 
-	echo $args['before_ad'];
-	echo '<div class="eaa-ad ' . $eaa->get_option( $location . '_align_desktop' ) . '">' . stripslashes( $ad ) . '</div>';
-	echo $args['after_ad'];
+	$out = $args['before_ad'];
+	$out .= sprintf( '<div class="eaa-ad %s %s">%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], stripslashes( $ad ) );
+	$out .= $args['after_ad'];
+
+	return $out;
 
 }
 
