@@ -28,7 +28,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 					$value = '';
 				}
 
-				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . ' id="' . $id . '"><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
+				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . '><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
 
 
 				if ( isset( $this->settings[3] ) ) {
@@ -62,6 +62,8 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 					$value = '';
 				}
 				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
+
+
 				echo $output;
 			}
 

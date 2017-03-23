@@ -138,8 +138,8 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 == Changelog ==
 
 **0.18**
-* Expose a method and filter to define ad locations from themes and other plugins.
 
+* Expose a method and filter to define ad locations from themes and other plugins.
 
 **0.17**
 

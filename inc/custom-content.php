@@ -56,10 +56,18 @@ where width is the width of the ad.
 		'description' => $help_text,
 	) );
 
+
+	$wp_customize->add_section( 'eaa_advanced_locations', array(
+		'title'       => __( 'Advanced Location', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 70,
+		'description' => $help_text,
+	) );
+
 	$wp_customize->add_section( 'custom_scripts', array(
 		'title'    => __( 'Header & Footer Scripts', 'eaa' ),
 		'panel'    => 'eaa_ads',
-		'priority' => 30,
+		'priority' => 90,
 	) );
 
 
@@ -163,6 +171,24 @@ where width is the width of the ad.
 	foreach ( $ad_locations as $name => $args ) {
 		eaa_add_ad_unit( $wp_customize, $name, $args );
 	}
+
+
+	/* Advanced Ad locations */
+	$wp_customize->add_setting( 'eaa[show_after_nth_p]', array(
+		'default' => 0,
+		'type'    => 'option',
+	) );
+
+	$wp_customize->add_control( 'eaa[show_after_nth_p]', array(
+		'label'   => __( 'Show the below ad after nth paragraph', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+		'type'    => 'number',
+	) );
+
+	eaa_add_ad_unit( $wp_customize, 'after_nth_p', array(
+		'label'   => esc_html__( 'Ad code', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+	) );
 
 }
 
