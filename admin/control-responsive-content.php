@@ -63,25 +63,34 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				}
 				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
 
-				$output .= '<div><button style="background:#8e44ad;color: #FFF;border-radius: 3px;border: 0;margin: 10px 0" class="eaa-advanced-toggle">Advanced</button>';
-				$output .= '<div class="advanced" style="display: none">';
 
 				if ( isset( $this->settings[4] ) ) {
-					$value = $this->settings[4]->value();
+					$margin = $this->settings[4]->value();
 				} else {
-					$value = '';
+					$margin = '';
 				}
-
-				$output .= '<label>Margin in pixels without units<input  type="number" value="' . $value . '"  class="" ' . $this->get_link( 4 ) . ' ></label>';
 
 
 				if ( isset( $this->settings[5] ) ) {
-					$value = $this->settings[5]->value();
+					$styles = $this->settings[5]->value();
 				} else {
-					$value = '';
+					$styles = '';
 				}
 
-				$output .= '<br><label>Inline styles<input  value="' . $value . '" type="text" class="" ' . $this->get_link( 5 ) . ' ></label>';
+				if ( $margin || $styles ) {
+					$advanced_class = 'show';
+				} else {
+					$advanced_class = 'hide';
+				}
+
+				$output .= '<div><button style="" class="eaa-advanced-toggle">' . __( 'Advanced Options', 'eaa' ) . '</button>';
+				$output .= '<div class="advanced ' . $advanced_class . '">';
+
+
+				$output .= '<label>Margin in pixels without units<input  type="number" value="' . $margin . '"  class="" ' . $this->get_link( 4 ) . ' ></label>';
+
+
+				$output .= '<br><label>Inline styles<input  value="' . $styles . '" type="text" class="" ' . $this->get_link( 5 ) . ' ></label>';
 				$output .= '</div></div>';
 				echo $output;
 			}
