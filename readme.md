@@ -114,6 +114,14 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 ## Changelog 
 
+**0.21**
+
+* Remove debugging statements.
+
+**0.20**
+
+* Couple of UX enhancemnts to advanced options.
+
 **0.19**
 * Add ad after nth paragraph
 * Add ad after second image

@@ -79,9 +79,6 @@ function eaa_single_ads( $content ) {
 
 			// If between post and nth_p are not same
 			if ( ! $between_post || $add_after !== $nth_p && $i + 1 == $nth_p ) {
-				var_dump( 'Inside' );
-				var_dump( $nth_p );
-				var_dump( $add_after );
 				$content .= do_shortcode( stripslashes( $after_nth_p ) );
 
 				$add_at_the_end = false;

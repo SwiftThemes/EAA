@@ -4,11 +4,11 @@ Donate link: https://swiftthemes.com/donate
 Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.18
+Stable tag: 0.21
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple no nonsense ad manager plugin to help you increase your blog revenue multiple fold. Only ad manager giving you a live preview of your changes
+A simple no nonsense AMP ready AD Manager to help you increase your blog revenue multiple fold.The only ad manager with a live preview of your changes
 
 == Description ==
 
@@ -28,7 +28,7 @@ The header and footer scripts are not limited to just javascript.
 * Verify the website ownership with the meta tag.
 
 
-It's awesome features include
+### EAA's awesome features include &hellip;
 
 ### Separate content/ads for mobile, tablet and desktops.
 You can have different ad units for mobile, (tablets and desktops). 
@@ -77,6 +77,7 @@ This is smilar to text widget but with some cool extras
 ### Rotate ads
 Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
 You can use the shortcode anywhere, even in your post content.
+
 **Example**:
 
 ```
@@ -139,7 +140,16 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 == Changelog ==
 
+**0.21**
+
+* Remove debugging statements.
+
+**0.20**
+
+* Couple of UX enhancemnts to advanced options.
+
 **0.19**
+
 * Add ad after nth paragraph
 * Add ad after second image
 * Add option to add margin and CSS styles to add wrapper
