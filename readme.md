@@ -36,7 +36,7 @@ Key features here include
 We have five well thought out locations
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
-* After any paragraph of your choice.
+* After any 3 paragraphs of your choice.
 * After first image.
 * After second image.
 * Between post.

@@ -28,7 +28,7 @@ function eaa_single_ads( $content ) {
 	}
 
 
-	$below_title = $after_first_p = $after_first_img = $after_second_img = $between_post = $after_post = null;
+	$below_title = $after_first_p = $after_first_img = $after_second_img = $between_post = $after_post = $after_nth_p = $after_nth_p_1 = $after_nth_p_2 = null;
 
 	if ( $eaa->get_option( 'post_below_title_enable' ) ) {
 		$below_title = eaa_wrap_ad( 'post_below_title' );
@@ -54,43 +54,60 @@ function eaa_single_ads( $content ) {
 	}
 
 	// Advanced ad
-	$nth_p = absint( $eaa->get_option( 'show_after_nth_p' ) );
+	$nth_p   = $eaa->get_option( 'show_after_nth_p' ) ? absint( $eaa->get_option( 'show_after_nth_p' ) ) : false;
+	$nth_p_1 = $eaa->get_option( 'show_after_nth_p_1' ) ? absint( $eaa->get_option( 'show_after_nth_p_1' ) ) : false;
+	$nth_p_2 = $eaa->get_option( 'show_after_nth_p_2' ) ? absint( $eaa->get_option( 'show_after_nth_p_2' ) ) : false;
 
 
-	if ( $eaa->get_option( 'after_nth_p_enable' ) && $eaa->get_option( 'show_after_nth_p' ) !== 0 ) {
+	if ( $eaa->get_option( 'after_nth_p_enable' ) && $nth_p !== false ) {
 		$after_nth_p = eaa_wrap_ad( 'after_nth_p' );
+	}
+	if ( $eaa->get_option( 'after_nth_p_1_enable' ) && $nth_p_1 !== false ) {
+		$after_nth_p_1 = eaa_wrap_ad( 'after_nth_p_1' );
+	}
+	if ( $eaa->get_option( 'after_nth_p_2_enable' ) && $nth_p_2 !== false ) {
+		$after_nth_p_2 = eaa_wrap_ad( 'after_nth_p_2' );
 	}
 
 
-	if ( $between_post || $after_first_p || $after_nth_p ) {
+	if ( $between_post || $after_first_p || $after_nth_p || $after_nth_p_1 || $after_nth_p_2 ) {
 		$temp      = explode( '</p>', $content );
 		$add_after = (int) ( count( $temp ) / 2 );
 		$content   = '';
 		$count     = count( $temp );
 
-		$add_at_the_end = true;
+		$add_at_the_end = $eaa->get_option( 'show_after_nth_at_the_end' );
 
 
 		for ( $i = 0; $i < $count; $i ++ ) {
-			$content .= $temp[ $i ] . '</p>';
-			if ( $between_post && ( $i + 1 == $add_after ) ) {
+			if ( $between_post && ( $i == $add_after ) ) {
 				$content .= do_shortcode( stripslashes( $between_post ) );
 			}
 
 			// If between post and nth_p are not same
-			if ( ! $between_post || $add_after !== $nth_p && $i + 1 == $nth_p ) {
+			if ( ( ! $between_post || $add_after !== $nth_p ) && $i == $nth_p ) {
 				$content .= do_shortcode( stripslashes( $after_nth_p ) );
-
 				$add_at_the_end = false;
+			}
+
+			// If between post and nth_p are not same
+			if ( ( ! $between_post || $add_after !== $nth_p_1 ) && $i == $nth_p_1 ) {
+				$content .= do_shortcode( stripslashes( $after_nth_p_1 ) );
+			}
+
+			// If between post and nth_p are not same
+			if ( ( ! $between_post || $add_after !== $nth_p_2 ) && $i == $nth_p_2 ) {
+				$content .= do_shortcode( stripslashes( $after_nth_p_2 ) );
 			}
 
 			if ( 0 == $i && $after_first_p ) {
 				$content .= do_shortcode( stripslashes( $after_first_p ) );
 			}
-		}
-		if ( isset( $after_nth_p ) ) {
-			$content .= do_shortcode( stripslashes( $after_nth_p ) );
+			$content .= $temp[ $i ] . '</p>';
 
+		}
+		if ( $add_at_the_end && isset( $after_nth_p ) ) {
+			$content .= do_shortcode( stripslashes( $after_nth_p ) );
 		}
 
 	}
@@ -114,7 +131,7 @@ function eaa_single_ads( $content ) {
 				$content .= do_shortcode( stripslashes( $after_first_img ) );
 			}
 
-			if ( $after_second_img && count($temp) === 5) {
+			if ( $after_second_img && count( $temp ) === 5 ) {
 				$content .= $temp[2] . $temp[3] . do_shortcode( stripslashes( $after_second_img ) ) . $temp[4];
 			} else {
 				$content .= $temp[2] . $temp[3] . $temp[4];

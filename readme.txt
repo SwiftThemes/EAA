@@ -1,14 +1,14 @@
 === Easy AdSense Ads & Scripts Manager ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense, AdSense Manager, Ad Injection, AMP Ads, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 0.21
+Stable tag: 0.22
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple no nonsense AMP ready AD Manager to help you increase your blog revenue multiple fold.The only ad manager with a live preview of your changes
+The QUICKEST and most INTUITIVE way to insert Google AdSense & other ads into your website with a live preview. Google AMP ready. #Double_Your_Revenue
 
 == Description ==
 
@@ -48,7 +48,7 @@ We have five well thought out locations
 
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
-* After any paragraph of your choice.
+* After any 3 paragraphs of your choice.
 * After first image.
 * After second image.
 * Between post.
@@ -139,6 +139,12 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 4. Widget added by **Easy AdSense Ads & Scripts**
 
 == Changelog ==
+
+**0.21**
+
+* Move after second image ad to advanced section.
+* Add 2 more after nth paragraph ad units.
+* Handle ZERO value for after nth paragraph.
 
 **0.21**
 

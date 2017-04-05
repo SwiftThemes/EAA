@@ -58,7 +58,7 @@ where width is the width of the ad.
 
 
 	$wp_customize->add_section( 'eaa_advanced_locations', array(
-		'title'       => __( 'Advanced Location', 'eaa' ),
+		'title'       => __( 'Advanced Locations', 'eaa' ),
 		'panel'       => 'eaa_ads',
 		'priority'    => 70,
 		'description' => $help_text,
@@ -73,7 +73,7 @@ where width is the width of the ad.
 
 	eaa_add_ad_unit( $wp_customize, 'home_between_posts_content',
 		array(
-			'label'   => esc_html__( 'Home page custom content/ad', 'eaa' ),
+			'label'   => esc_html__( 'Home page custom ad', 'eaa' ),
 			'section' => 'home_page_content',
 		) );
 
@@ -92,18 +92,18 @@ where width is the width of the ad.
 
 
 	$wp_customize->add_control( 'eaa[home_between_posts_content_start_after]', array(
-		'label'   => __( 'Start displaying the above custom content after nth post.', 'eaa' ),
+		'label'   => __( 'Start displaying the above ad after nth post.', 'eaa' ),
 		'section' => 'home_page_content',
 		'type'    => 'number',
 	) );
 
 	$wp_customize->add_control( 'eaa[home_between_posts_content_repeat_for]', array(
-		'label'   => __( 'Repeat the content for n times.', 'eaa' ),
+		'label'   => __( 'Repeat the ad for n times.', 'eaa' ),
 		'section' => 'home_page_content',
 		'type'    => 'number',
 	) );
 	$wp_customize->add_control( 'eaa[home_between_posts_content_repeat_every]', array(
-		'label'   => __( 'Repeat the content after every n posts.', 'eaa' ),
+		'label'   => __( 'Repeat the ad after every n posts.', 'eaa' ),
 		'section' => 'home_page_content',
 		'type'    => 'number',
 	) );
@@ -140,32 +140,32 @@ where width is the width of the ad.
 	//Single post
 
 	$ad_locations['post_below_title'] = array(
-		'label'   => esc_html__( 'Below post title custom content/ad', 'eaa' ),
+		'label'   => esc_html__( 'Below post title custom ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
 	$ad_locations['post_after_first_p'] = array(
-		'label'   => esc_html__( 'After first paragraph custom content/ad', 'eaa' ),
+		'label'   => esc_html__( 'After first paragraph custom ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
 	$ad_locations['post_after_first_img']  = array(
-		'label'   => esc_html__( 'After first anchored image custom content/ad', 'eaa' ),
+		'label'   => esc_html__( 'After first anchored image custom ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 	$ad_locations['post_after_second_img'] = array(
-		'label'   => esc_html__( 'After second anchored image custom content/ad', 'eaa' ),
-		'section' => 'post_content',
+		'label'   => esc_html__( 'After second anchored image custom ad', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
 	);
 
 	$ad_locations['post_between_content'] = array(
-		'label'   => esc_html__( 'Between post custom content/ad', 'eaa' ),
+		'label'   => esc_html__( 'Between post custom ad', 'eaa' ),
 		'section' => 'post_content',
 
 	);
 
 	$ad_locations['post_after_content'] = array(
-		'label'   => esc_html__( 'After post custom content/ad', 'eaa' ),
+		'label'   => esc_html__( 'After post custom ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
@@ -179,20 +179,71 @@ where width is the width of the ad.
 
 	/* Advanced Ad locations */
 	$wp_customize->add_setting( 'eaa[show_after_nth_p]', array(
-		'default' => 0,
+		'default' => 2,
 		'type'    => 'option',
 	) );
 
+
 	$wp_customize->add_control( 'eaa[show_after_nth_p]', array(
-		'label'   => __( 'Show the below ad after nth paragraph', 'eaa' ),
+		'label'   => __( 'Show the below ad after nth paragraph #1', 'eaa' ),
 		'section' => 'eaa_advanced_locations',
 		'type'    => 'number',
+		'input_attrs'=>['min'=>0,'max'=>20]
+	) );
+
+
+	$wp_customize->add_setting( 'eaa[show_after_nth_at_the_end]', array(
+		'default' => 1,
+		'type'    => 'option',
+	) );
+
+	$wp_customize->add_control( 'eaa[show_after_nth_at_the_end]', array(
+		'label'   => __( 'Show this after end of post if fewer paragraphs are found. Note: Only this ad unit has this option.', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+		'type'    => 'checkbox',
 	) );
 
 	eaa_add_ad_unit( $wp_customize, 'after_nth_p', array(
 		'label'   => esc_html__( 'Ad code', 'eaa' ),
 		'section' => 'eaa_advanced_locations',
 	) );
+
+
+	//1
+	$wp_customize->add_setting( 'eaa[show_after_nth_p_1]', array(
+		'default' => 5,
+		'type'    => 'option',
+	) );
+
+	$wp_customize->add_control( 'eaa[show_after_nth_p_1]', array(
+		'label'   => __( 'Show the below ad after nth paragraph #2', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+		'type'    => 'number',
+	) );
+
+	eaa_add_ad_unit( $wp_customize, 'after_nth_p_1', array(
+		'label'   => esc_html__( 'Ad code', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+	) );
+
+
+	//2
+	$wp_customize->add_setting( 'eaa[show_after_nth_p_2]', array(
+		'default' => 6,
+		'type'    => 'option',
+	) );
+
+	$wp_customize->add_control( 'eaa[show_after_nth_p_2]', array(
+		'label'   => __( 'Show the below ad after nth paragraph #3', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+		'type'    => 'number',
+	) );
+
+	eaa_add_ad_unit( $wp_customize, 'after_nth_p_2', array(
+		'label'   => esc_html__( 'Ad code', 'eaa' ),
+		'section' => 'eaa_advanced_locations',
+	) );
+
 
 }
 
