@@ -114,6 +114,12 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 ## Changelog 
 
+**0.22**
+
+* Move after second image ad to advanced section.
+* Add 2 more after nth paragraph ad units.
+* Handle ZERO value for after nth paragraph.
+
 **0.21**
 
 * Remove debugging statements.
@@ -129,6 +135,7 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 **0.18**
 * Expose a method and filter to define ad locations from themes and other plugins. 
+
 **0.17**
 * Fix issue with the contact form on EAA Help page.
 

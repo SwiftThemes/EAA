@@ -2,27 +2,27 @@
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
 Tags: AdSense, AdSense Manager, Ad Injection, AMP Ads, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Ad Manager, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
-Requires at least: 4.6
+Requires at least: 3.0
 Tested up to: 4.7
-Stable tag: 0.22
+Stable tag: 0.23
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The QUICKEST and most INTUITIVE way to insert Google AdSense & other ads into your website with a live preview. Google AMP ready. #Double_Your_Revenue
+The QUICKEST and most INTUITIVE way to insert Google AdSense & other ads into your website with a live preview. Google AMP ready ad injection.
 
 == Description ==
 
 **Easy AdSense Ads & Scripts Manager** is an **AMP ready** complete ad management and scripts solution for your blog.
-Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of your changes.
+Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
 
 **Note:**
 The ad locations are not limited to AdSense
 
-- You can use them for ads from any network.
-- You can use multiple ads in the same location.
-- You can also use them to ad html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
+- You can use them for ads from any network like BuySell Ads, Chitika, Bidvertiser, Infolinks, Adsterra Network, Revcontent, Clicksor etc .
+- You can inject multiple ads in the same location.
+- You can also use these ad locations to ads html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
 
-The header and footer scripts are not limited to just javascript.
+The header and footer scripts are not limited to just injecting javascript.
 
 * You can use them to load fonts.
 * Verify the website ownership with the meta tag.
@@ -33,7 +33,7 @@ The header and footer scripts are not limited to just javascript.
 ### Separate content/ads for mobile, tablet and desktops.
 You can have different ad units for mobile, (tablets and desktops). 
 With this feature, you can use the high performing 336x300px or 728x90 ad units for desktops and tablets and use 300px wide ads for mobiles.
-Though AdSense provides responsive ad units, their fill rate is not very good.
+Though Google AdSense provides responsive ad units, their fill rate is not very good.
 
 ### Ads on homepage and archives
 You can easily insert ads into the WordPress loop on home page and archives. Since AdSense has a limit on number ad units you can display on a page, you can easily set how many times to repeat.
@@ -44,7 +44,7 @@ Key features here include
 * Choose how many times it should be displayed.
 
 ### Ads on single page ( Posts and Pages )
-We have five well thought out locations
+We have nine well thought out locations
 
 * Below title ( Highly converting, but google search doesn't like ads above fold)
 * After first paragraph. (Highly converting, no issues with SEO)
@@ -75,7 +75,7 @@ This is smilar to text widget but with some cool extras
 
 
 ### Rotate ads
-Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
+Wan't to rotate ads? We have the ad rotaion feature built in. Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
 You can use the shortcode anywhere, even in your post content.
 
 **Example**:
@@ -140,7 +140,7 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 
 == Changelog ==
 
-**0.21**
+**0.22**
 
 * Move after second image ad to advanced section.
 * Add 2 more after nth paragraph ad units.
