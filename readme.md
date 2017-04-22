@@ -66,6 +66,7 @@ This is smilar to text widget but with some cool extras
 Wan't to rotate ads? Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual ads with `<!-- next_ad -->`.
 You can use the shortcode anywhere, even in your post content.
 **Example**:
+
         ```
         [ads]
         First ad <!-- next_ad -->
@@ -74,6 +75,7 @@ You can use the shortcode anywhere, even in your post content.
         fourth ad
         [/ads]
         ```
+        
 ### Option to add header and footer scripts.
 Easily ad your analytics script, website verification scripts, fonts and any other script you might want to add to your website header or footer.
 This is limited to scripts, meta tags and any other tags that usually go in header. Adding regular content here is strictly not advisable.
@@ -82,7 +84,41 @@ This is limited to scripts, meta tags and any other tags that usually go in head
 ### Live preview
 All this can be done through the awesome WordPress customiser, so you get an instant preview of how your ad or content looks.
 
+### Easily integrate with your theme
+EAA exposes functions to easily add the ads to custom locations in your themes.
 
+**Step 1**
+
+Add the below code at the end of your themes `functions.php` file
+    
+    ```
+    add_filter( 'eaa_ad_locations', 'themename_add_eaa_ad_locations' );
+    
+    function themename_add_eaa_ad_locations( $ad_locations ) {
+        /**
+         * Each line below ads a new add location in customizer at
+         * Easy AdSense Ads & Scripts -> Theme locations
+         * You can add as many locations as you please
+         */
+        $ad_locations['ps_above_header'] = array( 'label' => esc_html__( 'Above header', 'page-speed' ) );
+        $ad_locations['ps_header']       = array( 'label' => esc_html__( 'In header', 'page-speed' ) );
+        $ad_locations['ps_below_header'] = array( 'label' => esc_html__( 'Below header', 'page-speed' ) );
+        $ad_locations['ps_before_main']  = array( 'label' => esc_html__( 'Before main div', 'page-speed' ) );
+        $ad_locations['ps_after_main']   = array( 'label' => esc_html__( 'After main div', 'page-speed' ) );
+        $ad_locations['ps_above_footer'] = array( 'label' => esc_html__( 'Above footer', 'page-speed' ) );
+        return $ad_locations;
+    }
+    
+    ```
+
+**Step 2**
+Now to inject these ads into the theme, place the below code in the theme file where you want to inject the ad.
+
+    ```
+    <?php 
+        echo eaa_show_ad( 'ps_above_header' ); // Use the appropriate ad name
+    ?>
+    ```
 
 ##Installation
 
@@ -112,7 +148,45 @@ We don't actually need to support AMP becuase you can use AMP supported ad code 
 1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
+**Does this plugin ‘take’ a percentage of my ad earnings?**
+No! Absolutely not. Some ad plugins replace your publisher ID with their own for a certain percentage of adverts. 
+Easy AdSense Ads #EAA does NOT do this. All your earnings are your own. Easy AdSense Ads #EAA makes no modifications to your ad code. 
+What you paste into the ad boxes is what is injected into your pages.
+
+**Do I need a caching plugin with Easy AdSense Ads Manager**
+No. But in general it is a good idea to use a caching plugin. We recommend W3TC. For reason why, read the next question.
+
+**Which caching plugin to use**
+If you are using different ads for mobile and desktops along with caching, chances are a page cached for mobile may be displayed to 
+desktop users and vice versa.
+
+One way to handle this problem is to have separate caches for mobile and desktop. At this time the only plugin that lets to maintain separate caches is
+ W3TC. 
+ 
+ So, we highly recommend you use w3tc if you are different adsense ads for mobiles and desktops. If not, it doesn't matter and you are free to choose whatever caching plugin you use.
+
+**How to have separate caches for Mobile and Desktop**
+If you are using w3tc plugin for caching, 
+1. Go to plugin options page and enable `Automatically create user agent groups for W3TC` option.
+2. Now goto w3tc -> User agent groups and click on save changes. 
+
+After step 2, your user agent groups should looks something like screenshot 5.
+
+**Note**: 
+
+If you are using a separate theme, you shouldn't use this option.
+
+
 ## Changelog 
+
+
+**0.24**
+* Fix an array declaration to be compatible with PHP 5.3.
+* W3tc Integration.
+* Pages and custom posts type support.
+
+**0.23**
+* Accidental version bump.
 
 **0.22**
 

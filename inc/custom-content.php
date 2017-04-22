@@ -185,10 +185,10 @@ where width is the width of the ad.
 
 
 	$wp_customize->add_control( 'eaa[show_after_nth_p]', array(
-		'label'   => __( 'Show the below ad after nth paragraph #1', 'eaa' ),
-		'section' => 'eaa_advanced_locations',
-		'type'    => 'number',
-		'input_attrs'=>['min'=>0,'max'=>20]
+		'label'       => __( 'Show the below ad after nth paragraph #1', 'eaa' ),
+		'section'     => 'eaa_advanced_locations',
+		'type'        => 'number',
+		'input_attrs' => array( 'min' => 0, 'max' => 200 ),
 	) );
 
 

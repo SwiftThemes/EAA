@@ -59,6 +59,14 @@
 		border-radius: 5px;
 	}
 
+	.review-button{
+		background: rgb(255, 57, 46);color:#FFF;border-radius: 3px;padding: 2px 5px;text-decoration: none;
+	}
+	.review-button:hover{
+		background: red;
+		color: #fff;
+		text-shadow: 1px 1px 1px #000;
+	}
 </style>
 <div class="wrap">
 	<h1>
@@ -108,8 +116,8 @@
 					forum</strong></a> or shoot an email to
 			<a href="mailto:satish@swiftthemes.com?Subject=Question%20about%20EAA" target="_top"><strong>satish@SwiftThemes.com</strong></a>
 			<br>
-			If you like the plugin, please recommend it to your peers and rate it on <a
-				href="https://wordpress.org/support/plugin/easy-adsense-ads-scripts-manager/reviews/"><strong>WordPress.Org</strong></a>
+			If you like the plugin, please recommend it to your peers and <a
+				href="https://wordpress.org/support/plugin/easy-adsense-ads-scripts-manager/reviews/" target="_blank" class="review-button"><strong>REVIEW IT</strong></a> on <strong>WordPress.Org</strong>
 		</div>
 		<div class="eaa-card">
 			<h2>Our Promise</h2>
