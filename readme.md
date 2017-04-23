@@ -11,7 +11,7 @@ Unlike other plugins out there, this integrates right into the WordPress **custo
 The ad locations are not limited to AdSense
 * You can use them for ads from any network.
 * You can use multiple ads in the same location.
-* You can also use them to ad html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc.. 
+* You can also use them to add html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc.. 
 
 The header and footer scripts are not limited to just javascript.
 * You can use them to load fonts.
@@ -57,7 +57,7 @@ You can easily choose the alignment, set margins and add CSS styles to your ad w
 
 ### Ads Widget
 Place ads in any wdigetized sections in your theme with the built in **Easy AdSense Ads & Scripts** widget.
-This is smilar to text widget but with some cool extras
+This is similar to text widget but with some cool extras
 * Add separate ads/content for desktop & tablets and mobiles.
 * This widget respects the above feature, and hides itself when you choose to not show ads on the page.
 * Remove default paddings and borders if you need more room for the ads.
@@ -179,6 +179,13 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+**0.26**
+
+* Fix issue with customizer settings not saving
+* Separated the settings and ads into separate options.
+
+**0.25**
+* Role back to 0.23
 
 **0.24**
 * Fix an array declaration to be compatible with PHP 5.3.

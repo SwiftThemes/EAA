@@ -16,7 +16,7 @@ function eaa_settings_init() {
 		'eaa_advanced'
 	);
 
-	register_setting( 'eaa-settings', 'eaa', 'eaa_sanitize_settings' ); //@todo write sanitization function
+	register_setting( 'eaa-settings', 'eaa_settings', 'eaa_sanitize_settings' ); //@todo write sanitization function
 }
 
 add_action( 'admin_init', 'eaa_settings_init' );
@@ -26,11 +26,11 @@ function eaa_advanced_options_section_callback() {
 }
 
 function eaa_settings_field_callback_() {
-	global $eaa;
+	$settings = get_option( 'eaa_settings' );
 	?>
 	<label>
-		<input type="checkbox" name="eaa[enable_w3tc_ua_groups]" value=true
-			<?php checked( $eaa->get_option( 'enable_w3tc_ua_groups' ) ); ?>/>
+		<input type="checkbox" name="eaa_settings[enable_w3tc_ua_groups]" value=true
+			<?php checked( $settings[ 'enable_w3tc_ua_groups'] ); ?>/>
 		<?php _e( 'Automatically create user agent groups for W3TC', 'eaa' ); ?>
 	</label>
 	<?php
@@ -80,21 +80,15 @@ function eaa_options_page() {
 <?php }
 
 function eaa_sanitize_settings( $input ) {
-	$options = array(
+	$options  = array(
 		'enable_w3tc_ua_groups' => 'eaa_sanitize_boolean',
 	);
-
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {
 		$sanitized[ $key ] = $func( $input[ $key ] );
 	}
 
-	$ads = get_option( 'eaa', array() );
-	if ( ! is_array( $ads ) ) {
-		$ads = array();
-	}
-
-	return array_merge( $ads, $sanitized );
+	return $sanitized;
 }
 
 function eaa_sanitize_boolean( $val ) {

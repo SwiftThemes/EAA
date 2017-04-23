@@ -17,7 +17,7 @@ function eaa_single_ads( $content ) {
 	 * - If ad's are disabled for this post
 	 */
 	if ( ! is_singular() || is_attachment() || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
-		return $content;
+			return $content;
 	}
 
 

@@ -9,8 +9,8 @@
  * @return array
  */
 function eaa_w3tc_mobile_groups( $w3tc_groups ) {
-	global $eaa;
-	if ( !$eaa->get_option( 'enable_w3tc_ua_groups' ) ) {
+	$settings = get_option( 'eaa_settings' );
+	if ( $settings ['enable_w3tc_ua_groups'] ) {
 		return $w3tc_groups;
 	}
 	// any operations

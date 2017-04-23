@@ -13,7 +13,7 @@ The QUICKEST and most INTUITIVE Ads Manager to inject Google AdSense and other a
 == Description ==
 
 If you are looking for an ad injection plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
-This is the best google AdSense plugin for WordPress.
+This is the best Google AdSense plugin for WordPress.
 
 **Easy AdSense Ads Manager For WordPress** is an **AMP ready** complete ad management and scripts solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
@@ -23,7 +23,7 @@ The ad locations are not limited to AdSense ads
 
 - You can use them to insert ads from any network like BuySell Ads, Chitika, Bidvertiser, Infolinks, AdSense, Adsterra Network, Revcontent, Clicksor,AdSense, OIO Publisher etc .
 - You can inject multiple AdSense/ads in the same location.
-- You can also use these ad locations to ads html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
+- You can also use these ad locations to add html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
 
 The header and footer scripts are not limited to just injecting javascript.
 
@@ -84,7 +84,6 @@ You can use the shortcode anywhere, even in your post content.
 **Example**:
 
 ```
-
         [ads]
         First AdSense ad <!-- next_ad -->
         Second AdSense ad <!-- next_ad -->
@@ -98,10 +97,9 @@ You can use the shortcode anywhere, even in your post content.
         tenth AdSense ad<!-- next_ad -->
         eleventh AdSense ad<!-- next_ad -->
         twentieth AdSense ad<!-- next_ad -->
-        thrityeth AdSense ad<!-- next_ad -->
+        thirtieth AdSense ad<!-- next_ad -->
         so on, you get the idea. AdSense ad<!-- next_ad -->
         [/ads]
-
 ```
 
 ### Option to add header and footer scripts.
@@ -115,6 +113,42 @@ All this can be done through the awesome WordPress customiser, so you get an ins
 
 ### Advanced options and Floating ads
 Easily float the ads or apply advanced css rules like margin, padding, border etc., to the ads
+
+### Easily integrate with your theme
+Easy AdSense Ads exposes functions to easily inject the ads to custom locations into your themes.
+
+**Step 1**
+
+Add the below code at the end of your themes `functions.php` file
+
+    ```
+    add_filter( 'eaa_ad_locations', 'themename_add_eaa_ad_locations' );
+
+    function themename_add_eaa_ad_locations( $ad_locations ) {
+        /**
+         * Each line below ads a new add location in customizer at
+         * Easy AdSense Ads & Scripts -> Theme locations
+         * You can add as many locations as you please
+         */
+        $ad_locations['ps_above_header'] = array( 'label' => esc_html__( 'Above header', 'page-speed' ) );
+        $ad_locations['ps_header']       = array( 'label' => esc_html__( 'In header', 'page-speed' ) );
+        $ad_locations['ps_below_header'] = array( 'label' => esc_html__( 'Below header', 'page-speed' ) );
+        $ad_locations['ps_before_main']  = array( 'label' => esc_html__( 'Before main div', 'page-speed' ) );
+        $ad_locations['ps_after_main']   = array( 'label' => esc_html__( 'After main div', 'page-speed' ) );
+        $ad_locations['ps_above_footer'] = array( 'label' => esc_html__( 'Above footer', 'page-speed' ) );
+        return $ad_locations;
+    }
+
+    ```
+
+**Step 2**
+Now to inject these ads into the theme, place the below code in the theme file where you want to inject the ad.
+
+    ```
+    <?php
+        echo eaa_show_ad( 'ps_above_header' ); // Use the appropriate ad name
+    ?>
+    ```
 
 == Installation ==
 
@@ -184,14 +218,24 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
+**0.26**
+
+* Fix issue with customizer settings not saving
+* Separated the settings and ads into separate options.
+
+**0.25**
+
+* Role back to 0.23
 
 **0.24**
+
 * Fix an array declaration to be compatible with PHP 5.3.
 * W3tc Integration.
 * Pages and custom posts type support.
 
 **0.23**
-Accidental version bump.
+
+* Accidental version bump.
 
 **0.22**
 
