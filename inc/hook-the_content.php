@@ -9,15 +9,13 @@ add_filter( 'the_content', 'eaa_single_ads', 11 );
  */
 function eaa_single_ads( $content ) {
 	global $eaa;
+	global $post;
 
-	/*
-	 * Don't execute the hook on
-	 * - Archives
-	 * - Attachment
-	 * - If ad's are disabled for this post
-	 */
-	if ( ! is_singular() || is_attachment() || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
-			return $content;
+	$settings                      = get_option( 'eaa_settings' );
+	$enable_between_content_ads_on = $settings['enable_between_content_ads_on'];
+
+	if ( ! is_singular() || ! in_array( $post->post_type, $enable_between_content_ads_on ) || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
+		return $content;
 	}
 
 
@@ -31,26 +29,26 @@ function eaa_single_ads( $content ) {
 	$below_title = $after_first_p = $after_first_img = $after_second_img = $between_post = $after_post = $after_nth_p = $after_nth_p_1 = $after_nth_p_2 = null;
 
 	if ( $eaa->get_option( 'post_below_title_enable' ) ) {
-		$below_title = eaa_wrap_ad( 'post_below_title' );
+		$below_title = eaa_get_content_ad( 'post_below_title' );
 	}
 
 	if ( $eaa->get_option( 'post_after_first_p_enable' ) ) {
-		$after_first_p = eaa_wrap_ad( 'post_after_first_p' );
+		$after_first_p = eaa_get_content_ad( 'post_after_first_p' );
 	}
 
 	if ( $eaa->get_option( 'post_after_first_img_enable' ) ) {
-		$after_first_img = eaa_wrap_ad( 'post_after_first_img' );
+		$after_first_img = eaa_get_content_ad( 'post_after_first_img' );
 	}
 	if ( $eaa->get_option( 'post_after_second_img_enable' ) ) {
-		$after_second_img = eaa_wrap_ad( 'post_after_second_img' );
+		$after_second_img = eaa_get_content_ad( 'post_after_second_img' );
 	}
 
 	if ( $eaa->get_option( 'post_between_content_enable' ) ) {
-		$between_post = eaa_wrap_ad( 'post_between_content' );
+		$between_post = eaa_get_content_ad( 'post_between_content' );
 	}
 
 	if ( $eaa->get_option( 'post_after_content_enable' ) ) {
-		$after_post = eaa_wrap_ad( 'post_after_content' );
+		$after_post = eaa_get_content_ad( 'post_after_content' );
 	}
 
 	// Advanced ad
@@ -59,14 +57,14 @@ function eaa_single_ads( $content ) {
 	$nth_p_2 = $eaa->get_option( 'show_after_nth_p_2' ) ? absint( $eaa->get_option( 'show_after_nth_p_2' ) ) : false;
 
 
-	if ( $eaa->get_option( 'after_nth_p_enable' ) && $nth_p !== false ) {
-		$after_nth_p = eaa_wrap_ad( 'after_nth_p' );
+	if ( $eaa->get_option( 'after_nth_p_enable' ) && false !== $nth_p ) {
+		$after_nth_p = eaa_get_content_ad( 'after_nth_p' );
 	}
-	if ( $eaa->get_option( 'after_nth_p_1_enable' ) && $nth_p_1 !== false ) {
-		$after_nth_p_1 = eaa_wrap_ad( 'after_nth_p_1' );
+	if ( $eaa->get_option( 'after_nth_p_1_enable' ) && false !== $nth_p_1 ) {
+		$after_nth_p_1 = eaa_get_content_ad( 'after_nth_p_1' );
 	}
-	if ( $eaa->get_option( 'after_nth_p_2_enable' ) && $nth_p_2 !== false ) {
-		$after_nth_p_2 = eaa_wrap_ad( 'after_nth_p_2' );
+	if ( $eaa->get_option( 'after_nth_p_2_enable' ) && false !== $nth_p_2 ) {
+		$after_nth_p_2 = eaa_get_content_ad( 'after_nth_p_2' );
 	}
 
 

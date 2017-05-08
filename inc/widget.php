@@ -25,7 +25,7 @@ class EAA_Widget_Text extends WP_Widget {
 	public function __construct() {
 		$widget_ops  = array(
 			'classname'                   => 'widget_text eaa __eaa__',
-			'description'                 => __( 'AdSense ads, arbitrary text, HTML or JS.','eaa' ),
+			'description'                 => __( 'AdSense ads, arbitrary text, HTML or JS.', 'eaa' ),
 			'customize_selective_refresh' => true,
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
@@ -44,21 +44,31 @@ class EAA_Widget_Text extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		GLOBAL $eaa;
+		global $eaa;
 
-		if($eaa->get_meta('disable_all_ads')){
+		if ( $eaa->get_meta( 'disable_all_ads' ) ) {
 			return;
+		}
+		$settings             = get_option( 'eaa_settings' );
+		$disable_other_ads_on = $settings['disable_other_ads_on'];
+		global $post;
+
+		if ( is_singular() && in_array( $post->post_type, $disable_other_ads_on ) ) {
+			return false;
 		}
 
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		if ( $eaa->is_mobile() ) {
+
+		if(is_amp_endpoint() && $settings['enable_amp_support']){
+			$widget_text = ! empty( $instance['text_amp'] ) ? $instance['text_amp'] : '';
+		}
+		elseif ( $eaa->is_mobile() ) {
 			$widget_text = ! empty( $instance['text_mobile'] ) ? $instance['text_mobile'] : '';
 		} else {
 			$widget_text = ! empty( $instance['text_desktop'] ) ? $instance['text_desktop'] : '';
-
 		}
 
 
@@ -112,9 +122,11 @@ class EAA_Widget_Text extends WP_Widget {
 		if ( current_user_can( 'unfiltered_html' ) ) {
 			$instance['text_desktop'] = $new_instance['text_desktop'];
 			$instance['text_mobile']  = $new_instance['text_mobile'];
+			$instance['text_amp']  = $new_instance['text_amp'];
 		} else {
 			$instance['text_desktop'] = wp_kses_post( $new_instance['text_desktop'] );
 			$instance['text_mobile']  = wp_kses_post( $new_instance['text_mobile'] );
+			$instance['text_amp']  = wp_kses_post( $new_instance['text_amp'] );
 		}
 		$instance['filter']     = ! empty( $new_instance['filter'] );
 		$instance['no_padding'] = ! empty( $new_instance['no_padding'] );
@@ -140,24 +152,29 @@ class EAA_Widget_Text extends WP_Widget {
 		$no_padding = isset( $instance['no_padding'] ) ? $instance['no_padding'] : 0;
 		$title      = sanitize_text_field( $instance['title'] );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','eaa' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'eaa' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
 			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
 			       value="<?php echo esc_attr( $title ); ?>"/></p>
 
 		<p><label
-				for="<?php echo $this->get_field_id( 'text_desktop' ); ?>"><?php _e( 'For desktops and tablets','eaa' ); ?></label>
+				for="<?php echo $this->get_field_id( 'text_desktop' ); ?>"><?php _e( 'For desktops and tablets', 'eaa' ); ?></label>
 			<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'text_desktop' ); ?>"
 			          name="<?php echo $this->get_field_name( 'text_desktop' ); ?>"><?php echo esc_textarea( $instance['text_desktop'] ); ?></textarea>
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'text_mobile' ); ?>"><?php _e( 'For mobile:','eaa' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'text_mobile' ); ?>"><?php _e( 'For mobile:', 'eaa' ); ?></label>
 			<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'text_mobile' ); ?>"
 			          name="<?php echo $this->get_field_name( 'text_mobile' ); ?>"><?php echo esc_textarea( $instance['text_mobile'] ); ?></textarea>
 		</p>
 
+		<p><label for="<?php echo $this->get_field_id( 'text_amp' ); ?>"><?php _e( 'For AMP:', 'eaa' ); ?></label>
+			<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'text_amp' ); ?>"
+			          name="<?php echo $this->get_field_name( 'text_amp' ); ?>"><?php echo esc_textarea( $instance['text_amp'] ); ?></textarea>
+		</p>
+
 		<p><input id="<?php echo $this->get_field_id( 'filter' ); ?>"
 		          name="<?php echo $this->get_field_name( 'filter' ); ?>" type="checkbox"<?php checked( $filter ); ?> />&nbsp;<label
-				for="<?php echo $this->get_field_id( 'filter' ); ?>"><?php _e( 'Automatically add paragraphs','eaa' ); ?></label>
+				for="<?php echo $this->get_field_id( 'filter' ); ?>"><?php _e( 'Automatically add paragraphs', 'eaa' ); ?></label>
 		</p>
 
 		<p><input id="<?php echo $this->get_field_id( 'no_padding' ); ?>"

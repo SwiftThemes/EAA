@@ -137,10 +137,15 @@
 					We will do our best to keep EAA foot print to the minimum and promise to write the most efficient
 					code.
 				</li>
-			</ul>
+				<li>We value your feedback highly however minor it may be. If there is something you don't like or can
+					be done in a better way, let us know.
+					We have built the product to the best of our abilities on a very strong foundation and
+					It's you who will be shaping the product from now on.
+				</li>
+				<li>
 
-			<p>We only have this page as WordPress users are so used to having a dedicated options pages for plugins.
-			</p>
+				</li>
+			</ul>
 		</div>
 		<div class="eaa-card">
 			<h2>How to use EAA</h2>
@@ -151,9 +156,10 @@
 					Goto <strong>Appearance -> customize -> Easy AdSense Ads & Scripts</strong>.
 				</li>
 				<li>
-					You will see three sections. <strong>Home page, Single post/page and Header & Footer
+					You will see upto 6 sections. <strong>Home page, Single post/page, My Custom Locations*, Theme Locations*,
+						Advanced Location and Header & Footer
 						Scripts</strong>.
-					First two are for ad locations and the last one is to add header and footer scripts.
+					The last one is for the header and footer scripts/tags and the rest are for ads.
 				</li>
 				<li>
 					You can add ads to sidebar or any widgetized section of your theme with the smart "<strong>Easy
@@ -161,7 +167,7 @@
 					This is smart for two reasons.
 					<ol>
 						<li>
-							Unlike text widget, you can have separate ads for mobile and desktop+tablets.
+							Unlike text widget, you can have separate ads for mobile, desktop+tablets and Accelerated Mobile Pages.
 						</li>
 						<li>
 							You can disable this widget on a per page/post basis.

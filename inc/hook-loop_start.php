@@ -29,7 +29,7 @@ function eaa_the_post() {
 	$start_after = $eaa->get_option( 'home_between_posts_content_start_after', 1 );
 
 
-	$content = eaa_wrap_ad('home_between_posts_content');
+	$content = eaa_get_ad('home_between_posts_content');
 
 	if (
 		$count >= $start_after &&

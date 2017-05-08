@@ -116,7 +116,7 @@ Now to inject these ads into the theme, place the below code in the theme file w
 
     ```
     <?php 
-        echo eaa_show_ad( 'ps_above_header' ); // Use the appropriate ad name
+        echo eaa_get_ad( 'ps_above_header' ); // Use the appropriate ad name
     ?>
     ```
 
@@ -178,6 +178,13 @@ If you are using a separate theme, you shouldn't use this option.
 
 
 ## Changelog 
+
+**0.27**
+
+* Let users choose on which post types on which to use ads within content.
+* Let users choose on which post types to disable other ads.
+* Option to enable AMP support and a new AMP ad slot.
+* Collapsible ad location for distraction free ad editing.
 
 **0.26**
 

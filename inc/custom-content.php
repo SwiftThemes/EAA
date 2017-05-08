@@ -49,6 +49,13 @@ where width is the width of the ad.
 		'description' => $help_text,
 	) );
 
+	$wp_customize->add_section( 'user_locations', array(
+		'title'       => __( 'My Custom Locations', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 50,
+		'description' => $help_text,
+	) );
+
 	$wp_customize->add_section( 'eaa_theme_locations', array(
 		'title'       => __( 'Theme Locations', 'eaa' ),
 		'panel'       => 'eaa_ads',
@@ -261,6 +268,8 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 			'eaa[' . $name . '_align_desktop]',
 			'eaa[' . $name . '_margin_desktop]',
 			'eaa[' . $name . '_style_desktop]',
+			'eaa[' . $name . '_amp]',
+
 		)
 	);
 
@@ -284,6 +293,7 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 		'default' => '',
 		'type'    => 'option',
 	) );
+
 	$wp_customize->add_setting( 'eaa[' . $name . '_align_desktop]', array(
 		'default' => '',
 		'type'    => 'option',
@@ -296,7 +306,10 @@ function eaa_add_ad_unit( $wp_customize, $name, $args = array() ) {
 		'default' => '',
 		'type'    => 'option',
 	) );
-
+	$wp_customize->add_setting( 'eaa[' . $name . '_amp]', array(
+		'default' => '',
+		'type'    => 'option',
+	) );
 
 	$wp_customize->add_control(
 		new Eaa_Customize_Control_Responsive_Content(

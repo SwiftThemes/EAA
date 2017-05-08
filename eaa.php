@@ -28,6 +28,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_INC . 'hook-loop_start.php' );
 			require_once( EAA_INC . 'hook-w3tc.php' );
 			require_once( EAA_INC . 'hook-header-footer.php' );
+			require_once( EAA_INC . 'functions-eaa-filters.php' );
 			require_once( EAA_INC . 'utilities.php' );
 			require_once( EAA_INC . 'shortcodes.php' );
 			require_once( EAA_INC . 'widget.php' );
@@ -55,6 +56,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_ADMIN . 'admin-scripts-styles.php' );
 			require_once( EAA_ADMIN . 'admin-ajax.php' );
 			require_once( EAA_ADMIN . 'plugin-settings.php' );
+			require_once( EAA_ADMIN . 'updates-and-migrations.php' );
 		}
 
 		public function load_mobile_detect() {

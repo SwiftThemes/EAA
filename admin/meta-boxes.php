@@ -6,11 +6,15 @@
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
  */
-function eaa_add_meta_boxes( $post ) {
-	add_meta_box( 'food_meta_box', __( 'EAA Options', 'eaa' ), 'eaa_build_meta_box', null, 'side', 'high' );
+function eaa_add_meta_boxes( $post_type ) {
+	$post_types = eaa_get_post_types();
+	foreach($post_types as $post_type){
+		add_meta_box( 'eaa_page_options', __( 'EAA Options', 'eaa' ), 'eaa_build_meta_box', $post_type, 'side', 'high','' );
+	}
+//	add_meta_box( 'eaa_page_options', __( 'EAA Options', 'eaa' ), 'eaa_build_meta_box', 'page', 'side', 'high','' );
 }
 
-add_action( 'add_meta_boxes_post', 'eaa_add_meta_boxes' );
+add_action( 'admin_init', 'eaa_add_meta_boxes' );
 
 
 function eaa_build_meta_box() {

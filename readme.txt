@@ -146,7 +146,7 @@ Now to inject these ads into the theme, place the below code in the theme file w
 
     ```
     <?php
-        echo eaa_show_ad( 'ps_above_header' ); // Use the appropriate ad name
+        echo eaa_get_ad( 'ps_above_header' ); // Use the appropriate ad name
     ?>
     ```
 
@@ -295,4 +295,7 @@ If you are using a separate theme, you shouldn't use this option.
 * First release, yayy!!
 
 == Upgrade Notice ==
-None
+
+**0.27**
+
+You have to goto plugin settings page and select the post types on which you wan\'t to enable EAA.

@@ -21,7 +21,9 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 		class Eaa_Customize_Control_Responsive_Content extends WP_Customize_Control {
 
 			public function render_content() {
-				$output = '<span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="responsive-content">';
+				$settings             = get_option( 'eaa_settings' );
+				$amp_class = $settings['enable_amp_support']?'amp-enabled':'amp-disabled';
+				$output = '<div class="eaa-ad-unit-container"><span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="eaa-ad-unit"><div class="responsive-content  '.$amp_class.'">';
 				if ( isset( $this->settings[0] ) ) {
 					$value = $this->settings[0]->value();
 				} else {
@@ -54,14 +56,21 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				} else {
 					$value = '';
 				}
-				$output .= '<div class="textarea desktop"><textarea type="number" ' . $this->get_link( 1 ) . ' placeholder="' . __( 'For desktops,laptops and tablets', 'eaa' ) . '" >' . $value . '</textarea></div>';
+				$output .= '<div class="textarea desktop"><textarea type="" ' . $this->get_link( 1 ) . ' placeholder="' . __( 'For desktops,laptops and tablets', 'eaa' ) . '" >' . $value . '</textarea></div>';
 
 				if ( isset( $this->settings[2] ) ) {
 					$value = $this->settings[2]->value();
 				} else {
 					$value = '';
 				}
-				$output .= '<div class="textarea mobile"><textarea type="number" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
+				$output .= '<div class="textarea mobile"><textarea type="" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div>';
+
+				if ( isset( $this->settings[6] ) ) {
+					$value = $this->settings[6]->value();
+				} else {
+					$value = '';
+				}
+				$output .= '<div class="textarea amp"><textarea type="" ' . $this->get_link( 6 ) . ' placeholder="' . __( 'For Accelerated Mobile Pages', 'eaa' ) . '" >' . $value . '</textarea></div></div>';
 
 
 				if ( isset( $this->settings[4] ) ) {
@@ -91,7 +100,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 
 
 				$output .= '<br><label>Inline styles<input  value="' . $styles . '" type="text" class="" ' . $this->get_link( 5 ) . ' ></label>';
-				$output .= '</div></div>';
+				$output .= '</div></div></div></div>';
 				echo $output;
 			}
 
