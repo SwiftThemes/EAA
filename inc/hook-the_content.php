@@ -12,7 +12,7 @@ function eaa_single_ads( $content ) {
 	global $post;
 
 	$settings                      = get_option( 'eaa_settings' );
-	$enable_between_content_ads_on = $settings['enable_between_content_ads_on'];
+	$enable_between_content_ads_on = $settings['enable_between_content_ads_on']?$settings['enable_between_content_ads_on']:array();
 
 	if ( ! is_singular() || ! in_array( $post->post_type, $enable_between_content_ads_on ) || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
 		return $content;

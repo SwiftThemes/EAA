@@ -25,7 +25,7 @@ function eaa_get_ad( $location, $args = array() ) {
 
 
 	$settings             = get_option( 'eaa_settings' );
-	$disable_other_ads_on = $settings['disable_other_ads_on'];
+	$disable_other_ads_on = $settings['disable_other_ads_on']?$settings['disable_other_ads_on']:array();
 	global $post;
 
 	if ( is_singular() && in_array( $post->post_type, $disable_other_ads_on ) ) {
@@ -33,7 +33,7 @@ function eaa_get_ad( $location, $args = array() ) {
 	}
 
 
-	if ( is_amp_endpoint() && $settings['enable_amp_support'] ) {
+	if ( function_exists('is_amp_endpoint') && is_amp_endpoint() && $settings['enable_amp_support'] ) {
 		$platform = 'amp';
 	} else {
 		$platform = $eaa->is_mobile() ? 'mobile' : 'desktop';
@@ -98,7 +98,7 @@ function eaa_get_content_ad( $location, $args = array() ) {
 	$settings = get_option( 'eaa_settings' );
 
 
-	if ( is_amp_endpoint() && $settings['enable_amp_support'] ) {
+	if ( function_exists('is_amp_endpoint') && is_amp_endpoint() && $settings['enable_amp_support'] ) {
 		$platform = 'amp';
 	} else {
 		$platform = $eaa->is_mobile() ? 'mobile' : 'desktop';

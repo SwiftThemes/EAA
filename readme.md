@@ -193,6 +193,13 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+
+**0.30**
+* Fix is_amp_endpoint check
+
+**0.29**
+* Fix a failing in_array check
+
 **0.28**
 
 * Let users choose post types on which to use ads within content.

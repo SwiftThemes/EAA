@@ -50,7 +50,7 @@ class EAA_Widget_Text extends WP_Widget {
 			return;
 		}
 		$settings             = get_option( 'eaa_settings' );
-		$disable_other_ads_on = $settings['disable_other_ads_on'];
+		$disable_other_ads_on = $settings['disable_other_ads_on']?$settings['disable_other_ads_on']:array();
 		global $post;
 
 		if ( is_singular() && in_array( $post->post_type, $disable_other_ads_on ) ) {
@@ -62,7 +62,7 @@ class EAA_Widget_Text extends WP_Widget {
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
 
-		if(is_amp_endpoint() && $settings['enable_amp_support']){
+		if(function_exists('is_amp_endpoint') && is_amp_endpoint() && $settings['enable_amp_support']){
 			$widget_text = ! empty( $instance['text_amp'] ) ? $instance['text_amp'] : '';
 		}
 		elseif ( $eaa->is_mobile() ) {
