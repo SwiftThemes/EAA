@@ -85,6 +85,19 @@ This is limited to scripts, meta tags and any other tags that usually go in head
 All this can be done through the awesome WordPress customiser, so you get an instant preview of how your ad or content looks.
 
 ### Easily integrate with your theme
+
+#### For regular users
+1. Goto EAA settings page and in **Add Your Own Ad Locations** option, add you ad locations. Locations defined there will show up at customizer -> EAA -> My Custom Locations.
+2. To use the add, insert the following code in your theme files	
+  ```
+  <?php
+      // Use the appropriate ad location name prefixed with my_
+      echo eaa_get_ad( 'my_above_header' );
+  ?>
+  ```
+
+#### For theme developers
+
 EAA exposes functions to easily add the ads to custom locations in your themes.
 
 **Step 1**
@@ -143,8 +156,9 @@ Letting anyone execute javaScript on your domain is a security risk. If you trus
 Yes, if you promise me that you won't add random javascript from unknown sources.
 
 **Does EAA support AMP**
-Yes & No.
-We don't actually need to support AMP becuase you can use AMP supported ad code for mobile devices.
+Yes. You can enable AMP support on the settings page.
+Once enabled, you will see AMP ad slot in each location. 
+We plan to introduce automatic conversion of AdSense ads to AMP version in the upcoming versions. Stay tuned!!
 1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
@@ -179,9 +193,9 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
-**0.27**
+**0.28**
 
-* Let users choose on which post types on which to use ads within content.
+* Let users choose post types on which to use ads within content.
 * Let users choose on which post types to disable other ads.
 * Option to enable AMP support and a new AMP ad slot.
 * Collapsible ad location for distraction free ad editing.

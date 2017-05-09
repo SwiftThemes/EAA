@@ -10,6 +10,9 @@ add_action( 'admin_init', 'eaa_migrations' );
 
 function eaa_migrations() {
 
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 	//0.2.6 => 0.2.7
 	//Set the default settings so that ads won't stop showing up
 	$settings = get_option( 'eaa_settings', array() );

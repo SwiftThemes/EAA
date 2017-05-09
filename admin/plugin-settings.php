@@ -176,7 +176,8 @@ function eaa_custom_locations_callback() {
 	<pre>
 &lt;?php
     // Use the appropriate ad location name
-    echo eaa_get_ad( 'ps_above_header' );
+    // prefixed with my_
+    echo eaa_get_ad( 'my_above_header' );
 ?&gt;
 		</pre>
 	</p>

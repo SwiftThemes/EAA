@@ -142,9 +142,6 @@
 					We have built the product to the best of our abilities on a very strong foundation and
 					It's you who will be shaping the product from now on.
 				</li>
-				<li>
-
-				</li>
 			</ul>
 		</div>
 		<div class="eaa-card">

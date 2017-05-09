@@ -1,7 +1,7 @@
 === Easy AdSense Ad Manager For WordPress #EAA ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense, Ad Manager, Ad Injection, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense, Ad Manager, Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
 Tested up to: 4.7.4
 Stable tag: trunk
@@ -12,8 +12,8 @@ The QUICKEST and most INTUITIVE Ads Manager to inject Google AdSense and other a
 
 == Description ==
 
-If you are looking for an ad injection plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
-This is the best Google AdSense plugin for WordPress.
+If you are looking for an ad inserter plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
+This is the best Google AdSense plugin for injecting AdSense ads into WordPress.
 
 **Easy AdSense Ads Manager For WordPress** is an **AMP ready** complete ad management and scripts solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
@@ -21,9 +21,9 @@ Unlike other plugins out there, this integrates right into the WordPress **custo
 **Note:**
 The ad locations are not limited to AdSense ads
 
-- You can use them to insert ads from any network like BuySell Ads, Chitika, Bidvertiser, Infolinks, AdSense, Adsterra Network, Revcontent, Clicksor,AdSense, OIO Publisher etc .
+- You can use them to insert ads from any network like BuySell Ads, Amazon Affiliate Ads, Chitika, Bidvertiser, Infolinks, AdSense, Adsterra Network, Revcontent, Clicksor,AdSense, OIO Publisher etc .
 - You can inject multiple AdSense/ads in the same location.
-- You can also use these ad locations to add html code, optin forms. The location at the end of the post is ideal for optin forms of MailChip, Sendy, AWeber, GetResponse etc..
+- You can also use these ad locations to insert html code, optin forms. The location at the end of the post is ideal for inserting optin forms of MailChip, Sendy, AWeber, GetResponse etc..
 
 The header and footer scripts are not limited to just injecting javascript.
 
@@ -33,25 +33,25 @@ The header and footer scripts are not limited to just injecting javascript.
 
 ### EAA's awesome features include &hellip;
 
-### Separate desktop/tablet AdSense ads and mobile AdSense ads.
+### Separate desktop/tablet AdSense ads injection and mobile AdSense ads injection.
 You can have different AdSense ad units for mobile, (tablets and desktops).
-With this feature, you can insert the high performing 336x300px or 728x90 ad units for desktops and tablets and use 300px wide mobile ads for mobiles.
+With this feature, you can insert the high performing 336x300px or 728x90 adsense units for desktops and tablets and insert 300px wide mobile AdSense Ads for mobiles.
 Though Google AdSense provides responsive ad units, their fill rate is not very good.
 
-### AdSense / Ads on homepage and archives
+### AdSense / Ads Injection on homepage and archives
 You can easily insert AdSense ads into the WordPress loop on home page and archives. Since AdSense has a limit on number ad units you can display on a page, you can easily set how many times to repeat.
 Key features here include
 
-* Start AdSense ads after a desired post number.
-* Choose repeat frequency for the adsense ads.
+* Insert AdSense ads after a desired post number.
+* Choose repeat frequency for the adsense ads injection.
 * Choose how many times AdSense ads should be displayed.
 
-### Ads on single page ( Posts and Pages )
+### Insert Ads on single page ( Posts and Pages )
 We have nine well thought out locations
 
-* Below title AdSense ad( Highly converting, but google search doesn't like ads above fold)
-* After first paragraph AdSense / ad. (Highly converting, no issues with SEO)
-* After any 3 paragraphs of your choice AdSense / ad.
+* Below title AdSense ad injection( Highly converting, but google search doesn't like ads above fold)
+* After first paragraph AdSense Injection / ad. (Highly converting, no issues with SEO)
+* After any 3 paragraphs of your choice AdSense / ad injection.
 * After first image AdSense / ad.
 * After second image AdSense / ad.
 * Between post AdSense / ad.
@@ -59,7 +59,7 @@ We have nine well thought out locations
 
 ### Easily disable AdSense / ads on a per page/post basis.
 
-There will be cases where you do not want to display AdSense / ads on some particular posts or pages. Reasons may include
+There will be cases where you do not want to inject AdSense / ads on some particular posts or pages. Reasons may include
 * Content my violate AdSense/advertiser policies.
 * Client doesn't like AdSense / ads in their sponsored content.
 * Page/Post that brings more revenue through affiliate marketing than display ads like AdSense.
@@ -72,7 +72,7 @@ You can choose to disable only in content AdSense / ads or all AdSense / ads on 
 Place ads in any wdigetized sections in your theme with the built in **Easy AdSense Ads & Scripts** widget.
 This is similar to the text widget but with some cool extras
 
-* Add separate adsense / ads for desktop & tablets and mobiles.
+* Insert separate adsense / ads for desktop & tablets and mobiles.
 * This widget respects the above feature, and hides itself when you choose to not show adsense / ads on the page.
 * Remove default padding's and borders if you need more room for adsense / ads.
 
@@ -93,7 +93,7 @@ You can use the shortcode anywhere, even in your post content.
         sixth AdSense ad<!-- next_ad -->
         seventh AdSense ad<!-- next_ad -->
         eighth AdSense ad<!-- next_ad -->
-        nineth AdSense ad<!-- next_ad -->
+        ninth AdSense ad<!-- next_ad -->
         tenth AdSense ad<!-- next_ad -->
         eleventh AdSense ad<!-- next_ad -->
         twentieth AdSense ad<!-- next_ad -->
@@ -102,19 +102,34 @@ You can use the shortcode anywhere, even in your post content.
         [/ads]
 ```
 
-### Option to add header and footer scripts.
-Easily ad your (Google) analytics script, website verification scripts, fonts and any other script you might want to add to your website header or footer.
-This is limited to scripts, meta tags and any other tags that usually go in header. Adding regular content here is strictly not advisable.
+### Option to insert header and footer scripts.
+Easily ad your (Google) analytics script, website verification scripts, fonts and any other script you might want to insert in to your website header or footer.
+This is limited to inserting scripts, meta tags and any other tags that usually go in header. Inserting regular content here is strictly not advisable.
 
 
 
 ### Live preview
-All this can be done through the awesome WordPress customiser, so you get an instant preview of how your adsense / ads  or content looks.
+All this can be done through the awesome WordPress customiser, so you get an instant preview of how your inserted adsense / ads  or content looks.
 
 ### Advanced options and Floating ads
 Easily float the ads or apply advanced css rules like margin, padding, border etc., to the ads
 
-### Easily integrate with your theme
+### Easily integrate EAA Ad Inserter with your theme
+
+#### For regular users
+
+1. Goto EAA settings page and in **Add Your Own Ad Locations** option, add you ad locations. Locations defined there will show up at customizer -> EAA -> My Custom Locations.
+2. To use the add, insert the following code in your theme files
+
+  ```
+  <?php
+      // Use the appropriate ad location name prefixed with my_
+      echo eaa_get_ad( 'my_above_header' );
+  ?>
+  ```
+
+#### For theme developers
+
 Easy AdSense Ads exposes functions to easily inject the ads to custom locations into your themes.
 
 **Step 1**
@@ -172,11 +187,13 @@ Letting anyone execute javaScript on your domain is a security risk. If you trus
 = Is it safe for normal WordPress users =
 Yes, if you promise me that you won't add random javascript from unknown sources.
 
-= Does EAA support AMP =
-Yes & No.
-We don't actually need to support AMP because you can use AMP supported adsense/ad code for mobile devices.
 
-1. [Guide to create an AMP AdSense ad unit](https://support.google.com/AdSense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
+= Does EAA support AMP =
+Yes. You can enable AMP support on the settings page.
+Once enabled, you will see AMP ad slot in each location.
+
+We plan to introduce automatic conversion of AdSense ads to AMP version in the upcoming versions. Stay tuned!!
+1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 
 
@@ -217,6 +234,14 @@ If you are using a separate theme, you shouldn't use this option.
 5. This is how your user agent groups should look like when you enable w3tc integration. Refer to FAQ **How to have separate caches for Mobile and Desktop**
 
 == Changelog ==
+
+
+**0.28**
+
+* Let users choose post types on which to use ads within content.
+* Let users choose on which post types to disable other ads.
+* Option to enable AMP support and a new AMP ad slot.
+* Collapsible ad location for distraction free ad editing.
 
 **0.26**
 
