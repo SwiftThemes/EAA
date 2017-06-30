@@ -194,6 +194,10 @@ If you are using a separate theme, you shouldn't use this option.
 ## Changelog 
 
 
+**0.32**
+* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
+<!-- noformat on -->JavaScript code here<!-- noformat on -->
+
 **0.30**
 * Fix is_amp_endpoint check
 

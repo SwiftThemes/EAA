@@ -1,19 +1,19 @@
-=== Easy AdSense Ad Manager For WordPress #EAA ===
+=== Easy AdSense Ads Manager ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense, Ad Manager, Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense, AMP Ads Manager, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
-Tested up to: 4.7.4
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The QUICKEST and most INTUITIVE Ads Manager to inject Google AdSense and other ads into your website with live preview. Google AMP ready ad injection.
+The QUICKEST & MOST INTUITIVE AdSense Ad Manager with AMP support to inject Google AdSense & other ads into your site. Ad Insertion with live preview.
 
 == Description ==
 
-If you are looking for an ad inserter plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
-This is the best Google AdSense plugin for injecting AdSense ads into WordPress.
+If you are looking for an ad insertion plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
+This is the best Google AdSense plugin for injecting AdSense ads and other ads into WordPress.
 
 **Easy AdSense Ads Manager For WordPress** is an **AMP ready** complete ad management and scripts solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
@@ -31,11 +31,11 @@ The header and footer scripts are not limited to just injecting javascript.
 * Verify the website ownership with the meta tag.
 
 
-### EAA's awesome features include &hellip;
+### Easy AdSense Ad Manager's awesome features include &hellip;
 
 ### Separate desktop/tablet AdSense ads injection and mobile AdSense ads injection.
-You can have different AdSense ad units for mobile, (tablets and desktops).
-With this feature, you can insert the high performing 336x300px or 728x90 adsense units for desktops and tablets and insert 300px wide mobile AdSense Ads for mobiles.
+You can insert different AdSense ad units for mobile, (tablets and desktops).
+With this feature, you can quickly insert the high performing 336x300px or 728x90 adsense units for desktops and tablets and insert 300px wide mobile AdSense Ads for mobiles.
 Though Google AdSense provides responsive ad units, their fill rate is not very good.
 
 ### AdSense / Ads Injection on homepage and archives
@@ -78,27 +78,27 @@ This is similar to the text widget but with some cool extras
 
 
 ### Ad Rotation
-Wan't to rotate the inserted ads? We have the ad rotation feature built in. Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual adsense/ads code with `<!-- next_ad -->`.
+Wan't to rotate the inserted ads? We have the ad rotation feature built in. Just wrap them in the shortcode `[eaa_ads][/eaa_ads]` and separate individual adsense/ads code with `<!-- next ad insertion -->`.
 You can use the shortcode anywhere, even in your post content.
 
 **Example**:
 
 ```
         [ads]
-        First AdSense ad <!-- next_ad -->
-        Second AdSense ad <!-- next_ad -->
-        third AdSense ad <!-- next_ad -->
-        fourth AdSense ad<!-- next_ad -->
-        fifth AdSense ad<!-- next_ad -->
-        sixth AdSense ad<!-- next_ad -->
-        seventh AdSense ad<!-- next_ad -->
-        eighth AdSense ad<!-- next_ad -->
-        ninth AdSense ad<!-- next_ad -->
-        tenth AdSense ad<!-- next_ad -->
-        eleventh AdSense ad<!-- next_ad -->
-        twentieth AdSense ad<!-- next_ad -->
-        thirtieth AdSense ad<!-- next_ad -->
-        so on, you get the idea. AdSense ad<!-- next_ad -->
+        First AdSense ad to insert<!-- next ad insertion -->
+        Second AdSense ad <!-- next ad insertion -->
+        third Quick AdSense ad <!-- next ad insertion -->
+        fourth Quick AdSense ad<!-- next ad insertion -->
+        fifth AdSense ad<!-- next ad insertion -->
+        sixth AdSense ad<!-- next ad insertion -->
+        seventh AdSense ad<!-- next ad insertion -->
+        eighth AdSense ad<!-- next ad insertion -->
+        ninth Quick AdSense ad<!-- next ad insertion -->
+        tenth AdSense ad<!-- next ad insertion -->
+        eleventh Quick AdSense ad<!-- next ad insertion -->
+        twentieth AdSense ad<!-- next ad insertion -->
+        thirtieth AdSense ad<!-- next ad insertion -->
+        so on, you get the idea. AdSense ad<!-- next ad insertion -->
         [/ads]
 ```
 
@@ -195,7 +195,7 @@ Once enabled, you will see AMP ad slot in each location.
 We plan to introduce automatic conversion of AdSense ads to AMP version in the upcoming versions. Stay tuned!!
 1. [Guide to create an AMP AdSense ad unit](https://support.google.com/adsense/answer/7183212?hl=en "Guide to create an AMP AdSense ad unit").
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
-
+1. You can see a live demo at [TheGeekDaily.Com - Unblock YouTube](https://thegeekdaily.com/12-ways-to-unblock-youtube-at-schools-office-and-university/)
 
 = Does this plugin ‘take’ a percentage of my ad earnings? =
 No! Absolutely not. Some ad plugins replace your publisher ID with their own for a certain percentage of adverts. 
@@ -235,23 +235,27 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
+**0.32**
+* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
+<!-- noformat on -->JavaScript code here<!-- noformat on -->
+
 **0.30**
-* Fix is_amp_endpoint check
+* Fix is_amp_endpoint check, so that the plugin design break when WordPress AMP plugin is not installed.
 
 **0.29**
 
-* Fix a failing in_array check
+* Fix a failing in_array check.
 
 **0.28**
 
-* Let users choose post types on which to use ads within content.
-* Let users choose on which post types to disable other ads.
-* Option to enable AMP support and a new AMP ad slot.
-* Collapsible ad location for distraction free ad editing.
+* Let users choose post types on which to use adsense/ads within content.
+* Let users choose on which post types to disable other adsense ad units and ads.
+* Option to enable AMP Ads support and a new AMP ad slot.
+* Collapsible adsense/ad location for distraction free adsesne/ad editing.
 
 **0.26**
 
-* Fix issue with customizer settings not saving
+* Fix issue with customizer settings not saving.
 * Separated the settings and ads into separate options.
 
 **0.25**

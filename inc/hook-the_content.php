@@ -98,7 +98,7 @@ function eaa_single_ads( $content ) {
 				$content .= do_shortcode( stripslashes( $after_nth_p_2 ) );
 			}
 
-			if ( 0 == $i && $after_first_p ) {
+			if ( 1 == $i && $after_first_p ) {
 				$content .= do_shortcode( stripslashes( $after_first_p ) );
 			}
 			$content .= $temp[ $i ] . '</p>';

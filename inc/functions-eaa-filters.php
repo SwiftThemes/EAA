@@ -32,3 +32,63 @@ function eaa_add_user_locations( $ad_locations ) {
 
 	return $ad_locations;
 }
+
+
+
+
+//@todo
+//Give it a better place
+// <!-- noformat on --> and <!-- noformat off --> functions
+
+function eaa_autop( $text ) {
+	$newtext = "";
+	$pos     = 0;
+
+	$tags   = array( '<!-- noformat on -->', '<!-- noformat off -->' );
+	$status = 0;
+
+	while ( ! ( ( $newpos = strpos( $text, $tags[ $status ], $pos ) ) === false ) ) {
+		$sub = substr( $text, $pos, $newpos - $pos );
+
+		if ( $status ) {
+			$newtext .= $sub;
+		} else {
+			$newtext .= convert_chars( wptexturize( wpautop( $sub ) ) );
+		}      //Apply both functions (faster)
+		$pos = $newpos + strlen( $tags[ $status ] );
+		$status = $status ? 0 : 1;
+	}
+
+	$sub = substr( $text, $pos, strlen( $text ) - $pos );
+
+	if ( $status ) {
+		$newtext .= $sub;
+	} else {
+		$newtext .= convert_chars( wptexturize( wpautop( $sub ) ) );
+	}      //Apply both functions (faster)
+
+	//To remove the tags
+	$newtext = str_replace( $tags[0], "", $newtext );
+	$newtext = str_replace( $tags[1], "", $newtext );
+
+	return $newtext;
+}
+
+function eaa_texturize( $text ) {
+	return $text;
+}
+
+function eaa_convert_chars( $text ) {
+	return $text;
+}
+
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'eaa_autop' );
+
+remove_filter( 'the_content', 'wptexturize' );
+add_filter( 'the_content', 'eaa_texturize' );
+
+remove_filter( 'the_content', 'convert_chars' );
+add_filter( 'the_content', 'eaa_convert_chars' );
+
+
