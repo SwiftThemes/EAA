@@ -3,14 +3,50 @@
 function eaa_settings_init() {
 	add_settings_section(
 		'eaa_advanced',
+		__( 'Basic Settings', 'eaa' ),
+		'eaa_advanced_options_section_callback',
+		'eaa-settings'
+	);
+	add_settings_section(
+		'eaa_super_advanced',
 		__( 'Advanced Settings', 'eaa' ),
 		'eaa_advanced_options_section_callback',
 		'eaa-settings'
 	);
 
 	add_settings_field(
+		'disable_ads_on_home_page',
+		__( 'Disable ads home page', 'eaa' ),
+		'eaa_disable_ads_on_home_page_callback',
+		'eaa-settings',
+		'eaa_advanced'
+	);
+	add_settings_field(
+		'enable_advanced_options',
+		__( 'Enable advanced options', 'eaa' ),
+		'eaa_enable_advanced_options_callback',
+		'eaa-settings',
+		'eaa_super_advanced'
+	);
+	add_settings_field(
+		'disable_ads_on_taxonomy_archives',
+		__( 'Disable ads on taxonomy archives', 'eaa' ),
+		'eaa_disable_ads_on_taxonomy_archives_callback',
+		'eaa-settings',
+		'eaa_super_advanced'
+	);
+
+	add_settings_field(
+		'disable_ads_on_taxonomies',
+		__( 'Disable ads on post types in these taxonomies', 'eaa' ),
+		'eaa_disable_ads_on_taxonomies_callback',
+		'eaa-settings',
+		'eaa_super_advanced'
+	);
+
+	add_settings_field(
 		'enable_between_content_ads_on',
-		__( 'Enable Between Content Ads on' ),
+		__( 'Enable Between Content Ads on', 'eaa' ),
 		'eaa_enable_between_content_ads_on_callback',
 		'eaa-settings',
 		'eaa_advanced'
@@ -76,6 +112,72 @@ function eaa_advanced_options_section_callback() {
 			margin: 10px 0;
 		}
 	</style>
+	<?php
+}
+
+
+function eaa_disable_ads_on_home_page_callback() {
+	$settings = get_option( 'eaa_settings' );
+	?>
+	<label>
+		<input type="checkbox" name="eaa_settings[disable_ads_on_home_page]" value=true
+			<?php checked( $settings['disable_ads_on_home_page'] ); ?>/>
+		<?php _e( 'Disable ads between posts on home page', 'eaa' ); ?>
+	</label>
+	<?php
+}
+
+function eaa_enable_advanced_options_callback() {
+	$settings = get_option( 'eaa_settings' );
+	?>
+	<label>
+		<input type="checkbox" name="eaa_settings[enable_advanced_options]" value=true
+			<?php checked( $settings['enable_advanced_options'] ); ?>/>
+		<?php _e( '', 'eaa' ); ?>
+	</label>
+	<?php
+}
+
+function eaa_disable_ads_on_taxonomy_archives_callback() {
+	$settings             = get_option( 'eaa_settings' );
+	$disable_other_ads_on = $settings['disable_ads_on_taxonomy_archives'] ? $settings['disable_ads_on_taxonomy_archives'] : array();
+	$taxonomies           = get_terms( array( 'hide_empty' => false, 'orderby' => 'taxonomy' ) );
+	?>
+	<label>
+		<?php _e( 'Disable ads on archives of these categories, tags and custom terms', 'eaa' ); ?>
+		<br>
+		<select name="eaa_settings[disable_ads_on_taxonomy_archives][]" multiple class="eaa-select">
+			<?php
+			foreach ( $taxonomies as $taxonomy ) :
+				$selected = in_array( $taxonomy->term_taxonomy_id, $disable_other_ads_on ) ? 'selected' : '';
+				echo "<option value='{$taxonomy->term_taxonomy_id}' {$selected}>{$taxonomy->name} ({$taxonomy->taxonomy})</option>";
+			endforeach;
+			?>
+		</select>
+	</label>
+	<p class="description">Default: None selected</p>
+
+	<?php
+}
+
+function eaa_disable_ads_on_taxonomies_callback() {
+	$settings             = get_option( 'eaa_settings' );
+	$disable_other_ads_on = $settings['disable_ads_on_taxonomies'] ? $settings['disable_ads_on_taxonomies'] : array();
+	$taxonomies           = get_terms( array( 'hide_empty' => false, 'orderby' => 'taxonomy' ) );
+	?>
+	<label>
+		<?php _e( 'Disable ads on post(types) in these categories or tags', 'eaa' ); ?>
+		<br>
+		<select name="eaa_settings[disable_ads_on_taxonomies][]" multiple class="eaa-select">
+			<?php
+			foreach ( $taxonomies as $taxonomy ) :
+				$selected = in_array( $taxonomy->term_taxonomy_id, $disable_other_ads_on ) ? 'selected' : '';
+				echo "<option value='{$taxonomy->term_taxonomy_id}' {$selected}>{$taxonomy->name} ({$taxonomy->taxonomy})</option>";
+			endforeach;
+			?>
+		</select>
+	</label>
+	<p class="description">Default: None selected</p>
 	<?php
 }
 
@@ -183,7 +285,8 @@ function eaa_custom_locations_callback() {
 	</p>
 
 	If you are uncomfortable editing theme files, drop us an email at
-	<a href="mailto:satish@swiftthemes.com?Subject=Question%20about%20EAA" target="_top"><strong>satish@SwiftThemes.com</strong></a> we can do it for a nominal fee.
+	<a href="mailto:satish@swiftthemes.com?Subject=Question%20about%20EAA"
+	   target="_top"><strong>satish@SwiftThemes.com</strong></a> we can do it for a nominal fee.
 	<?php
 }
 
@@ -208,6 +311,10 @@ function eaa_sanitize_settings( $input ) {
 		'enable_between_content_ads_on' => 'eaa_sanitize_pass',
 		'disable_other_ads_on'          => 'eaa_sanitize_pass',
 		'custom_locations'              => 'sanitize_text_field',
+		'disable_ads_on_home_page'      => 'eaa_sanitize_boolean',
+		'enable_advanced_options'      => 'eaa_sanitize_boolean',
+		'disable_ads_on_taxonomies'      => 'eaa_sanitize_pass',
+		'disable_ads_on_taxonomy_archives'      => 'eaa_sanitize_pass',
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {
@@ -238,4 +345,10 @@ function eaa_get_post_types() {
 	$post_types = get_post_types();
 
 	return array_diff( $post_types, $excluded );
+}
+
+function eaa_get_taxonomy_types() {
+	get_terms( array(
+		'hide_empty' => false,
+	) );
 }

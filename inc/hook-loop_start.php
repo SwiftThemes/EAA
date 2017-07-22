@@ -4,6 +4,23 @@ add_action( 'loop_start', 'eaa_loop_start' );
 
 function eaa_loop_start( $query ) {
 
+	$taxonomy_id = $query->queried_object->term_taxonomy_id;
+	$settings    = get_option( 'eaa_settings' );
+
+	// Disable ads on home page
+	if ( is_home() && $settings['disable_ads_on_home_page'] ) {
+		return;
+	}
+
+	if (
+		$settings['enable_advanced_options'] &&
+		$settings['disable_ads_on_taxonomy_archives'] &&
+		$taxonomy_id &&
+		in_array( $taxonomy_id, $settings['disable_ads_on_taxonomy_archives'] )
+
+	) {
+		return;
+	}
 	if ( $query->is_main_query() && ! is_singular() ) {
 		add_action( 'the_post', 'eaa_the_post' );
 		add_action( 'loop_end', 'eaa_loop_end' );
@@ -29,7 +46,7 @@ function eaa_the_post() {
 	$start_after = $eaa->get_option( 'home_between_posts_content_start_after', 1 );
 
 
-	$content = eaa_get_ad('home_between_posts_content');
+	$content = eaa_get_ad( 'home_between_posts_content' );
 
 	if (
 		$count >= $start_after &&

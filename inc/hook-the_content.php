@@ -11,13 +11,22 @@ function eaa_single_ads( $content ) {
 	global $eaa;
 	global $post;
 
+
 	$settings                      = get_option( 'eaa_settings' );
-	$enable_between_content_ads_on = $settings['enable_between_content_ads_on']?$settings['enable_between_content_ads_on']:array();
+	$enable_between_content_ads_on = $settings['enable_between_content_ads_on'] ? $settings['enable_between_content_ads_on'] : array();
 
 	if ( ! is_singular() || ! in_array( $post->post_type, $enable_between_content_ads_on ) || $eaa->get_meta( 'disable_content_ads' ) || $eaa->get_meta( 'disable_all_ads' ) ) {
 		return $content;
 	}
 
+
+	if ( $settings['enable_advanced_options'] && $settings['disable_ads_on_taxonomies'] ) {
+		$post_terms   = eaa_get_term_ids( $post->ID );
+		$intersection = array_intersect( $post_terms, $settings['disable_ads_on_taxonomies'] );
+		if ( count( $intersection ) ) {
+			return $content;
+		}
+	}
 
 	if ( $eaa->is_mobile() ) {
 		$suffix = '_mobile';

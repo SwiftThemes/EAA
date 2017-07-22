@@ -133,6 +133,7 @@ Now to inject these ads into the theme, place the below code in the theme file w
     ?>
     ```
 
+If you are using the ads in some places where shortcodes are enabled then you can use `[eaa_show_ad ad="ps_above_header"]`
 ##Installation
 
 1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.

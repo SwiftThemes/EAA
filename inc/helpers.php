@@ -27,3 +27,14 @@ function eaa_wrap_ad( $name ) {
 	}
 
 }
+
+
+function eaa_get_term_ids( $post_id ) {
+	$terms    = get_terms( array( 'object_ids' => $post_id ) );
+	$term_ids = array();
+
+	foreach ( $terms as $term ) {
+		$term_ids[] = $term->term_id;
+	}
+	return $term_ids;
+}

@@ -32,6 +32,7 @@ add_shortcode( 'eaa', 'eaa_shortcode_rc' );
 if ( ! function_exists( 'eaa_rotate_content' ) ) {
 	/**
 	 * Splits the content at <!-- next_ad --> and returns a random part.
+	 *
 	 * @param $attr
 	 * @param $content
 	 *
@@ -40,6 +41,7 @@ if ( ! function_exists( 'eaa_rotate_content' ) ) {
 	function eaa_rotate_content( $attr, $content ) {
 		if ( ! empty( $content ) ) {
 			$ads = explode( '<!-- next_ad -->', $content );
+
 			return do_shortcode( $ads[ array_rand( $ads ) ] );
 		}
 	}
@@ -47,3 +49,17 @@ if ( ! function_exists( 'eaa_rotate_content' ) ) {
 add_shortcode( 'ads', 'eaa_rotate_content' );
 add_shortcode( 'eaa_ads', 'eaa_rotate_content' );
 add_shortcode( 'eaa_rotate_ads', 'eaa_rotate_content' );
+
+if ( ! function_exists( 'eaa_show_ad_short_code' ) ) {
+
+	function eaa_show_ad_short_code( $attr, $content ) {
+		$ad = $attr['ad'];
+		if ( $ad ) {
+			return eaa_get_ad( 'ps_above_header' );
+		} else {
+			return '';
+		}
+	}
+}
+
+add_shortcode( 'eaa_show_ad', 'eaa_show_ad_short_code' );

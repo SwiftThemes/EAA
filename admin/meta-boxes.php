@@ -50,13 +50,6 @@ function eaa_save_meta_box( $post_id ) {
 		return $post_id;
 	}
 
-//
-//	$slug = "post";
-//	if ( $slug != $post->post_type ) {
-//		return $post_id;
-//	}
-
-
 	global $eaa;
 	$sanitized = $eaa->get_meta();
 
