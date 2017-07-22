@@ -111,6 +111,14 @@ This is limited to inserting scripts, meta tags and any other tags that usually 
 ### Live preview
 All this can be done through the awesome WordPress customiser, so you get an instant preview of how your inserted adsense / ads  or content looks.
 
+
+### Custom taxonomies and terms support
+Supports custom taxonomies and let's you enable/disable ads on custom taxonomies and terms.
+
+### Easily enable or disable ads on a per category basis
+There will be times where inserting ads on certain categories might violate Google AdSense or your ad network TOS. For such cases you can easily disable ads\' for their archives and posts
+in those categories and tags.
+
 ### Advanced options and Floating ads
 Easily float the ads or apply advanced css rules like margin, padding, border etc., to the ads
 

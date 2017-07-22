@@ -144,7 +144,7 @@ function eaa_disable_ads_on_taxonomy_archives_callback() {
 	$taxonomies           = get_terms( array( 'hide_empty' => false, 'orderby' => 'taxonomy' ) );
 	?>
 	<label>
-		<?php _e( 'Disable ads on archives of these categories, tags and custom terms', 'eaa' ); ?>
+		<?php _e( 'Select the categories, tags and custom terms where you don\'t want to display ads', 'eaa' ); ?>
 		<br>
 		<select name="eaa_settings[disable_ads_on_taxonomy_archives][]" multiple class="eaa-select">
 			<?php
@@ -166,7 +166,7 @@ function eaa_disable_ads_on_taxonomies_callback() {
 	$taxonomies           = get_terms( array( 'hide_empty' => false, 'orderby' => 'taxonomy' ) );
 	?>
 	<label>
-		<?php _e( 'Disable ads on post(types) in these categories or tags', 'eaa' ); ?>
+		<?php _e( 'Disable ads on posts and post types in these categories, tags or custom terms', 'eaa' ); ?>
 		<br>
 		<select name="eaa_settings[disable_ads_on_taxonomies][]" multiple class="eaa-select">
 			<?php
