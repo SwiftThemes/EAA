@@ -20,7 +20,10 @@ function eaa_single_ads( $content ) {
 	}
 
 
-	if ( $settings['enable_advanced_options'] && $settings['disable_ads_on_taxonomies'] ) {
+	if ( isset($settings['enable_advanced_options']) &&
+	     $settings['enable_advanced_options'] &&
+	     isset($settings['disable_ads_on_taxonomies']) &&
+	     $settings['disable_ads_on_taxonomies'] ) {
 		$post_terms   = eaa_get_term_ids( $post->ID );
 		$intersection = array_intersect( $post_terms, $settings['disable_ads_on_taxonomies'] );
 		if ( count( $intersection ) ) {
@@ -137,7 +140,6 @@ function eaa_single_ads( $content ) {
 			if ( $after_first_img ) {
 				$content .= do_shortcode( stripslashes( $after_first_img ) );
 			}
-
 			if ( $after_second_img && count( $temp ) === 5 ) {
 				$content .= $temp[2] . $temp[3] . do_shortcode( stripslashes( $after_second_img ) ) . $temp[4];
 			} else {

@@ -318,6 +318,8 @@ function eaa_sanitize_settings( $input ) {
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {
+	    if(!isset($input[$key]))
+	        return
 		$sanitized[ $key ] = $func( $input[ $key ] );
 	}
 

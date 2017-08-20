@@ -205,6 +205,13 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+**0.34**
+* Fix few notices showing up.
+
+**0.33**
+
+* Add option insert custom location ads with a short code.
+* Custom taxonomy support.
 
 **0.32**
 * Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
@@ -269,10 +276,12 @@ If you are using a separate theme, you shouldn't use this option.
 * Fix an issue with home page ad being displayed on custom queries.
 
 **0.15**
+
 *Fix a bug with the plugin info page. Using absolute path now. 
 *Improve styling of the alignment setting.
 
 **0.14**
+
 *Add support for ad after captioned images.
 
 **0.13**

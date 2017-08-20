@@ -4,16 +4,18 @@ add_action( 'loop_start', 'eaa_loop_start' );
 
 function eaa_loop_start( $query ) {
 
-	$taxonomy_id = $query->queried_object->term_taxonomy_id;
+	$taxonomy_id = $query->queried_object?$query->queried_object->term_taxonomy_id:null;
 	$settings    = get_option( 'eaa_settings' );
 
 	// Disable ads on home page
-	if ( is_home() && $settings['disable_ads_on_home_page'] ) {
+	if ( is_home() && isset($settings['disable_ads_on_home_page']) && $settings['disable_ads_on_home_page']  ) {
 		return;
 	}
 
 	if (
+		isset($settings['enable_advanced_options']) &&
 		$settings['enable_advanced_options'] &&
+		isset($settings['disable_ads_on_taxonomy_archives']) &&
 		$settings['disable_ads_on_taxonomy_archives'] &&
 		$taxonomy_id &&
 		in_array( $taxonomy_id, $settings['disable_ads_on_taxonomy_archives'] )

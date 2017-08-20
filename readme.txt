@@ -1,15 +1,14 @@
-=== Easy AdSense Ads Manager ===
+=== Easy AdSense Ads Inserter & AdSense Manager ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense, AMP Ads Manager, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense Ad management, AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
 Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The QUICKEST & MOST INTUITIVE AdSense Ad Manager with AMP support to inject Google AdSense & other ads into your site. Ad Insertion with live preview.
-
+The QUICKEST & MOST INTUITIVE Ad Manager: AdSense, AMP support, Ad Injection, Ad insertion, header & footer scripts, live preview, lite weight & fast.
 == Description ==
 
 If you are looking for an ad insertion plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
@@ -244,7 +243,17 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
+**0.34**
+* Fix few notices showing up.
+
+
+**0.33**
+
+* Add option insert custom location ads with a short code.
+* Custom taxonomy support.
+
 **0.32**
+
 * Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
 <!-- noformat on -->JavaScript code here<!-- noformat on -->
 
