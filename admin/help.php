@@ -127,8 +127,7 @@
 					No annoying upsells or cutting down on features to make you pay.
 				</li>
 				<li>
-					We will not hijack your WordPress dashboard. We know how annoying those widgets which
-					most plugins add to promote their products or upsells.
+					We will not hijack your WordPress dashboard. We will limit our presence to our pages.
 				</li>
 				<li>
 					No Annoying reminders to signup for a news letter.

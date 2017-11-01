@@ -25,7 +25,7 @@ function eaa_get_ad( $location, $args = array() ) {
 
 
 	$settings             = get_option( 'eaa_settings' );
-	$disable_other_ads_on = $settings['disable_other_ads_on']?$settings['disable_other_ads_on']:array();
+	$disable_other_ads_on = isset($settings['disable_other_ads_on']) && $settings['disable_other_ads_on']?$settings['disable_other_ads_on']:array();
 	global $post;
 
 	if ( is_singular() && in_array( $post->post_type, $disable_other_ads_on ) ) {

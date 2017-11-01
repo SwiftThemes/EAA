@@ -14,13 +14,13 @@ function eaa_settings_init() {
 		'eaa-settings'
 	);
 
-	add_settings_field(
-		'disable_ads_on_home_page',
-		__( 'Disable ads home page', 'eaa' ),
-		'eaa_disable_ads_on_home_page_callback',
-		'eaa-settings',
-		'eaa_advanced'
-	);
+//	add_settings_field(
+//		'disable_ads_on_home_page',
+//		__( 'Disable ads on home page', 'eaa' ),
+//		'eaa_disable_ads_on_home_page_callback',
+//		'eaa-settings',
+//		'eaa_advanced'
+//	);
 	add_settings_field(
 		'enable_advanced_options',
 		__( 'Enable advanced options', 'eaa' ),
@@ -118,12 +118,13 @@ function eaa_advanced_options_section_callback() {
 
 function eaa_disable_ads_on_home_page_callback() {
 	$settings = get_option( 'eaa_settings' );
-	?>
+    ?>
 	<label>
 		<input type="checkbox" name="eaa_settings[disable_ads_on_home_page]" value=true
 			<?php checked( $settings['disable_ads_on_home_page'] ); ?>/>
 		<?php _e( 'Disable ads between posts on home page', 'eaa' ); ?>
 	</label>
+    <p class="description"><?php _e('Check this option if you wan\'t to keep the home page clean without any ads while continuing to show ads on other archive pages.','eaa' ) ?></p>
 	<?php
 }
 
@@ -155,7 +156,9 @@ function eaa_disable_ads_on_taxonomy_archives_callback() {
 			?>
 		</select>
 	</label>
-	<p class="description">Default: None selected</p>
+	<p class="description">Default: None selected<br>
+    Use this option to selectively disable ads on category and tag archives which might violate the advertisers terms of service.
+    </p>
 
 	<?php
 }
@@ -177,7 +180,10 @@ function eaa_disable_ads_on_taxonomies_callback() {
 			?>
 		</select>
 	</label>
-	<p class="description">Default: None selected</p>
+	<p class="description">Default: None selected
+    <br>
+        Use this option to selectively disable ads on posts in categories and tags which might violate the advertisers terms of service.
+    </p>
 	<?php
 }
 
@@ -259,8 +265,12 @@ function eaa_disable_other_ads_on_callback() {
 	<?php
 }
 
+
+
 function eaa_custom_locations_callback() {
 	$settings = get_option( 'eaa_settings' );
+
+
 	?>
 	<label>
 		<?php _e( 'Add comma separated list of custom ad locations.', 'eaa' ) ?>
@@ -278,13 +288,20 @@ function eaa_custom_locations_callback() {
 	<pre>
 &lt;?php
     // Use the appropriate ad location name
-    // prefixed with my_
+    // prefixed with my_, my_ is a keyword/namespacing to make sure your custom locations won't conflict with other locations.
     echo eaa_get_ad( 'my_above_header' );
 ?&gt;
 		</pre>
+    –– OR ––
+    <br>
+    <br>
+    If you are using the ads in some places where shortcodes are enabled then you can use
+
+    <pre>[eaa_show_ad ad="my_above_header"]
+    </pre>
 	</p>
 
-	If you are uncomfortable editing theme files, drop us an email at
+	If you are not comfortable editing theme files, drop us an email at
 	<a href="mailto:satish@swiftthemes.com?Subject=Question%20about%20EAA"
 	   target="_top"><strong>satish@SwiftThemes.com</strong></a> we can do it for a nominal fee.
 	<?php
@@ -318,9 +335,9 @@ function eaa_sanitize_settings( $input ) {
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {
-	    if(!isset($input[$key]))
-	        return
-		$sanitized[ $key ] = $func( $input[ $key ] );
+	    if(isset($input[$key])){
+		    $sanitized[ $key ] = $func( $input[ $key ] );
+        }
 	}
 
 	return $sanitized;

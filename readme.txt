@@ -243,9 +243,16 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
-**0.34**
-* Fix few notices showing up.
+**0.36**
 
+* Move disable ads on home page to the customizer.
+* Fix a bug in short code to show ad.
+* Disable EAA on RSS feed
+
+
+**0.34**
+
+* Fix few notices showing up.
 
 **0.33**
 

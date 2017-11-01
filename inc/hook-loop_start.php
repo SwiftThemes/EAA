@@ -4,11 +4,17 @@ add_action( 'loop_start', 'eaa_loop_start' );
 
 function eaa_loop_start( $query ) {
 
+	if(is_feed()){
+		return;
+	}
+
+
 	$taxonomy_id = $query->queried_object?$query->queried_object->term_taxonomy_id:null;
 	$settings    = get_option( 'eaa_settings' );
+	GLOBAL $eaa;
 
 	// Disable ads on home page
-	if ( is_home() && isset($settings['disable_ads_on_home_page']) && $settings['disable_ads_on_home_page']  ) {
+	if ( is_home() && $eaa->get_option('disable_ads_between_posts_on_home_page')  ) {
 		return;
 	}
 

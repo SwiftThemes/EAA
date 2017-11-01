@@ -8,8 +8,14 @@ add_filter( 'the_content', 'eaa_single_ads', 11 );
  * @param unknown_type $content
  */
 function eaa_single_ads( $content ) {
+
+	if(is_feed()){
+		return $content;
+	}
+
 	global $eaa;
 	global $post;
+
 
 
 	$settings                      = get_option( 'eaa_settings' );

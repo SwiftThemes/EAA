@@ -21,16 +21,16 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 		class Eaa_Customize_Control_Responsive_Content extends WP_Customize_Control {
 
 			public function render_content() {
-				$settings             = get_option( 'eaa_settings' );
-				$amp_class = $settings['enable_amp_support']?'amp-enabled':'amp-disabled';
-				$output = '<div class="eaa-ad-unit-container"><span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="eaa-ad-unit"><div class="responsive-content  '.$amp_class.'">';
+				$settings  = get_option( 'eaa_settings' );
+				$amp_class = isset( $settings['enable_amp_support'] ) && $settings['enable_amp_support'] ? 'amp-enabled' : 'amp-disabled';
+				$output    = '<div class="eaa-ad-unit-container"><span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="eaa-ad-unit"><div class="responsive-content  ' . $amp_class . '">';
 				if ( isset( $this->settings[0] ) ) {
 					$value = $this->settings[0]->value();
 				} else {
 					$value = '';
 				}
 
-				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . '><span>' . __( 'Enable this content area/ad', 'eaa' ) . '</span></label>';
+				$output .= '<label><input  type="checkbox" ' . checked( $value, 1, false ) . $this->get_link( 0 ) . '>' . __( 'Enable this content area/ad', 'eaa' ) . '</label>';
 
 
 				if ( isset( $this->settings[3] ) ) {
@@ -96,7 +96,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				$output .= '<div class="advanced ' . $advanced_class . '">';
 
 
-				$output .= '<label>Margin in pixels without units<input  type="number" value="' . $margin . '"  class="" ' . $this->get_link( 4 ) . ' ></label>';
+				$output .= '<label>' . __( 'Margin around the ad in pixels without units', 'eaa' ) . '<input  type="number" value="' . $margin . '"  class="" ' . $this->get_link( 4 ) . ' ></label>';
 
 
 				$output .= '<br><label>Inline styles<input  value="' . $styles . '" type="text" class="" ' . $this->get_link( 5 ) . ' ></label>';

@@ -13,19 +13,30 @@ function eaa_migrations() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
+
+	$settings_changed = false;
 	//0.2.6 => 0.2.7
 	//Set the default settings so that ads won't stop showing up
 	$settings = get_option( 'eaa_settings', array() );
-	$changed  = false;
-
+	if(!$settings){
+		$settings  = array();
+	}
 	if ( ! isset( $settings['enable_between_content_ads_on'] ) ) {
 		$settings['enable_between_content_ads_on'] = array(
 			'post',
 			'page',
 		);
-		$changed                                   = true;
+		$settings_changed                                   = true;
 	}
-	if ( $changed ) {
+	if ( $settings_changed ) {
 		update_option( 'eaa_settings', $settings );
+	}
+
+	//0.34 ==> 0.35
+	//Disable ads from on home page setting was moved from settings page to customizer.
+	if($settings['disable_ads_on_home_page']){
+		$ads = get_option( 'eaa' );
+		$ads['disable_ads_between_posts_on_home_page'] = true;
+		update_option('eaa',$ads);
 	}
 }

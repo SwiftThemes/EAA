@@ -145,6 +145,7 @@ Now to inject these ads into the theme, place the below code in the theme file w
     ```
 
 If you are using the ads in some places where shortcodes are enabled then you can use `[eaa_show_ad ad="ps_above_header"]`
+
 ##Installation
 
 1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
@@ -204,6 +205,10 @@ If you are using a separate theme, you shouldn't use this option.
 
 
 ## Changelog 
+**0.36**
+* Move disable ads on home page to the customizer.
+* Fix a bug in short code to show ad.
+* Disable EAA on RSS feed
 
 **0.34**
 * Fix few notices showing up.
@@ -214,8 +219,9 @@ If you are using a separate theme, you shouldn't use this option.
 * Custom taxonomy support.
 
 **0.32**
-* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
-<!-- noformat on -->JavaScript code here<!-- noformat on -->
+* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manually.
+ 
+ `<!-- noformat on -->JavaScript code here<!-- noformat on -->`
 
 **0.30**
 * Fix is_amp_endpoint check

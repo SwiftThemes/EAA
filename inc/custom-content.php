@@ -36,14 +36,14 @@ where width is the width of the ad.
 
 
 	$wp_customize->add_section( 'home_page_content', array(
-		'title'       => __( 'Home page', 'eaa' ),
+		'title'       => __( 'Home & Archive Pages', 'eaa' ),
 		'panel'       => 'eaa_ads',
 		'priority'    => 30,
 		'description' => $help_text,
 	) );
 
 	$wp_customize->add_section( 'post_content', array(
-		'title'       => __( 'Single post/page', 'eaa' ),
+		'title'       => __( 'Single Post & Page', 'eaa' ),
 		'panel'       => 'eaa_ads',
 		'priority'    => 30,
 		'description' => $help_text,
@@ -80,9 +80,16 @@ where width is the width of the ad.
 
 	eaa_add_ad_unit( $wp_customize, 'home_between_posts_content',
 		array(
-			'label'   => esc_html__( 'Home page custom ad', 'eaa' ),
+			'label'   => esc_html__( 'Home page ad', 'eaa' ),
 			'section' => 'home_page_content',
 		) );
+
+
+	$wp_customize->add_setting( 'eaa[disable_ads_between_posts_on_home_page]', array(
+		'default' => false,
+		'type'    => 'option',
+	) );
+
 
 	$wp_customize->add_setting( 'eaa[home_between_posts_content_start_after]', array(
 		'default' => 3,
@@ -97,6 +104,15 @@ where width is the width of the ad.
 		'type'    => 'option',
 	) );
 
+
+	$wp_customize->add_control( 'eaa[disable_ads_between_posts_on_home_page]', array(
+		'label'       => __( 'Disable ads between posts on home page.', 'eaa' ),
+		'description' => __( 'Check this option if you wan\'t to keep the home page clean without any ads while continuing to show ads on other archive pages.
+', 'eaa' ),
+		'section'     => 'home_page_content',
+		'type'        => 'checkbox',
+		'priority'    => 30
+	) );
 
 	$wp_customize->add_control( 'eaa[home_between_posts_content_start_after]', array(
 		'label'   => __( 'Start displaying the above ad after nth post.', 'eaa' ),
@@ -147,32 +163,32 @@ where width is the width of the ad.
 	//Single post
 
 	$ad_locations['post_below_title'] = array(
-		'label'   => esc_html__( 'Below post title custom ad', 'eaa' ),
+		'label'   => esc_html__( 'Below post title ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
 	$ad_locations['post_after_first_p'] = array(
-		'label'   => esc_html__( 'After first paragraph custom ad', 'eaa' ),
+		'label'   => esc_html__( 'After first paragraph ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 
 	$ad_locations['post_after_first_img']  = array(
-		'label'   => esc_html__( 'After first anchored image custom ad', 'eaa' ),
+		'label'   => esc_html__( 'After first anchored image ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 	$ad_locations['post_after_second_img'] = array(
-		'label'   => esc_html__( 'After second anchored image custom ad', 'eaa' ),
+		'label'   => esc_html__( 'After second anchored image ad', 'eaa' ),
 		'section' => 'eaa_advanced_locations',
 	);
 
 	$ad_locations['post_between_content'] = array(
-		'label'   => esc_html__( 'Between post custom ad', 'eaa' ),
+		'label'   => esc_html__( 'Between post ad', 'eaa' ),
 		'section' => 'post_content',
 
 	);
 
 	$ad_locations['post_after_content'] = array(
-		'label'   => esc_html__( 'After post custom ad', 'eaa' ),
+		'label'   => esc_html__( 'After post ad', 'eaa' ),
 		'section' => 'post_content',
 	);
 

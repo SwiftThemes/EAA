@@ -55,7 +55,7 @@ if ( ! function_exists( 'eaa_show_ad_short_code' ) ) {
 	function eaa_show_ad_short_code( $attr, $content ) {
 		$ad = $attr['ad'];
 		if ( $ad ) {
-			return eaa_get_ad( 'ps_above_header' );
+			return eaa_get_ad( $ad );
 		} else {
 			return '';
 		}
