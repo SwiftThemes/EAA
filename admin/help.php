@@ -74,6 +74,8 @@
 	</h1>
 	<hr>
 	<div id="marketing">
+        <h2>EAA Video Tutorial</h2>
+        <iframe width="300" height="169" src="https://www.youtube.com/embed/ERtXWO1Ly74?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 		<h2>Contact/Support</h2>
 		<h3 style="font-weight: 300;color:#888">Get help, share feedback or just say hello !!</h3>
 		<?php

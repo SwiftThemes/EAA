@@ -1,18 +1,23 @@
 === Easy AdSense Ads Inserter & AdSense Manager ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
-Tags: AdSense Ad management, AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense Ad management, Best AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
 Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The QUICKEST & MOST INTUITIVE Ad Manager: AdSense, AMP support, Ad Injection, Ad insertion, header & footer scripts, live preview, lite weight & fast.
+
+The QUICKEST & ONLY AdSense ad manager with a Video Tutorial, AMP Support & Live Preview. AdSense, Ad Injection, Ad insertion,lite weight & intuitive
+
 == Description ==
 
-If you are looking for an ad insertion plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
+If you are looking for the best ad insertion plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
 This is the best Google AdSense plugin for injecting AdSense ads and other ads into WordPress.
+
+## EAA Is the only ad manager plugin with video tutorial covering all features of the plugin.
+https://www.youtube.com/watch?v=ERtXWO1Ly74
 
 **Easy AdSense Ads Manager For WordPress** is an **AMP ready** complete ad management and scripts solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
@@ -242,6 +247,10 @@ If you are using a separate theme, you shouldn't use this option.
 5. This is how your user agent groups should look like when you enable w3tc integration. Refer to FAQ **How to have separate caches for Mobile and Desktop**
 
 == Changelog ==
+
+**0.37**
+
+* Embed video tutorial on the help page.
 
 **0.36**
 
