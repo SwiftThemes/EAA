@@ -29,7 +29,6 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_INC . 'hook-w3tc.php' );
 			require_once( EAA_INC . 'hook-header-footer.php' );
 			require_once( EAA_INC . 'functions-eaa-filters.php' );
-			require_once( EAA_INC . 'utilities.php' );
 			require_once( EAA_INC . 'shortcodes.php' );
 			require_once( EAA_INC . 'widget.php' );
 			require_once( EAA_INC . 'hook-wp_head.php' );

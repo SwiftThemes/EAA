@@ -1,4 +1,4 @@
-=== Easy AdSense Ads Inserter & AdSense Manager ===
+=== Easy AdSense Ads – AdSense Inserter & Ad Manager for WordPress ===
 Contributors: Gandham
 Donate link: https://swiftthemes.com/donate
 Tags: AdSense Ad management, Best AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
@@ -9,17 +9,24 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-The QUICKEST & ONLY AdSense ad manager with a Video Tutorial, AMP Support & Live Preview. AdSense, Ad Injection, Ad insertion,lite weight & intuitive
+The QUICKEST & ONLY AdSense ad manager with a Video Tutorial, AMP Support & Live Preview – Ad Injection, AdSense insertion, lite weight & intuitive
 
 == Description ==
 
-If you are looking for the best ad insertion plugin for WordPress for placing AdSense ads on your blog, you have come to the right place.
-This is the best Google AdSense plugin for injecting AdSense ads and other ads into WordPress.
+Easy AdSense Ads is a very simple advertising manager for WordPress that is **not limited to AdSense**. You can easily **inject ads into your home page, posts, pages, archives and custom post types**. You have **9 ad locations** to choose from.
+EAA also comes with features like **ads widget**, **ad rotation**. This is the best WordPress plugin for inserting AdSense ads and other ads.
 
-## EAA Is the only ad manager plugin with video tutorial covering all features of the plugin.
+&#9829;&#9829; **Note**: EAA is the only Ad Management plugin with video tutorial &#9829;&#9829;
+
+[EAA Video Tutorial](https://www.youtube.com/watch?v=ERtXWO1Ly74)
+
+### Easy AdSense Ads is the only ad manager plugin with a video tutorial covering all features of the plugin.
+
 https://www.youtube.com/watch?v=ERtXWO1Ly74
 
-**Easy AdSense Ads Manager For WordPress** is an **AMP ready** complete ad management and scripts solution for your blog.
+[EAA Video Tutorial Link](https://www.youtube.com/watch?v=ERtXWO1Ly74)
+
+**Easy AdSense Ads Inserter & Manager For WordPress** is an **AMP ready** complete ad management and scripts management solution for your blog.
 Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of the ads you injected.
 
 **Note:**
@@ -35,7 +42,7 @@ The header and footer scripts are not limited to just injecting javascript.
 * Verify the website ownership with the meta tag.
 
 
-### Easy AdSense Ad Manager's awesome features include &hellip;
+### Easy AdSense Google Ad Manager's awesome features include &hellip;
 
 ### Separate desktop/tablet AdSense ads injection and mobile AdSense ads injection.
 You can insert different AdSense ad units for mobile, (tablets and desktops).
@@ -53,8 +60,8 @@ Key features here include
 ### Insert Ads on single page ( Posts and Pages )
 We have nine well thought out locations
 
-* Below title AdSense ad injection( Highly converting, but google search doesn't like ads above fold)
-* After first paragraph AdSense Injection / ad. (Highly converting, no issues with SEO)
+* Below title Google AdSense ad injection( Highly converting, but google search doesn't like ads above fold)
+* After first paragraph Google Ads Injection / adsense. (Highly converting, no issues with SEO)
 * After any 3 paragraphs of your choice AdSense / ad injection.
 * After first image AdSense / ad.
 * After second image AdSense / ad.
@@ -63,7 +70,7 @@ We have nine well thought out locations
 
 ### Easily disable AdSense / ads on a per page/post basis.
 
-There will be cases where you do not want to inject AdSense / ads on some particular posts or pages. Reasons may include
+There will be cases where you do not want to inject AdSense / insert ads on some particular posts or pages. Reasons may include
 * Content my violate AdSense/advertiser policies.
 * Client doesn't like AdSense / ads in their sponsored content.
 * Page/Post that brings more revenue through affiliate marketing than display ads like AdSense.
@@ -179,6 +186,9 @@ Now to inject these ads into the theme, place the below code in the theme file w
 If you are using the ads in some places where shortcodes are enabled then you can use `[eaa_show_ad ad="ps_above_header"]`
 
 == Installation ==
+
+**Video Tutorial**
+https://www.youtube.com/watch?v=ERtXWO1Ly74
 
 1. Upload the plugin files to the `/wp-content/plugins/eaa` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress

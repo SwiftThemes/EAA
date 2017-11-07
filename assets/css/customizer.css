@@ -134,4 +134,7 @@ select.alignleft {
 .eaa-ad-unit-container.open .customize-control-title:after {
   content: "\f142";
 }
+
+
+.help{font-size:12px!important;font-style: italic;font-family: serif;color:#fb5272}
 /*ul li.customize-control:nth-child(2) .eaa-ad-unit-container{display: block}*/

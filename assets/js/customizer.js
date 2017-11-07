@@ -13,6 +13,7 @@ jQuery(document).ready(function ($) {
 
 
     collapse_all_ads()
+    expand_first_ad()
 
     // When a closed ad is clicked
     $('li.customize-control').on('click', '.eaa-ad-unit-container.closed span', function (e) {
@@ -31,6 +32,14 @@ jQuery(document).ready(function ($) {
         $('.eaa-ad-unit-container').each(
             function () {
                 $(this).addClass('closed').removeClass('open')
+            }
+        )
+    }
+
+    function expand_first_ad() {
+        $('ul .customize-control:nth-child(2) .eaa-ad-unit-container').each(
+            function () {
+                $(this).addClass('open').removeClass('closed')
             }
         )
     }

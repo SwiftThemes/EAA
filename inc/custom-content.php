@@ -25,6 +25,7 @@ If you want to centre the ad, wrap it in
 style=&quot;width:300px&quot;&gt;&lt;/div&gt;</pre>
 where width is the width of the ad.
 
+
 	';
 
 

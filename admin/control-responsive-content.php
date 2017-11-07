@@ -49,7 +49,10 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				<option value="" ' . checked( $value, '', false ) . '>None (Default)</option>
 				<option value="alignleft" ' . checked( $value, 'alignleft', false ) . '>Left</option>
 				<option value="alignright" ' . checked( $value, 'alignright', false ) . '>Right</option>
-				</select><div class="clear"></div>';
+				</select>
+				<div class="clear"></div>
+				<p class="help">' . __( 'If you are using responsive ad units from AdSense, set the alignment to None.','eaa' ) . '
+				</p>';
 
 				if ( isset( $this->settings[1] ) ) {
 					$value = $this->settings[1]->value();
@@ -58,12 +61,18 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				}
 				$output .= '<div class="textarea desktop"><textarea type="" ' . $this->get_link( 1 ) . ' placeholder="' . __( 'For desktops,laptops and tablets', 'eaa' ) . '" >' . $value . '</textarea></div>';
 
+
+				$output .= '<p class="help">' . __(
+						'If you wan\'t to show same ad on mobiles and desktop, paste the above code below', 'eaa' ) . '
+
+</p>';
 				if ( isset( $this->settings[2] ) ) {
 					$value = $this->settings[2]->value();
 				} else {
 					$value = '';
 				}
 				$output .= '<div class="textarea mobile"><textarea type="" ' . $this->get_link( 2 ) . ' placeholder="' . __( 'For mobiles', 'eaa' ) . '" >' . $value . '</textarea></div>';
+
 
 				if ( isset( $this->settings[6] ) ) {
 					$value = $this->settings[6]->value();

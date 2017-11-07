@@ -13,6 +13,8 @@ function eaa_single_ads( $content ) {
 		return $content;
 	}
 
+
+
 	global $eaa;
 	global $post;
 
@@ -140,6 +142,11 @@ function eaa_single_ads( $content ) {
 
 		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>)/';
 		$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
+
+		if(count($temp)===1){
+			$s    = '/(<img[^>]*>)/';
+			$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
+		}
 
 		if ( 1 !== count( $temp ) ) {
 			$content = $temp[0] . $temp[1];
