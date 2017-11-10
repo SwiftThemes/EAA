@@ -34,7 +34,7 @@ function eaa_migrations() {
 
 	//0.34 ==> 0.35
 	//Disable ads from on home page setting was moved from settings page to customizer.
-	if($settings['disable_ads_on_home_page']){
+	if(isset($settings['disable_ads_on_home_page']) && $settings['disable_ads_on_home_page']){
 		$ads = get_option( 'eaa' );
 		$ads['disable_ads_between_posts_on_home_page'] = true;
 		update_option('eaa',$ads);

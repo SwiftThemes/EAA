@@ -1,6 +1,8 @@
 <?php
 
-add_filter( 'the_content', 'eaa_single_ads', 11 );
+$settings = get_option( 'eaa_settings' );
+$priority = isset( $settings['the_content_hook_priority'] ) && $settings['the_content_hook_priority'] ? $settings['the_content_hook_priority'] : 11;
+add_filter( 'the_content', 'eaa_single_ads', $priority );
 /**
  *
  * Inserts the ads in post content
@@ -9,15 +11,13 @@ add_filter( 'the_content', 'eaa_single_ads', 11 );
  */
 function eaa_single_ads( $content ) {
 
-	if(is_feed()){
+	if ( is_feed() ) {
 		return $content;
 	}
 
 
-
 	global $eaa;
 	global $post;
-
 
 
 	$settings                      = get_option( 'eaa_settings' );
@@ -28,9 +28,9 @@ function eaa_single_ads( $content ) {
 	}
 
 
-	if ( isset($settings['enable_advanced_options']) &&
+	if ( isset( $settings['enable_advanced_options'] ) &&
 	     $settings['enable_advanced_options'] &&
-	     isset($settings['disable_ads_on_taxonomies']) &&
+	     isset( $settings['disable_ads_on_taxonomies'] ) &&
 	     $settings['disable_ads_on_taxonomies'] ) {
 		$post_terms   = eaa_get_term_ids( $post->ID );
 		$intersection = array_intersect( $post_terms, $settings['disable_ads_on_taxonomies'] );
@@ -104,7 +104,7 @@ function eaa_single_ads( $content ) {
 
 			// If between post and nth_p are not same
 			if ( ( ! $between_post || $add_after !== $nth_p ) && $i == $nth_p ) {
-				$content .= do_shortcode( stripslashes( $after_nth_p ) );
+				$content        .= do_shortcode( stripslashes( $after_nth_p ) );
 				$add_at_the_end = false;
 			}
 
@@ -143,11 +143,12 @@ function eaa_single_ads( $content ) {
 		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>)/';
 		$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
 
-		if(count($temp)===1){
+		if ( count( $temp ) === 1 ) {
 			$s    = '/(<img[^>]*>)/';
 			$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
 		}
 
+		//@todo review this logic
 		if ( 1 !== count( $temp ) ) {
 			$content = $temp[0] . $temp[1];
 			if ( $after_first_img ) {
