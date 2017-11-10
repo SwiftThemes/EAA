@@ -1,6 +1,6 @@
 === Easy AdSense Ads – AdSense Inserter & Ad Manager for WordPress ===
 Contributors: Gandham
-Donate link: https://swiftthemes.com/donate
+Donate link: https://paypal.me/swiftthemes
 Tags: AdSense Ad management, Best AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
 Tested up to: 4.8
