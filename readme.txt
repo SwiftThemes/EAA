@@ -258,6 +258,9 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
+**0.38**
+
+* 
 **0.37**
 
 * Embed video tutorial on the help page.
@@ -374,6 +377,10 @@ If you are using a separate theme, you shouldn't use this option.
 * First release, yayy!!
 
 == Upgrade Notice ==
+
+**0.38**
+
+If there are no anchored images in the post, then the ad will be shown after first image.
 
 **0.27**
 

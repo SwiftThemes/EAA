@@ -24,6 +24,7 @@ function eaa_responsive_content_control_register( $wp_customize ) {
 				$settings  = get_option( 'eaa_settings' );
 				$amp_class = isset( $settings['enable_amp_support'] ) && $settings['enable_amp_support'] ? 'amp-enabled' : 'amp-disabled';
 				$output    = '<div class="eaa-ad-unit-container"><span class="customize-control-title rc">' . $this->label . '</span><div class="clear"></div><br><div class="eaa-ad-unit"><div class="responsive-content  ' . $amp_class . '">';
+				$output .='<span class="help">'. $this->description .'</span><div class="clear"></div> ';
 				if ( isset( $this->settings[0] ) ) {
 					$value = $this->settings[0]->value();
 				} else {

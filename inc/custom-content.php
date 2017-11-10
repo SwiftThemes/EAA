@@ -174,8 +174,9 @@ where width is the width of the ad.
 	);
 
 	$ad_locations['post_after_first_img']  = array(
-		'label'   => esc_html__( 'After first anchored image ad', 'eaa' ),
+		'label'   => esc_html__( 'After first image ad', 'eaa' ),
 		'section' => 'post_content',
+		'description'=>__('If there are no anchored images in the post, then the ad will be shown after first image.','eaa')
 	);
 	$ad_locations['post_after_second_img'] = array(
 		'label'   => esc_html__( 'After second anchored image ad', 'eaa' ),
