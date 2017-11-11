@@ -12,7 +12,7 @@ function eaa_add_user_locations( $ad_locations ) {
 
 	$settings = get_option( 'eaa_settings' );
 
-	$locations = sanitize_text_field( $settings['custom_locations'] );
+	$locations = isset( $settings['custom_locations'] ) && $settings['custom_locations'] ? sanitize_text_field( $settings['custom_locations'] ) : false;
 
 	if ( $locations ) {
 		//1. Split locations by comma
@@ -34,8 +34,6 @@ function eaa_add_user_locations( $ad_locations ) {
 }
 
 
-
-
 //@todo
 //Give it a better place
 // <!-- noformat on --> and <!-- noformat off --> functions
@@ -55,7 +53,7 @@ function eaa_autop( $text ) {
 		} else {
 			$newtext .= convert_chars( wptexturize( wpautop( $sub ) ) );
 		}      //Apply both functions (faster)
-		$pos = $newpos + strlen( $tags[ $status ] );
+		$pos    = $newpos + strlen( $tags[ $status ] );
 		$status = $status ? 0 : 1;
 	}
 

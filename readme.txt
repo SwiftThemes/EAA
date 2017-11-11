@@ -16,8 +16,8 @@ The QUICKEST & ONLY AdSense ad manager with a Video Tutorial, AMP Support & Live
 Easy AdSense Ads is a very simple advertising manager for WordPress that is **not limited to AdSense**. You can easily **inject ads into your home page, posts, pages, archives and custom post types**. You have **9 ad locations** to choose from.
 EAA also comes with features like **ads widget**, **ad rotation**. This is the best WordPress plugin for inserting AdSense ads and other ads.
 
-&#9829;&#9829; **Note**: EAA is the only Ad Management plugin with video tutorial &#9829;&#9829;
-
+&#9829;&#9829; **Note**: EAA is the only Ad Manager with video tutorial &#9829;&#9829;
+Easy AdSense is not just for Google Publishers
 [EAA Video Tutorial](https://www.youtube.com/watch?v=ERtXWO1Ly74)
 
 ### Easy AdSense Ads is the only ad manager plugin with a video tutorial covering all features of the plugin.
@@ -203,6 +203,8 @@ No, You can use it with any theme and it works out of the box.
 
 = Can I add multiple adsense/ads in one location =
 You can add as many adsense/ads as you please in any location. You can even mix scripts and html.
+When you are adding multiple adsense ads, please ensure that you are not violating google publisher policies.
+According to google publisher policies you can only have 3 ad units and 3 linked units on a page.
 
 = Can I use it on WordPress MU =
 Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
@@ -221,26 +223,26 @@ We plan to introduce automatic conversion of AdSense ads to AMP version in the u
 1. You can see a live demo at [TheGeekDaily.Com - Unblock YouTube](https://thegeekdaily.com/12-ways-to-unblock-youtube-at-schools-office-and-university/)
 
 = Does this plugin ‘take’ a percentage of my ad earnings? =
-No! Absolutely not. Some ad plugins replace your publisher ID with their own for a certain percentage of adverts. 
-Easy AdSense Ads #EAA does NOT do this. All your earnings are your own. Easy AdSense Ads #EAA makes no modifications to your ad code. 
+No! Absolutely not. Some ad plugins replace your publisher ID with their own for a certain percentage of adverts.
+Easy AdSense Ads #EAA does NOT do this. All your earnings are your own. Easy AdSense Ads #EAA makes no modifications to your ad code.
 What you paste into the ad boxes is what is injected into your pages.
 
 = Do I need a caching plugin with Easy AdSense Ads Manager =
 No. But in general it is a good idea to use a caching plugin. We recommend W3TC. For reason why, read the next question.
 
 = Which caching plugin to use =
-If you are using different ads for mobile and desktops along with caching, chances are a page cached for mobile may be displayed to 
+If you are using different ads for mobile and desktops along with caching, chances are a page cached for mobile may be displayed to
 desktop users and vice versa.
 
 One way to handle this problem is to have separate caches for mobile and desktop. At this time the only plugin that lets to maintain separate caches is
- W3TC. 
- 
+ W3TC.
+
  So, we highly recommend you use w3tc if you are different adsense ads for mobiles and desktops. If not, it doesn't matter and you are free to choose whatever caching plugin you use.
 
 = How to have separate caches for Mobile and Desktop =
-If you are using w3tc plugin for caching, 
+If you are using w3tc plugin for caching,
 1. Go to plugin options page and enable `Automatically create user agent groups for W3TC` option.
-2. Now goto w3tc -> User agent groups and click on save changes. 
+2. Now goto w3tc -> User agent groups and click on save changes.
 
 After step 2, your user agent groups should looks something like screenshot 5.
 
@@ -260,7 +262,12 @@ If you are using a separate theme, you shouldn't use this option.
 
 **0.38**
 
-* 
+* Add help text in eaa control.
+* Expand the first ad unit by default in all sections.
+* If there is no anchored image, ad will be shown after first non anchored image.
+* Add plugin compatibility option.
+* Add admin menu icon.
+
 **0.37**
 
 * Embed video tutorial on the help page.
@@ -283,9 +290,9 @@ If you are using a separate theme, you shouldn't use this option.
 
 **0.32**
 
-* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manaully.
+* Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manually.
 <!-- noformat on -->JavaScript code here<!-- noformat on -->
-
+This tag prevents your ad code from being truncated by wp_autop and saves you from violating google publisher policies.
 **0.30**
 * Fix is_amp_endpoint check, so that the plugin design break when WordPress AMP plugin is not installed.
 
@@ -297,7 +304,7 @@ If you are using a separate theme, you shouldn't use this option.
 
 * Let users choose post types on which to use adsense/ads within content.
 * Let users choose on which post types to disable other adsense ad units and ads.
-* Option to enable AMP Ads support and a new AMP ad slot.
+* Option to enable AMP Ads support and a new AMP ad slot for google publishers.
 * Collapsible adsense/ad location for distraction free adsesne/ad editing.
 
 **0.26**
@@ -353,6 +360,7 @@ If you are using a separate theme, you shouldn't use this option.
 * Add contact form to plugin help page.
 * Fix an issue with home page AdSense / ads being displayed on custom queries.
 
+
 **0.15**
 
 * Fix a bug with the plugin info page. Using absolute path now.
@@ -360,7 +368,7 @@ If you are using a separate theme, you shouldn't use this option.
 
 **0.14**
 
-* Add support for AdSense / ad after captioned images.
+* Add support for AdSense / ad after captioned images for Google Publishers.
 
 **0.13**
 
@@ -373,6 +381,18 @@ If you are using a separate theme, you shouldn't use this option.
 * Add help text in the customizer
 
 **0.10**
+
+* First release, yayy!! Best plugin for Google Publishers
+
+== Upgrade Notice ==
+
+**0.38**
+
+If there are no anchored images in the post, then the ad will be shown after first image.
+
+**0.27**
+
+You have to goto plugin settings page and select the post types on which you wan\'t to enable EAA.
 
 * First release, yayy!!
 

@@ -205,6 +205,19 @@ If you are using a separate theme, you shouldn't use this option.
 
 
 ## Changelog 
+
+**0.38**
+
+* Add help text in eaa control.
+* Expand the first ad unit by default in all sections.
+* If there is no anchored image, ad will be shown after first non anchored image.
+* Add plugin compatibility option.
+* Add admin menu icon.
+
+**0.37**
+
+* Embed video tutorial on the help page.
+
 **0.36**
 * Move disable ads on home page to the customizer.
 * Fix a bug in short code to show ad.
@@ -283,12 +296,12 @@ If you are using a separate theme, you shouldn't use this option.
 
 **0.15**
 
-*Fix a bug with the plugin info page. Using absolute path now. 
-*Improve styling of the alignment setting.
+* Fix a bug with the plugin info page. Using absolute path now. 
+* Improve styling of the alignment setting.
 
 **0.14**
 
-*Add support for ad after captioned images.
+* Add support for ad after captioned images.
 
 **0.13**
 * Remove sidebar from plugin admin page

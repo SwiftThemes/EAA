@@ -28,9 +28,7 @@ function eaa_migrations() {
 		);
 		$settings_changed                                   = true;
 	}
-	if ( $settings_changed ) {
-		update_option( 'eaa_settings', $settings );
-	}
+
 
 	//0.34 ==> 0.35
 	//Disable ads from on home page setting was moved from settings page to customizer.
@@ -38,5 +36,18 @@ function eaa_migrations() {
 		$ads = get_option( 'eaa' );
 		$ads['disable_ads_between_posts_on_home_page'] = true;
 		update_option('eaa',$ads);
+	}
+
+	//0.37 ==> 0.38
+
+	if(!isset($settings['the_content_hook_priority'])){
+		$settings['the_content_hook_priority'] = 11;
+		$settings_changed                                   = true;
+	}
+
+
+
+	if ( $settings_changed ) {
+		update_option( 'eaa_settings', $settings );
 	}
 }
