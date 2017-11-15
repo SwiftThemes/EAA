@@ -80,13 +80,17 @@ function eaa_convert_chars( $text ) {
 	return $text;
 }
 
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'eaa_autop' );
+$settings = get_option( 'eaa_settings' );
+if($settings['disable_wpautop']){
 
-remove_filter( 'the_content', 'wptexturize' );
-add_filter( 'the_content', 'eaa_texturize' );
+	remove_filter( 'the_content', 'wpautop' );
+	add_filter( 'the_content', 'eaa_autop',9 );
 
-remove_filter( 'the_content', 'convert_chars' );
-add_filter( 'the_content', 'eaa_convert_chars' );
+	remove_filter( 'the_content', 'wptexturize' );
+	add_filter( 'the_content', 'eaa_texturize' );
 
+	remove_filter( 'the_content', 'convert_chars' );
+	add_filter( 'the_content', 'eaa_convert_chars' );
+
+}
 

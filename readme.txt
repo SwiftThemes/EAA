@@ -1,7 +1,7 @@
-=== Easy AdSense Ads – AdSense Inserter & Ad Manager for WordPress ===
+=== Easy AdSense Ads – Ad Inserter & Manager for WordPress ===
 Contributors: Gandham
 Donate link: https://paypal.me/swiftthemes
-Tags: AdSense Ad management, Best AdSense, AMP Ad Injection, Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense Ad management, AdSense Post Ads Injection, Post Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
 Tested up to: 4.8
 Stable tag: trunk
@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-The QUICKEST & ONLY AdSense ad manager with a Video Tutorial, AMP Support & Live Preview – Ad Injection, AdSense insertion, lite weight & intuitive
+Easily inject ADS into your homepage and posts with a LivePreview – 10+ AdSpots, Free Forever, No upsells, AMP Ad Injection, Best AdSense Ad Manager
 
 == Description ==
 
@@ -259,6 +259,14 @@ If you are using a separate theme, you shouldn't use this option.
 5. This is how your user agent groups should look like when you enable w3tc integration. Refer to FAQ **How to have separate caches for Mobile and Desktop**
 
 == Changelog ==
+
+**0.40**
+* Fix a bug with settings validation.
+* Add option to disable wpautop filter.
+
+**0.39**
+* Add support for php 5.3.
+https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#post-9674368
 
 **0.38**
 

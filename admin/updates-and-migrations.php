@@ -18,33 +18,40 @@ function eaa_migrations() {
 	//0.2.6 => 0.2.7
 	//Set the default settings so that ads won't stop showing up
 	$settings = get_option( 'eaa_settings', array() );
-	if(!$settings){
-		$settings  = array();
+	if ( ! $settings ) {
+		$settings = array();
 	}
 	if ( ! isset( $settings['enable_between_content_ads_on'] ) ) {
 		$settings['enable_between_content_ads_on'] = array(
 			'post',
 			'page',
 		);
-		$settings_changed                                   = true;
+		$settings_changed                          = true;
 	}
 
 
 	//0.34 ==> 0.35
 	//Disable ads from on home page setting was moved from settings page to customizer.
-	if(isset($settings['disable_ads_on_home_page']) && $settings['disable_ads_on_home_page']){
-		$ads = get_option( 'eaa' );
+	if ( isset( $settings['disable_ads_on_home_page'] ) && $settings['disable_ads_on_home_page'] ) {
+		$ads                                           = get_option( 'eaa' );
 		$ads['disable_ads_between_posts_on_home_page'] = true;
-		update_option('eaa',$ads);
+		update_option( 'eaa', $ads );
 	}
 
 	//0.37 ==> 0.38
 
-	if(!isset($settings['the_content_hook_priority'])){
+	if ( ! isset( $settings['the_content_hook_priority'] ) ) {
 		$settings['the_content_hook_priority'] = 11;
-		$settings_changed                                   = true;
+		$settings_changed                      = true;
 	}
 
+
+//0.39 ==> 0.40
+
+	if ( ! isset( $settings['disable_wpautop'] ) ) {
+		$settings['disable_wpautop'] = false;
+		$settings_changed            = true;
+	}
 
 
 	if ( $settings_changed ) {

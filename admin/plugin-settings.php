@@ -20,6 +20,13 @@ function eaa_settings_init() {
 		'eaa-settings'
 	);
 
+	add_settings_section(
+		'eaa_helpers',
+		__( 'Advanced helpers', 'eaa' ),
+		'eaa_advanced_options_section_callback',
+		'eaa-settings'
+	);
+
 //	add_settings_field(
 //		'disable_ads_on_home_page',
 //		__( 'Disable ads on home page', 'eaa' ),
@@ -56,6 +63,14 @@ function eaa_settings_init() {
 		'eaa_set_the_content_hook_priority_callback',
 		'eaa-settings',
 		'eaa_plugin_compatibility'
+	);
+
+	add_settings_field(
+		'disable_wpautop',
+		__( 'Disable wpautop filter selectively', 'eaa' ),
+		'eaa_disable_wpautop_callback',
+		'eaa-settings',
+		'eaa_helpers'
 	);
 
 	add_settings_field(
@@ -237,6 +252,25 @@ function eaa_settings_field_callback() {
 	<?php
 }
 
+function eaa_disable_wpautop_callback() {
+	$settings = get_option( 'eaa_settings' );
+	?>
+    <label>
+        <input type="checkbox" name="eaa_settings[disable_wpautop]" value=true
+			<?php checked( $settings['disable_wpautop'] ); ?>/>
+		<?php _e( 'Enable custom tag to disable wpautop', 'eaa' ); ?>
+    </label>
+    <p class="description">
+		<?php _e( 'If you are adding AdSense ads or other ads to your post content directly, 
+		you will notice that sometimes WordPress truncates the code by adding line breaks between them.', 'eaa' ) ?>
+        <br>
+        <?php _e( 'You can avoid that by enabling this option and wrapping your code in noformat tags like below ', 'eaa' ) ?>
+    <pre>&lt;!-- noformat on --&gt;JavaScript ad code here&lt;!-- noformat on --&gt;</pre>
+    </p>
+
+	<?php
+}
+
 function eaa_enable_between_content_ads_on_callback() {
 	$settings                      = get_option( 'eaa_settings' );
 	$enable_between_content_ads_on = $settings['enable_between_content_ads_on'] ? $settings['enable_between_content_ads_on'] : array();
@@ -371,9 +405,10 @@ function eaa_sanitize_settings( $input ) {
 		'custom_locations'                 => 'esc_attr',
 		'disable_ads_on_home_page'         => 'eaa_sanitize_boolean',
 		'enable_advanced_options'          => 'eaa_sanitize_boolean',
-		'disable_ads_on_taxonomies'        => 'eaa_sanitize_boolean',
-		'disable_ads_on_taxonomy_archives' => 'eaa_sanitize_boolean',
+		'disable_ads_on_taxonomies'        => 'eaa_sanitize_pass',
+		'disable_ads_on_taxonomy_archives' => 'eaa_sanitize_pass',
 		'the_content_hook_priority'        => 'intval',
+		'disable_wpautop'        => 'eaa_sanitize_boolean',
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {
@@ -395,14 +430,14 @@ function eaa_sanitize_pass( $val ) {
 
 
 function eaa_get_post_types() {
-	$excluded   = [
+	$excluded   = array(
 		'revision',
 		'nav_menu_item',
 		'custom_css',
 		'customize_changeset',
 		'deprecated_log',
 		'wpcf7_contact_form',
-	];
+	);
 	$post_types = get_post_types();
 
 	return array_diff( $post_types, $excluded );
