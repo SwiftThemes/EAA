@@ -59,7 +59,27 @@
 		border-radius: 5px;
 	}
 
-	.review-button{
+	.support-button{
+		background: rgb(77, 191, 98);color:#FFF;border-radius: 3px;padding: 2px 5px;text-decoration: none;
+        text-transform: uppercase;
+	}
+	.support-button:hover{
+		background: rgb(68, 168, 86);;
+		color: #fff;
+		text-shadow: 1px 1px 1px #000;
+	}
+
+    .support-button:before{
+        content: "\f223";
+        font-family: dashicons;
+        font-size:18px;
+        position: relative;
+        top:3px;
+        margin-right: 3px;
+
+    }
+
+    .review-button{
 		background: rgb(255, 57, 46);color:#FFF;border-radius: 3px;padding: 2px 5px;text-decoration: none;
 	}
 	.review-button:hover{
@@ -114,7 +134,7 @@
 			First off, a big thank you for giving EAA small space on your website.<br>
 			We hope you find this plugin useful and easy to use. If you have any questions, please ask on the
 
-			<a href="https://wordpress.org/support/plugin/easy-adsense-ads-scripts-manager" target="_blank"><strong>support
+			<a href="https://forums.swiftthemes.com/c/plugins/eaa/" class="support-button" target="_blank"><strong>support
 					forum</strong></a> or shoot an email to
 			<a href="mailto:satish@swiftthemes.com?Subject=Question%20about%20EAA" target="_top"><strong>satish@SwiftThemes.com</strong></a>
 			<br>

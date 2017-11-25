@@ -140,24 +140,37 @@ function eaa_single_ads( $content ) {
 
 	if ( $after_first_img || $after_second_img ) {
 
-		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>)/';
+		$s    = '/(<a [^>]*>[\s]*<img[^>]*><\/a>|<figure[^>]*>.*<\/figure>|<img[^>]*>)/';
 		$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
 
-		if ( count( $temp ) === 1 ) {
-			$s    = '/(<img[^>]*>)/';
-			$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
-		}
+//		if ( count( $temp ) === 1 ) {
+//			$s    = '/(<img[^>]*>)/';
+//			$temp = preg_split( $s, $content, 3, PREG_SPLIT_DELIM_CAPTURE );
+//		}
 
-		//@todo review this logic
+		/**
+		 * 0 --> Content before the image
+		 * 1 --> First image
+		 * 2 --> Content between first and second image, if there is no image, remaining content.
+		 * 3 -->  Second image
+		 * 4 --> Content after second image.
+		 */
+
 		if ( 1 !== count( $temp ) ) {
 			$content = $temp[0] . $temp[1];
 			if ( $after_first_img ) {
 				$content .= do_shortcode( stripslashes( $after_first_img ) );
 			}
-			if ( $after_second_img && count( $temp ) === 5 ) {
-				$content .= $temp[2] . $temp[3] . do_shortcode( stripslashes( $after_second_img ) ) . $temp[4];
-			} else {
-				$content .= $temp[2] . $temp[3] . $temp[4];
+			// Content between first and second image or the end.
+			$content .= $temp[2];
+
+			if ( count( $temp ) === 5 ) {
+				//There is a second image
+				if ( $after_second_img ) {
+					$content .= $temp[3] . do_shortcode( stripslashes( $after_second_img ) ) . $temp[4];
+				} else {
+					$content .= $temp[3] . $temp[4];
+				}
 			}
 		}
 	}

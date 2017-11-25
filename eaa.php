@@ -56,6 +56,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_ADMIN . 'admin-ajax.php' );
 			require_once( EAA_ADMIN . 'plugin-settings.php' );
 			require_once( EAA_ADMIN . 'updates-and-migrations.php' );
+			require_once( EAA_ADMIN . 'admin.php' );
 		}
 
 		public function load_mobile_detect() {
@@ -125,3 +126,13 @@ $eaa = new EAA();
 
 GLOBAL $eaa;
 
+
+//
+//add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'eaa_action_links' );
+//
+//function eaa_action_links ( $links ) {
+//	$mylinks = array(
+//		'<a href="https://forums.swiftthemes.com/c/plugins/eaa/">'.__('Support Forum','eaa').'</a>',
+//	);
+//	return array_merge( $links, $mylinks );
+//}
