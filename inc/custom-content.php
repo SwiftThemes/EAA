@@ -50,6 +50,13 @@ where width is the width of the ad.
 		'description' => $help_text,
 	) );
 
+	$wp_customize->add_section( 'sticky_ads', array(
+		'title'       => __( 'Sticky ads', 'eaa' ),
+		'panel'       => 'eaa_ads',
+		'priority'    => 40,
+		'description' => $help_text,
+	) );
+
 	$wp_customize->add_section( 'user_locations', array(
 		'title'       => __( 'My Custom Locations', 'eaa' ),
 		'panel'       => 'eaa_ads',
@@ -192,6 +199,17 @@ where width is the width of the ad.
 	$ad_locations['post_after_content'] = array(
 		'label'   => esc_html__( 'After post ad', 'eaa' ),
 		'section' => 'post_content',
+	);
+
+
+	//Sticky Ads
+	$ad_locations['sticky_ad_top'] = array(
+		'label'   => esc_html__( 'Sticky ad at the top of the page', 'eaa' ),
+		'section' => 'sticky_ads',
+	);
+	$ad_locations['sticky_ad_bottom'] = array(
+		'label'   => esc_html__( 'Sticky ad at the bottom of the page', 'eaa' ),
+		'section' => 'sticky_ads',
 	);
 
 	$ad_locations = apply_filters( 'eaa_ad_locations', $ad_locations );

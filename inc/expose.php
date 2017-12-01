@@ -46,7 +46,7 @@ function eaa_get_ad( $location, $args = array() ) {
 		return false;
 	}
 
-	$before_ad = sprintf( '<div class="eaa-wrapper eaa_%s eaa_%s">', $location, $platform );
+	$before_ad = sprintf( '<div id="eaa_%s" class="eaa-wrapper eaa_%s eaa_%s">', $location, $location, $platform );
 	$before_ad = isset( $args['before_ad'] ) ? $args['before_ad'] . $before_ad : $before_ad;
 	$after_ad  = isset( $args['after_ad'] ) ? $args['after_ad'] . '</div>' : '</div>';
 
@@ -111,7 +111,7 @@ function eaa_get_content_ad( $location, $args = array() ) {
 		return false;
 	}
 
-	$before_ad = sprintf( '<div class="eaa-wrapper eaa_%s eaa_%s">', $location, $platform );
+	$before_ad = sprintf( '<div id="eaa_%s" class="eaa-wrapper eaa_%s eaa_%s">', $location, $location, $platform );
 	$before_ad = isset( $args['before_ad'] ) ? $args['before_ad'] . $before_ad : $before_ad;
 	$after_ad  = isset( $args['after_ad'] ) ? $args['after_ad'] . '</div>' : '</div>';
 

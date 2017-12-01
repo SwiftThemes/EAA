@@ -32,6 +32,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_INC . 'shortcodes.php' );
 			require_once( EAA_INC . 'widget.php' );
 			require_once( EAA_INC . 'hook-wp_head.php' );
+			require_once( EAA_INC . 'hook-sticky-ads.php' );
 			require_once( EAA_INC . 'expose.php' );
 			require_once( EAA_INC . 'helpers.php' );
 		}
