@@ -1,15 +1,15 @@
-=== Easy AdSense Ads – Ad Inserter & Manager for WordPress ===
+=== Easy AdSense Ads - Ad Insertion & Management ===
 Contributors: Gandham
 Donate link: https://paypal.me/swiftthemes
-Tags: AdSense Ad management, AdSense Post Ads Injection, Post Ad Inserter, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
+Tags: AdSense Ad management, AdSense Post Ads Injection, Post Ad Inserter, Sticky Ads, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
 Requires at least: 3.0
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-Easily inject ADS into your homepage and posts with a LivePreview – 10+ AdSpots, Free Forever, No upsells, AMP Ad Injection, Best AdSense Ad Manager
+Easily inject ADS into your homepage and posts with a LivePreview - 10+ AdSpots, Free Forever, No upsells, AMP Ad Injection, Best AdSense Ad Manager
 
 == Description ==
 
@@ -94,7 +94,7 @@ You can use the shortcode anywhere, even in your post content.
 
 **Example**:
 
-```
+``
         [ads]
         First AdSense ad to insert<!-- next ad insertion -->
         Second AdSense ad <!-- next ad insertion -->
@@ -111,7 +111,7 @@ You can use the shortcode anywhere, even in your post content.
         thirtieth AdSense ad<!-- next ad insertion -->
         so on, you get the idea. AdSense ad<!-- next ad insertion -->
         [/ads]
-```
+``
 
 ### Option to insert header and footer scripts.
 Easily ad your (Google) analytics script, website verification scripts, fonts and any other script you might want to insert in to your website header or footer.
@@ -260,11 +260,33 @@ If you are using a separate theme, you shouldn't use this option.
 
 == Changelog ==
 
+**0.44**
+
+* Made all strings translatable.
+
+**0.43**
+
+* Add close icon to sticky ads on mobile.
+
+**0.42**
+
+* Move javascript to separate file.
+* Increase the priority of eaa scripts.
+
+**0.41**
+
+* Add sticky ads.
+* Update support forum links to our new forum.
+* After image ad now works with both, anchored and non anchored images.
+* Refine the image ad logic to avoid php notices.
+
 **0.40**
+
 * Fix a bug with settings validation.
 * Add option to disable wpautop filter.
 
 **0.39**
+
 * Add support for php 5.3.
 https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#post-9674368
 
@@ -301,7 +323,9 @@ https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#pos
 * Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manually.
 <!-- noformat on -->JavaScript code here<!-- noformat on -->
 This tag prevents your ad code from being truncated by wp_autop and saves you from violating google publisher policies.
+
 **0.30**
+
 * Fix is_amp_endpoint check, so that the plugin design break when WordPress AMP plugin is not installed.
 
 **0.29**
@@ -392,17 +416,6 @@ This tag prevents your ad code from being truncated by wp_autop and saves you fr
 
 * First release, yayy!! Best plugin for Google Publishers
 
-== Upgrade Notice ==
-
-**0.38**
-
-If there are no anchored images in the post, then the ad will be shown after first image.
-
-**0.27**
-
-You have to goto plugin settings page and select the post types on which you wan\'t to enable EAA.
-
-* First release, yayy!!
 
 == Upgrade Notice ==
 

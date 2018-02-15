@@ -13,7 +13,7 @@ function eaa_admin_menu() {
 	add_submenu_page(
 		'eaa',
 		'Easy AdSense Ads & Scripts Manager',
-		'EAA Help',
+		'EAA ' . __( 'Help', 'eaa' ),
 		'manage_options',
 		'eaa',
 		'eaa_info_page',
@@ -21,7 +21,7 @@ function eaa_admin_menu() {
 	);
 
 
-	add_submenu_page( 'eaa', 'EAA Settings', 'EAA Settings', 'manage_options', 'eaa-settings', 'eaa_options_page' );
+	add_submenu_page( 'eaa', 'EAA ' . __( 'Settings', 'eaa' ), 'EAA ' . __( 'Settings', 'eaa' ), 'manage_options', 'eaa-settings', 'eaa_options_page' );
 }
 
 function eaa_info_page() {

@@ -10,23 +10,20 @@ add_action( 'customize_register', 'eaa_customize_eaa_ads', 100 );
 function eaa_customize_eaa_ads( $wp_customize ) {
 
 
-	$help_text = '
-	Wan\'t to rotate ads? Just wrap them in the shortcode like below.
+	$help_text = __( 'Wan\'t to rotate ads? Just wrap them in the shortcode like below.', 'eaa' ) . '
 <pre>
 [eaa_ads]
+' . __( '
 First ad &lt;!-- next_ad --&gt;
 Second ad &lt;!-- next_ad --&gt;
-third ad
+third ad', 'eaa' ) . '
 [/eaa_ads]
 </pre>
-
+' . __( '
 If you want to centre the ad, wrap it in
 <pre>&lt;div class=&quot;aligncenter&quot;
 style=&quot;width:300px&quot;&gt;&lt;/div&gt;</pre>
-where width is the width of the ad.
-
-
-	';
+where width is the width of the ad.', 'eaa' );
 
 
 	$wp_customize->add_panel( 'eaa_ads', array(
@@ -181,9 +178,9 @@ where width is the width of the ad.
 	);
 
 	$ad_locations['post_after_first_img']  = array(
-		'label'   => esc_html__( 'After first image ad', 'eaa' ),
-		'section' => 'post_content',
-		'description'=>__('If there are no anchored images in the post, then the ad will be shown after first image.','eaa')
+		'label'       => esc_html__( 'After first image ad', 'eaa' ),
+		'section'     => 'post_content',
+		'description' => __( 'If there are no anchored images in the post, then the ad will be shown after first image.', 'eaa' )
 	);
 	$ad_locations['post_after_second_img'] = array(
 		'label'   => esc_html__( 'After second anchored image ad', 'eaa' ),
@@ -203,7 +200,7 @@ where width is the width of the ad.
 
 
 	//Sticky Ads
-	$ad_locations['sticky_ad_top'] = array(
+	$ad_locations['sticky_ad_top']    = array(
 		'label'   => esc_html__( 'Sticky ad at the top of the page', 'eaa' ),
 		'section' => 'sticky_ads',
 	);

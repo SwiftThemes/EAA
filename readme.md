@@ -206,6 +206,33 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+**0.44**
+
+* Made all strings translatable.
+
+**0.43**
+
+* Add close icon to sticky ads on mobile.
+
+**0.42**
+
+* Move javascript to separate file.
+* Increase the priority of eaa scripts.
+
+**0.41**
+* Add sticky ads.
+* Update support forum links to our new forum.
+* After image ad now works with both, anchored and non anchored images.
+* Refine the image ad logic to avoid php notices.
+
+**0.40**
+* Fix a bug with settings validation.
+* Add option to disable wpautop filter.
+
+**0.39**
+* Add support for php 5.3.
+https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#post-9674368
+
 **0.38**
 
 * Add help text in eaa control.
