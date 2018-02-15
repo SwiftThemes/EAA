@@ -162,7 +162,7 @@ function eaa_enable_advanced_options_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_advanced_options]" value=true
-			<?php checked( $settings['enable_advanced_options'] ); ?>/>
+			<?php checked( isset($settings['enable_advanced_options']) && $settings['enable_advanced_options'] ); ?>/>
 		<?php _e( '', 'eaa' ); ?>
     </label>
 	<?php
@@ -224,7 +224,7 @@ function eaa_enable_amp_support_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_amp_support]" value=true
-			<?php checked( $settings['enable_amp_support'] ); ?>/>
+			<?php checked( isset($settings['enable_amp_support']) && $settings['enable_amp_support'] ); ?>/>
 		<?php _e( 'Enable AMP support', 'eaa' ); ?>
     </label>
     <p class="description">
@@ -239,7 +239,7 @@ function eaa_settings_field_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_w3tc_ua_groups]" value=true
-			<?php checked( $settings['enable_w3tc_ua_groups'] ); ?>/>
+			<?php checked( isset($settings['enable_w3tc_ua_groups']) &&  $settings['enable_w3tc_ua_groups'] ); ?>/>
 		<?php _e( 'Automatically create user agent groups for W3TC', 'eaa' ); ?>
     </label>
     <p class="description">

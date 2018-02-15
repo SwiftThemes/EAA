@@ -2,7 +2,6 @@
  * Created by satish on 13/03/17.
  */
 jQuery(document).ready(function ($) {
-
     $('#contact-satish-submit').click(function (e) {
         e.preventDefault()
         e.stopPropagation()

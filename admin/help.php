@@ -15,7 +15,7 @@
         position: relative;
     }
 
-    #main ul.tick li:before {
+    #main ul.tick li:before, .promote li:before {
         content: '\f147';
         font-family: dashicons;
         width: 16px;
@@ -107,6 +107,29 @@
         <h2>EAA <?php _e( 'Video Tutorial', 'eaa' ) ?></h2>
         <iframe width="300" height="169" src="https://www.youtube.com/embed/ERtXWO1Ly74?rel=0&amp;showinfo=0"
                 frameborder="0" allowfullscreen></iframe>
+
+        <div class="promote">
+            <h4 style="margin:0 -10px 10px;padding:6px 10px;border-bottom: solid 1px rgba(0,0,0,.1)">Need more ad
+                locations?</h4>
+            <p> Our free WordPress theme PageSpeed has EAA integration adding 5 more ad
+                locations.</p>
+            <h5 style="margin: 10px 0">Page Speed is&hellip;</h5>
+            <ul class="tick">
+                <li><?php _e( 'Super fast & lite weight', 'eaa' ) ?></li>
+                <li><?php _e( 'Easily customizable', 'eaa' ) ?></li>
+                <li><?php _e( 'Search engine optimized', 'eaa' ) ?></li>
+                <li><?php _e( 'Responsive', 'eaa' ) ?></li>
+                <li><?php _e( 'Secure', 'eaa' ) ?></li>
+                <li><?php _e( 'Page builder ready', 'eaa' ) ?></li>
+
+            </ul>
+            <p style="text-align: center"><a href="<?php echo admin_url( 'theme-install.php?search=page-speed' ) ?>"
+                                             class="green-btn"><span
+                            class="dashicons dashicons-admin-appearance"></span> Get Page Speed</a>
+            </p>
+            <div class="clear"></div>
+        </div>
+
         <h2><?php _e( 'Contact/Support', 'eaa' ) ?></h2>
         <h3 style="font-weight: 300;color:#888"><?php _e( 'Get help, share feedback or just say hello !!', 'eaa' ) ?></h3>
 		<?php

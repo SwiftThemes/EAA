@@ -57,6 +57,7 @@ if ( ! class_exists( 'EAA' ) ) {
 			require_once( EAA_ADMIN . 'plugin-settings.php' );
 			require_once( EAA_ADMIN . 'updates-and-migrations.php' );
 			require_once( EAA_ADMIN . 'admin.php' );
+			require_once( EAA_ADMIN . 'notices.php' );
 		}
 
 		public function load_mobile_detect() {

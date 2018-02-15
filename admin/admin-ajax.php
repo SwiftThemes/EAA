@@ -22,9 +22,9 @@ function eaa_send_email() {
 	$message = '';
 	$headers = array();
 
-	$to = array( 'satish@swiftthemes.com' );
-	$message .= 'User: ' . $form['name'] . "\n\n";
-	$message .= 'Email: ' . $form['email'] . "\n\n";
+	$to        = array( 'satish@swiftthemes.com' );
+	$message   .= 'User: ' . $form['name'] . "\n\n";
+	$message   .= 'Email: ' . $form['email'] . "\n\n";
 	$headers[] = 'Reply-To:' . $form['email'];
 	$headers[] = 'Bcc:satish.iitg@gmail.com';
 	$headers[] = 'From:' . $form['name'] . ' <' . eaa_get_from_email_header( $form['name'] ) . '>';
@@ -65,5 +65,31 @@ function eaa_get_from_email_header( $name = 'EAA' ) {
 	$name = str_replace( ' ', '', $name );
 
 	return $from_email = $name . '@' . $sitename;
+
+}
+
+
+add_action( 'wp_ajax_eaa_dismiss_admin_notice', 'eaa_dismiss_admin_notice' );
+
+function eaa_dismiss_admin_notice() {
+	$temp = get_option( 'eaa_notices' );
+	$temp = is_array( $temp ) ? $temp : array();
+
+	$id   = sanitize_text_field( $_POST['id'] );
+	$days = absint( $_POST['show_next'] );
+
+	$temp[ $id ] = array( 'show_next' => time() + 86400 * $days );
+
+
+	update_option( 'eaa_notices', $temp, false );
+
+
+	$return = array(
+		'type'    => 'Success',
+		'message' => __( 'Email Sent Successfully!!', 'eaa' ),
+	);
+	wp_send_json( $return );
+
+	wp_die();
 
 }

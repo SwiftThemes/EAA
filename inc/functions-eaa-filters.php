@@ -81,7 +81,7 @@ function eaa_convert_chars( $text ) {
 }
 
 $settings = get_option( 'eaa_settings' );
-if($settings['disable_wpautop']){
+if(isset($settings['disable_wpautop']) && $settings['disable_wpautop']){
 
 	remove_filter( 'the_content', 'wpautop' );
 	add_filter( 'the_content', 'eaa_autop',9 );
