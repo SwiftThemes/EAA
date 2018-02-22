@@ -46,15 +46,31 @@ function eaa_migrations() {
 	}
 
 
-//0.39 ==> 0.40
+	//0.39 ==> 0.40
 
 	if ( ! isset( $settings['disable_wpautop'] ) ) {
 		$settings['disable_wpautop'] = false;
 		$settings_changed            = true;
 	}
 
+	//0.44 ==>0.45
+	if ( ! isset( $settings['activated_on'] ) ) {
+
+		//Plugin is already in use
+		if ( get_option( 'eaa' ) ) {
+			$settings['activated_on'] = time() - 10 * 86400;
+		} else {
+			//Plugin was just installed but, activation hook failed.
+			$settings['activated_on'] = time();
+		}
+
+		$settings_changed = true;
+
+
+	}
 
 	if ( $settings_changed ) {
 		update_option( 'eaa_settings', $settings );
 	}
+
 }

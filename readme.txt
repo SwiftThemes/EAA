@@ -1,23 +1,26 @@
-=== Easy AdSense Ads - Ad Insertion & Management ===
+=== Easy AdSense Ads - Ad Insertion & AdSense Management ===
+Author URL: http://SatishGandham.Com/
+Plugin URL: https://swiftthemes.com/eaa/
 Contributors: Gandham
 Donate link: https://paypal.me/swiftthemes
-Tags: AdSense Ad management, AdSense Post Ads Injection, Post Ad Inserter, Sticky Ads, In-Post Ads, Analytics Scripts, Header Scripts, Footer Scripts, Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick, google dfp, monetization, widget
-Requires at least: 3.0
-Tested up to: 4.9
-Stable tag: trunk
+Tags: AdSense, Ad manager, Ad Injection, Ad Inserter, Advertising, Post Ads, Best AdSense,Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick
+Requires at least: 3.6+
+Tested up to: 4.9.2
+Requires PHP: 5.3
+Stable tag: .44
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-Easily inject ADS into your homepage and posts with a LivePreview - 10+ AdSpots, Free Forever, No upsells, AMP Ad Injection, Best AdSense Ad Manager
+Easily inject AdSense ADS into your homepage & posts with a LivePreview - 10+ AdSpots, Free Forever, No upsells, AMP Support, Best AdSense Ad Manager
 
 == Description ==
 
-Easy AdSense Ads is a very simple advertising manager for WordPress that is **not limited to AdSense**. You can easily **inject ads into your home page, posts, pages, archives and custom post types**. You have **9 ad locations** to choose from.
+Easy AdSense Ads is a very simple and best ad manager for WordPress that is **not limited to AdSense**. You can easily **inject ads into your home page, posts, pages, archives and custom post types**. You have **9 ad locations** to choose from.
 EAA also comes with features like **ads widget**, **ad rotation**. This is the best WordPress plugin for inserting AdSense ads and other ads.
 
-&#9829;&#9829; **Note**: EAA is the only Ad Manager with video tutorial &#9829;&#9829;
-Easy AdSense is not just for Google Publishers
+**Note**: Only Ad Management plugin with video tutorial
+
 [EAA Video Tutorial](https://www.youtube.com/watch?v=ERtXWO1Ly74)
 
 ### Easy AdSense Ads is the only ad manager plugin with a video tutorial covering all features of the plugin.
@@ -71,6 +74,7 @@ We have nine well thought out locations
 ### Easily disable AdSense / ads on a per page/post basis.
 
 There will be cases where you do not want to inject AdSense / insert ads on some particular posts or pages. Reasons may include
+
 * Content my violate AdSense/advertiser policies.
 * Client doesn't like AdSense / ads in their sponsored content.
 * Page/Post that brings more revenue through affiliate marketing than display ads like AdSense.
@@ -140,12 +144,12 @@ Easily float the ads or apply advanced css rules like margin, padding, border et
 1. Goto EAA settings page and in **Add Your Own Ad Locations** option, add you ad locations. Locations defined there will show up at customizer -> EAA -> My Custom Locations.
 2. To use the add, insert the following code in your theme files
 
-  ```
+  ``
   <?php
       // Use the appropriate ad location name prefixed with my_
       echo eaa_get_ad( 'my_above_header' );
   ?>
-  ```
+  ``
 
 #### For theme developers
 
@@ -155,7 +159,7 @@ Easy AdSense Ads exposes functions to easily inject the ads to custom locations 
 
 Add the below code at the end of your themes `functions.php` file
 
-    ```
+    ``
     add_filter( 'eaa_ad_locations', 'themename_add_eaa_ad_locations' );
 
     function themename_add_eaa_ad_locations( $ad_locations ) {
@@ -173,16 +177,16 @@ Add the below code at the end of your themes `functions.php` file
         return $ad_locations;
     }
 
-    ```
+    ``
 
 **Step 2**
 Now to inject these ads into the theme, place the below code in the theme file where you want to inject the ad.
 
-    ```
+    ``
     <?php
         echo eaa_get_ad( 'ps_above_header' ); // Use the appropriate ad name
     ?>
-    ```
+    ``
 If you are using the ads in some places where shortcodes are enabled then you can use `[eaa_show_ad ad="ps_above_header"]`
 
 == Installation ==
@@ -203,8 +207,6 @@ No, You can use it with any theme and it works out of the box.
 
 = Can I add multiple adsense/ads in one location =
 You can add as many adsense/ads as you please in any location. You can even mix scripts and html.
-When you are adding multiple adsense ads, please ensure that you are not violating google publisher policies.
-According to google publisher policies you can only have 3 ad units and 3 linked units on a page.
 
 = Can I use it on WordPress MU =
 Letting anyone execute javaScript on your domain is a security risk. If you trust your users and know what you are doing, then yes.
@@ -222,7 +224,7 @@ We plan to introduce automatic conversion of AdSense ads to AMP version in the u
 1. [List of ad networks supporting AMP and a general how to guide](https://www.ampproject.org/docs/reference/components/ads/amp-ad#supported-ad-networks)
 1. You can see a live demo at [TheGeekDaily.Com - Unblock YouTube](https://thegeekdaily.com/12-ways-to-unblock-youtube-at-schools-office-and-university/)
 
-= Does this plugin ‘take’ a percentage of my ad earnings? =
+= Does this plugin take a percentage of my ad earnings? =
 No! Absolutely not. Some ad plugins replace your publisher ID with their own for a certain percentage of adverts.
 Easy AdSense Ads #EAA does NOT do this. All your earnings are your own. Easy AdSense Ads #EAA makes no modifications to your ad code.
 What you paste into the ad boxes is what is injected into your pages.
@@ -258,39 +260,45 @@ If you are using a separate theme, you shouldn't use this option.
 4. Widget added by **Easy AdSense Ads & Scripts**
 5. This is how your user agent groups should look like when you enable w3tc integration. Refer to FAQ **How to have separate caches for Mobile and Desktop**
 
+
 == Changelog ==
 
-**0.44**
+= 0.45 =
+
+* Fix few php notices on options pages.
+* Add theme recommendation.
+
+= 0.44 =
 
 * Made all strings translatable.
 
-**0.43**
+= 0.43 =
 
 * Add close icon to sticky ads on mobile.
 
-**0.42**
+= 0.42 =
 
 * Move javascript to separate file.
 * Increase the priority of eaa scripts.
 
-**0.41**
+= 0.41 =
 
 * Add sticky ads.
 * Update support forum links to our new forum.
 * After image ad now works with both, anchored and non anchored images.
 * Refine the image ad logic to avoid php notices.
 
-**0.40**
+= 0.40 =
 
 * Fix a bug with settings validation.
 * Add option to disable wpautop filter.
 
-**0.39**
+= 0.39 =
 
 * Add support for php 5.3.
 https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#post-9674368
 
-**0.38**
+= 0.38 =
 
 * Add help text in eaa control.
 * Expand the first ad unit by default in all sections.
@@ -298,131 +306,131 @@ https://wordpress.org/support/topic/version-0-38-breaks-my-site-w-500-error/#pos
 * Add plugin compatibility option.
 * Add admin menu icon.
 
-**0.37**
+= 0.37 =
 
 * Embed video tutorial on the help page.
 
-**0.36**
+= 0.36 =
 
 * Move disable ads on home page to the customizer.
 * Fix a bug in short code to show ad.
 * Disable EAA on RSS feed
 
 
-**0.34**
+= 0.34 =
 
 * Fix few notices showing up.
 
-**0.33**
+= 0.33 =
 
 * Add option insert custom location ads with a short code.
 * Custom taxonomy support.
 
-**0.32**
+= 0.32 =
 
 * Add few helper tags to prevent WordPress from messing javascript code or adsense code added to post manually.
 <!-- noformat on -->JavaScript code here<!-- noformat on -->
 This tag prevents your ad code from being truncated by wp_autop and saves you from violating google publisher policies.
 
-**0.30**
+= 0.30 =
 
 * Fix is_amp_endpoint check, so that the plugin design break when WordPress AMP plugin is not installed.
 
-**0.29**
+= 0.29 =
 
 * Fix a failing in_array check.
 
-**0.28**
+= 0.28 =
 
 * Let users choose post types on which to use adsense/ads within content.
 * Let users choose on which post types to disable other adsense ad units and ads.
 * Option to enable AMP Ads support and a new AMP ad slot for google publishers.
 * Collapsible adsense/ad location for distraction free adsesne/ad editing.
 
-**0.26**
+= 0.26 =
 
 * Fix issue with customizer settings not saving.
 * Separated the settings and ads into separate options.
 
-**0.25**
+= 0.25 =
 
 * Role back to 0.23
 
-**0.24**
+= 0.24 =
 
 * Fix an array declaration to be compatible with PHP 5.3.
 * W3tc Integration.
 * Pages and custom posts type support.
 
-**0.23**
+= 0.23 =
 
 * Accidental version bump.
 
-**0.22**
+= 0.22 =
 
 * Move after second image AdSense / ad to advanced section.
 * Add 2 more after nth paragraph ad units.
 * Handle ZERO value for after nth paragraph.
 
-**0.21**
+= 0.21 =
 
 * Remove debugging statements.
 
-**0.20**
+= 0.20 =
 
 * Couple of UX enhancements to advanced AdSense / ads options.
 
-**0.19**
+= 0.19 =
 
 * Add ad after nth paragraph
 * Add ad after second image
 * Add option to add margin and CSS styles to AdSense / ads wrapper
 
 
-**0.18**
+= 0.18 =
 
 * Expose a method and filter to define AdSense / ad locations from themes and other plugins.
 
-**0.17**
+= 0.17 =
 
 * Fix issue with the contact form on EAA Help page.
 
-**0.16**
+= 0.16 =
 
 * Add contact form to plugin help page.
 * Fix an issue with home page AdSense / ads being displayed on custom queries.
 
 
-**0.15**
+= 0.15 =
 
 * Fix a bug with the plugin info page. Using absolute path now.
 * Improve styling of the alignment setting.
 
-**0.14**
+= 0.14 =
 
 * Add support for AdSense / ad after captioned images for Google Publishers.
 
-**0.13**
+= 0.13 =
 
 * Remove sidebar from plugin admin page
 
-**0.12**
+= 0.12 =
 
 * Add plugin help page
 * Add AdSense / ad alignment options
 * Add help text in the customizer
 
-**0.10**
+= 0.10 =
 
-* First release, yayy!! Best plugin for Google Publishers
+* First release, yayy!! Best plugin for Google Publishers #release
 
 
 == Upgrade Notice ==
 
-**0.38**
+= 0.38 =
 
 If there are no anchored images in the post, then the ad will be shown after first image.
 
-**0.27**
+= 0.27 =
 
 You have to goto plugin settings page and select the post types on which you wan\'t to enable EAA.

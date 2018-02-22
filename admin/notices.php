@@ -2,10 +2,10 @@
 function eaa_admin_notice__success() {
 
 
-	if ( eaa_can_show_notice( 'page_speed_promo' ) ):
+	if ( eaa_can_show_notice( 'page_speed_promo', true ) ):
 		?>
 
-        <div class="notice ps page-speed-promo is-dismissible" data-id="page_speed_promo" data-show_next="365"
+        <div class="notice ps page-speed-promo is-dismissible" data-id="page_speed_promo" data-show_next="60"
              data-dismissible="eaa-theme-promo">
             <div>
                 <p><strong>Need more ad locations?</strong> Our free WordPress theme PageSpeed has EAA integration
@@ -27,7 +27,17 @@ function eaa_admin_notice__success() {
 add_action( 'admin_notices', 'eaa_admin_notice__success' );
 
 
-function eaa_can_show_notice( $notice_id ) {
+function eaa_can_show_notice( $notice_id, $delay ) {
+	$now = time();
+	if ( $delay ) {
+		$settings  = get_option( 'eaa_settings' );
+		$activated = $settings['activated_on'];
+		if ( $now - $activated < 7 * 86400 ) {
+            return false;
+		}
+	}
+
+
 	/**
 	 * Notice structure
 	 * id: Unique id for the notice.
@@ -41,7 +51,6 @@ function eaa_can_show_notice( $notice_id ) {
 		return true;
 	}
 
-	$now       = time();
 	$show_next = $notice['show_next'];
 
 	$datediff = $show_next - $now;

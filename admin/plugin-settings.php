@@ -162,7 +162,7 @@ function eaa_enable_advanced_options_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_advanced_options]" value=true
-			<?php checked( isset($settings['enable_advanced_options']) && $settings['enable_advanced_options'] ); ?>/>
+			<?php checked( isset( $settings['enable_advanced_options'] ) && $settings['enable_advanced_options'] ); ?>/>
 		<?php _e( '', 'eaa' ); ?>
     </label>
 	<?php
@@ -224,7 +224,7 @@ function eaa_enable_amp_support_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_amp_support]" value=true
-			<?php checked( isset($settings['enable_amp_support']) && $settings['enable_amp_support'] ); ?>/>
+			<?php checked( isset( $settings['enable_amp_support'] ) && $settings['enable_amp_support'] ); ?>/>
 		<?php _e( 'Enable AMP support', 'eaa' ); ?>
     </label>
     <p class="description">
@@ -239,7 +239,7 @@ function eaa_settings_field_callback() {
 	?>
     <label>
         <input type="checkbox" name="eaa_settings[enable_w3tc_ua_groups]" value=true
-			<?php checked( isset($settings['enable_w3tc_ua_groups']) &&  $settings['enable_w3tc_ua_groups'] ); ?>/>
+			<?php checked( isset( $settings['enable_w3tc_ua_groups'] ) && $settings['enable_w3tc_ua_groups'] ); ?>/>
 		<?php _e( 'Automatically create user agent groups for W3TC', 'eaa' ); ?>
     </label>
     <p class="description">
@@ -264,7 +264,7 @@ function eaa_disable_wpautop_callback() {
 		<?php _e( 'If you are adding AdSense ads or other ads to your post content directly, 
 		you will notice that sometimes WordPress truncates the code by adding line breaks between them.', 'eaa' ) ?>
         <br>
-        <?php _e( 'You can avoid that by enabling this option and wrapping your code in noformat tags like below ', 'eaa' ) ?>
+		<?php _e( 'You can avoid that by enabling this option and wrapping your code in noformat tags like below ', 'eaa' ) ?>
     <pre>&lt;!-- noformat on --&gt;JavaScript ad code here&lt;!-- noformat on --&gt;</pre>
     </p>
 
@@ -408,7 +408,8 @@ function eaa_sanitize_settings( $input ) {
 		'disable_ads_on_taxonomies'        => 'eaa_sanitize_pass',
 		'disable_ads_on_taxonomy_archives' => 'eaa_sanitize_pass',
 		'the_content_hook_priority'        => 'intval',
-		'disable_wpautop'        => 'eaa_sanitize_boolean',
+		'activated_on'                     => 'intval',
+		'disable_wpautop'                  => 'eaa_sanitize_boolean',
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {

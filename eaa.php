@@ -4,11 +4,12 @@
 Plugin Name: Easy AdSense Ads & Scripts Manager
 Plugin URI: http://swiftthemes.com/eaa
 Description: A very simple, complete and easy to use ads and scripts manager with well thought out ad placements that will help you increase your ad revenue multiple folds. Unlike other plugins out there, this integrates right into the WordPress **customizer** to give you instant preview of your changes.
-Version: 0.44
+Version: 0.45
 Author: Satish Gandham <hello@satishgandham.com>
 Author URI: http://satishgandham.com
 License: GPL2
 */
+
 if ( ! class_exists( 'EAA' ) ) {
 
 	class EAA {
@@ -128,12 +129,14 @@ $eaa = new EAA();
 GLOBAL $eaa;
 
 
-//
-//add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'eaa_action_links' );
-//
-//function eaa_action_links ( $links ) {
-//	$mylinks = array(
-//		'<a href="https://forums.swiftthemes.com/c/plugins/eaa/">'.__('Support Forum','eaa').'</a>',
-//	);
-//	return array_merge( $links, $mylinks );
-//}
+
+function eaa_plugin_activated() {
+	$settings = get_option( 'eaa_settings' );
+	if ( ! isset( $settings['activated_on'] ) ) {
+		$settings['activated_on'] = time();
+	}
+	update_option( 'eaa_settings', $settings );
+}
+register_activation_hook( __FILE__, 'eaa_plugin_activated' );
+
+
