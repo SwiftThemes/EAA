@@ -206,6 +206,16 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+**0.46**
+
+* Fix an issue with widget being displayed on taxonimies where its disabled.
+* Add the script for stick ads.
+
+**0.45**
+
+* Fix few php notices on options pages.
+* Add theme recommendation.
+
 **0.44**
 
 * Made all strings translatable.

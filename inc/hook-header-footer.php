@@ -55,7 +55,7 @@ if ( ! function_exists( 'eaa_add_styles' ) ) {
 
             #eaa_sticky_ad_top .eaa-close,
             #eaa_sticky_ad_bottom .eaa-close {
-                content: 'X';
+                content: '\274c';
                 width: 24px;
                 height: 24px;
                 text-align: center;
@@ -66,8 +66,6 @@ if ( ! function_exists( 'eaa_add_styles' ) ) {
                 color: #e2585b;
                 margin: auto;
                 background: rgba(240, 240, 240, .9);
-                border-top-right-radius: 8px;
-                border-bottom-right-radius: 8px;
                 font: 20px/24px sans-serif;
                 box-shadow: 4px 0 4px -3px #666;
             }

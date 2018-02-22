@@ -1,4 +1,4 @@
-=== Easy AdSense Ads - Ad Insertion & AdSense Management ===
+=== Easy AdSense Ads - Ad Inserter & AdSense Ad Manager ===
 Author URL: http://SatishGandham.Com/
 Plugin URL: https://swiftthemes.com/eaa/
 Contributors: Gandham
@@ -7,7 +7,7 @@ Tags: AdSense, Ad manager, Ad Injection, Ad Inserter, Advertising, Post Ads, Bes
 Requires at least: 3.6+
 Tested up to: 4.9.2
 Requires PHP: 5.3
-Stable tag: .44
+Stable tag: .46
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -262,6 +262,12 @@ If you are using a separate theme, you shouldn't use this option.
 
 
 == Changelog ==
+
+= 0.46 =
+
+* Fix an issue with widget being displayed on taxonimies where its disabled.
+* Add the script for stick ads.
+
 
 = 0.45 =
 
