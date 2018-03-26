@@ -5,9 +5,9 @@ Contributors: Gandham
 Donate link: https://paypal.me/swiftthemes
 Tags: AdSense, Ad manager, Ad Injection, Ad Inserter, Advertising, Post Ads, Best AdSense,Home Page Ads, Scripts Manager, Advertising, amp, ad injection,ads, ad, ad inserter, ad injection, ads manager, ad widget, adrotate, advertise, advertisements, advertising, adverts, advert, amazon, banner, banners, buysellads, chitika, clickbank, dfp, doubleclick
 Requires at least: 3.6+
-Tested up to: 4.9.2
+Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: .46
+Stable tag: .47
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 

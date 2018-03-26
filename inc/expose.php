@@ -39,7 +39,7 @@ function eaa_get_ad( $location, $args = array() ) {
 		$platform = $eaa->is_mobile() ? 'mobile' : 'desktop';
 	}
 
-	$ad = $eaa->get_option( $location . '_' . $platform );
+	$ad = do_shortcode($eaa->get_option( $location . '_' . $platform ));
 
 
 	if ( ! $ad ) {

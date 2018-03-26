@@ -88,6 +88,7 @@ function eaa_single_ads( $content ) {
 	}
 
 
+	//@todo move do_shortcode to the get ad function.
 	if ( $between_post || $after_first_p || $after_nth_p || $after_nth_p_1 || $after_nth_p_2 ) {
 		$temp      = explode( '</p>', $content );
 		$add_after = (int) ( count( $temp ) / 2 );
