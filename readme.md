@@ -206,6 +206,12 @@ If you are using a separate theme, you shouldn't use this option.
 
 ## Changelog 
 
+
+**0.47**
+
+* Fix sticky ads script not loading.
+* Fix shortcodes not working in theme ad locations.
+
 **0.46**
 
 * Fix an issue with widget being displayed on taxonimies where its disabled.
