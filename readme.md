@@ -207,6 +207,14 @@ If you are using a separate theme, you shouldn't use this option.
 ## Changelog 
 
 
+**0.50**
+
+* Add debug option to highlight the ads on the frontend.
+* Optimize the stylesheet. Load the stylesheet when using sticky adsense ads only.
+* Refine options page.
+* Add link to adsense setup guide.
+
+
 **0.47**
 
 * Fix sticky ads script not loading.

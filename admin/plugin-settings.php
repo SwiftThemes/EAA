@@ -74,6 +74,14 @@ function eaa_settings_init() {
 	);
 
 	add_settings_field(
+		'enable_debug_mode',
+		__( 'Enable debug mode', 'eaa' ),
+		'eaa_enable_debug_mode',
+		'eaa-settings',
+		'eaa_advanced'
+	);
+
+	add_settings_field(
 		'enable_between_content_ads_on',
 		__( 'Enable Between Content Ads on', 'eaa' ),
 		'eaa_enable_between_content_ads_on_callback',
@@ -271,6 +279,22 @@ function eaa_disable_wpautop_callback() {
 	<?php
 }
 
+function eaa_enable_debug_mode() {
+	$settings = get_option( 'eaa_settings' );
+	?>
+    <label>
+        <input type="checkbox" name="eaa_settings[enable_debug_mode]" value=true
+			<?php checked( $settings['enable_debug_mode'] ); ?>/>
+		<?php _e( 'Enable debug mode', 'eaa' ); ?>
+    </label>
+    <p class="description">
+		<?php _e( 'Will highlight all the ad codes with a red border so that you know if the ad code is inserted properly. [Visible only to the admins]', 'eaa' ) ?>
+        <br>
+    </p>
+
+	<?php
+}
+
 function eaa_enable_between_content_ads_on_callback() {
 	$settings                      = get_option( 'eaa_settings' );
 	$enable_between_content_ads_on = $settings['enable_between_content_ads_on'] ? $settings['enable_between_content_ads_on'] : array();
@@ -386,7 +410,8 @@ function eaa_options_page() {
     <div class="wrap">
         <h1>Easy AdSense Ads Manager</h1>
         <hr>
-        <form method="post" action="options.php">
+		<?php eaa_marketing() ?>
+        <form method="post" action="options.php" style="overflow: hidden;border-right: solid 1px #DDD">
 			<?php settings_fields( 'eaa-settings' ); ?>
 			<?php do_settings_sections( 'eaa-settings' ); ?>
 			<?php submit_button(); ?>
@@ -410,6 +435,7 @@ function eaa_sanitize_settings( $input ) {
 		'the_content_hook_priority'        => 'intval',
 		'activated_on'                     => 'intval',
 		'disable_wpautop'                  => 'eaa_sanitize_boolean',
+		'enable_debug_mode'                => 'eaa_sanitize_boolean',
 	);
 	$sanitized = array();
 	foreach ( $options as $key => $func ) {

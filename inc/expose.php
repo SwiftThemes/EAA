@@ -25,7 +25,7 @@ function eaa_get_ad( $location, $args = array() ) {
 
 
 	$settings             = get_option( 'eaa_settings' );
-	$disable_other_ads_on = isset($settings['disable_other_ads_on']) && $settings['disable_other_ads_on']?$settings['disable_other_ads_on']:array();
+	$disable_other_ads_on = isset( $settings['disable_other_ads_on'] ) && $settings['disable_other_ads_on'] ? $settings['disable_other_ads_on'] : array();
 	global $post;
 
 	if ( is_singular() && in_array( $post->post_type, $disable_other_ads_on ) ) {
@@ -33,13 +33,13 @@ function eaa_get_ad( $location, $args = array() ) {
 	}
 
 
-	if ( function_exists('is_amp_endpoint') && is_amp_endpoint() && $settings['enable_amp_support'] ) {
+	if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() && $settings['enable_amp_support'] ) {
 		$platform = 'amp';
 	} else {
 		$platform = $eaa->is_mobile() ? 'mobile' : 'desktop';
 	}
 
-	$ad = do_shortcode($eaa->get_option( $location . '_' . $platform ));
+	$ad = do_shortcode( $eaa->get_option( $location . '_' . $platform ) );
 
 
 	if ( ! $ad ) {
@@ -66,6 +66,11 @@ function eaa_get_ad( $location, $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 	$out  = $args['before_ad'];
+
+
+	if ( isset($settings ['enable_debug_mode' ]) && $settings ['enable_debug_mode' ] && current_user_can( 'administrator' ) ) {
+		$args['class'] .= ' debug';
+	}
 
 	if ( $eaa->is_mobile() ) {
 		$out .= sprintf( '<div class="eaa-ad %s %s">%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], stripslashes( $ad ) );
@@ -98,7 +103,7 @@ function eaa_get_content_ad( $location, $args = array() ) {
 	$settings = get_option( 'eaa_settings' );
 
 
-	if ( function_exists('is_amp_endpoint') && is_amp_endpoint() && $settings['enable_amp_support'] ) {
+	if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() && $settings['enable_amp_support'] ) {
 		$platform = 'amp';
 	} else {
 		$platform = $eaa->is_mobile() ? 'mobile' : 'desktop';
@@ -131,6 +136,12 @@ function eaa_get_content_ad( $location, $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 	$out  = $args['before_ad'];
+
+	if ( isset($settings ['enable_debug_mode' ]) && $settings ['enable_debug_mode' ] && current_user_can( 'administrator' ) ) {
+		$args['class'] .= ' debug';
+	}
+
+
 
 	if ( $eaa->is_mobile() ) {
 		$out .= sprintf( '<div class="eaa-ad %s %s">%s</div>', $eaa->get_option( $location . '_align_desktop' ), $args['class'], stripslashes( $ad ) );

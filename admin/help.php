@@ -1,169 +1,9 @@
-<style>
-    #main {
-        font-size: 16px;
-        line-height: 28px;
-        padding: 20px 20px 0 0;
-        overflow: hidden;
-    }
-
-    #main ul {
-        list-style: none
-    }
-
-    #main ul li {
-        margin-left: 20px;
-        position: relative;
-    }
-
-    #main ul.tick li:before, .promote li:before {
-        content: '\f147';
-        font-family: dashicons;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #8e44ad;
-        color: #FFF;
-        text-align: center;
-        line-height: 16px;
-        float: left;
-        position: absolute;
-        left: -20px;
-        top: 6px
-
-    }
-
-    #marketing {
-        height: 800px;
-        width: 300px;
-        float: right;
-        padding: 20px 0 20px 20px
-    }
-
-    .eaa-card {
-        background: #fff;
-        padding: 10px;
-        width: 98%;
-        margin-bottom: 20px;
-    }
-
-    .eaa-card h2 {
-        margin: -10px -10px 10px;
-        padding: 10px;
-        border-bottom: solid 1px #DDD;
-    }
-
-    .note {
-        padding: 10px;
-        background: #3498db;
-        color: #FFF;
-        border-radius: 5px;
-    }
-
-    .support-button {
-        background: rgb(77, 191, 98);
-        color: #FFF;
-        border-radius: 3px;
-        padding: 2px 5px;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-    .support-button:hover {
-        background: rgb(68, 168, 86);;
-        color: #fff;
-        text-shadow: 1px 1px 1px #000;
-    }
-
-    .support-button:before {
-        content: "\f223";
-        font-family: dashicons;
-        font-size: 18px;
-        position: relative;
-        top: 3px;
-        margin-right: 3px;
-
-    }
-
-    .review-button {
-        background: rgb(255, 57, 46);
-        color: #FFF;
-        border-radius: 3px;
-        padding: 2px 5px;
-        text-decoration: none;
-    }
-
-    .review-button:hover {
-        background: red;
-        color: #fff;
-        text-shadow: 1px 1px 1px #000;
-    }
-</style>
 <div class="wrap">
     <h1>
         Easy AdSense Ads & Scripts Manager
     </h1>
     <hr>
-    <div id="marketing">
-        <h2>EAA <?php _e( 'Video Tutorial', 'eaa' ) ?></h2>
-        <iframe width="300" height="169" src="https://www.youtube.com/embed/ERtXWO1Ly74?rel=0&amp;showinfo=0"
-                frameborder="0" allowfullscreen></iframe>
-
-        <div class="promote">
-            <h4 style="margin:0 -10px 10px;padding:6px 10px;border-bottom: solid 1px rgba(0,0,0,.1)">Need more ad
-                locations?</h4>
-            <p> Our free WordPress theme PageSpeed has EAA integration adding 5 more ad
-                locations.</p>
-            <h5 style="margin: 10px 0">Page Speed is&hellip;</h5>
-            <ul class="tick">
-                <li><?php _e( 'Super fast & lite weight', 'eaa' ) ?></li>
-                <li><?php _e( 'Easily customizable', 'eaa' ) ?></li>
-                <li><?php _e( 'Search engine optimized', 'eaa' ) ?></li>
-                <li><?php _e( 'Responsive', 'eaa' ) ?></li>
-                <li><?php _e( 'Secure', 'eaa' ) ?></li>
-                <li><?php _e( 'Page builder ready', 'eaa' ) ?></li>
-
-            </ul>
-            <p style="text-align: center"><a href="<?php echo admin_url( 'theme-install.php?search=page-speed' ) ?>"
-                                             class="green-btn"><span
-                            class="dashicons dashicons-admin-appearance"></span> Get Page Speed</a>
-            </p>
-            <div class="clear"></div>
-        </div>
-
-        <h2><?php _e( 'Contact/Support', 'eaa' ) ?></h2>
-        <h3 style="font-weight: 300;color:#888"><?php _e( 'Get help, share feedback or just say hello !!', 'eaa' ) ?></h3>
-		<?php
-		echo '<input type="hidden" name="eaa-help-nonce" id="eaa-help-nonce" value="' . wp_create_nonce( 'eaa-help-nonce' ) . '" />';
-		?>
-        <form id="contact-satish" class="pure-form">
-            <p id="feedback" style="display: none"></p>
-			<?php $user = wp_get_current_user() ?>
-            <label for="name"><?php _e( 'Name', 'eaa' ) ?></label>
-            <input type="text" id="name" name="name" value="<?php echo $user->display_name ?>"
-                   placeholder="<?php echo esc_attr( __( 'Your Name', 'eaa' ) ) ?>"
-                   class="pure-input-1">
-            <br>
-            <label for="email"><?php _e( 'Email', 'eaa' ) ?></label>
-            <input type="email" name="email" value="<?php echo $user->user_email ?>"
-                   placeholder="<?php echo esc_attr( __( 'Your Email', 'eaa' ) ) ?>"
-                   class="pure-input-1">
-            <label for="message"><?php _e( 'Message', 'eaa' ) ?></label>
-
-            <textarea name="message" id="message" required minlength="20" rows="6" class="pure-input-1"></textarea>
-            <br>
-            <br>
-            <div class="alignleft">
-                <label>
-                    <input type="checkbox" name="cc" value="true" checked><?php _e( 'Send me a copy', 'eaa' ) ?>
-                </label>
-            </div>
-            <input type="submit" id="contact-satish-submit" class="alignright button button-primary"
-                   value="<?php echo esc_attr( __( 'Send', 'eaa' ) ) ?>"/>
-        </form>
-        <div class="clear"></div>
-        <hr>
-    </div>
-
+    <?php eaa_marketing()?>
     <div id="main" style="border-right: solid 1px #DDD" ;>
 
         <div class="eaa-card">
@@ -217,8 +57,8 @@
             </p>
             <ol class="tick">
                 <li>
-					<?php _e( 'No Annoying reminders to signup for a news letter.', 'eaa' ) ?>
-                    Goto <strong>Appearance -> customize -> Easy AdSense Ads & Scripts</strong>.
+					<?php _e( 'Goto <strong>Appearance -> customize -> Easy AdSense Ads & Scripts</strong>.', 'eaa' ) ?>
+
                 </li>
                 <li>
 					<?php _e( 'You will see upto 6 sections.', 'eaa' ) ?>
@@ -253,5 +93,13 @@
 
         </div>
     </div>
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
